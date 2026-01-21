@@ -1,5 +1,5 @@
 const colors = {
-  primary: "#0A3D91", // azul institucional
+  primary: "black", // azul institucional
   primaryTech: "#1E5EFF", // azul tecnológico (botões, links)
   accent: "#22D3EE", // ciano (uso mínimo)
 
@@ -21,8 +21,8 @@ const colors = {
 };
 
 const fonts = {
-  heading: "'KronaOne', sans-serif",
-  body: "'Montserrat', system-ui, sans-serif",
+  heading: "'Space Grotesk', sans-serif",
+  body: "'Inter', sans-serif",
 };
 
 const spacing = {
@@ -47,7 +47,7 @@ const shadows = {
 };
 
 const sizes = {
-  headerHeight: "72px",
+  headerHeight: "102px",
   maxWidth: "1200px",
   maxWidthWide: "1440px",
 };

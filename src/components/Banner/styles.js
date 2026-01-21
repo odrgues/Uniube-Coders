@@ -1,46 +1,54 @@
 import styled from "styled-components";
-import { media } from "../../assets/styles/media";
+import { breakpoints } from "../../assets/styles/breakpoints";
 
 export const Background = styled.section`
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-top: 4px;
-  background: linear-gradient(to bottom, #dbeafe 0%, #1e40af 100%);
+  padding-top: ${({ theme }) => theme.sizes.headerHeight};
+  background: #8fabd4;
+  z-index: -1;
 `;
 
 export const TextContent = styled.div`
   position: relative;
-  z-index: 2; /* garante que o texto fique acima do fundo animado */
+  z-index: 2;
   text-align: center;
   padding: 0 16px;
+  width: 100%;
+  height: auto;
+  max-width: 900px;
 `;
 
 export const Title = styled.h1`
-  font-size: 2.8rem;
+  font-size: 8rem;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 0.5px;
 
-  @media ${media.md} {
-    font-size: 2.2rem;
+  @media ${breakpoints.md} {
+    font-size: 5rem;
   }
 
-  @media ${media.sm} {
-    font-size: 1.8rem;
+  @media ${breakpoints.sm} {
+    font-size: 3rem;
   }
 `;
 
 export const Subtitle = styled.p`
   margin-top: 12px;
-  font-size: 1.2rem;
+  font-size: 2.8rem;
   color: rgba(255, 255, 255, 0.85);
 
-  @media ${media.sm} {
-    font-size: 1rem;
+  @media ${breakpoints.md} {
+    font-size: 2rem;
+  }
+
+  @media ${breakpoints.sm} {
+    font-size: 1.3rem;
   }
 `;

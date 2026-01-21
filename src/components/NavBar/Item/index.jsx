@@ -4,26 +4,27 @@ import { Link } from "react-router-dom";
 export const NavItem = styled(Link)`
   font-size: 1.15rem;
   font-family: ${({ theme }) => theme.fonts.heading};
-
-  color: ${({ theme, $ativo }) =>
-    $ativo ? theme.colors.accent : theme.colors.primary};
   text-decoration: none;
-  transition: color 0.2s ease, transform 02s ease;
-  outline: 2px solid red; //tirar depois
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  color: ${({ theme, $ativo, $scrolled }) =>
+    $ativo
+      ? theme.colors.primaryTech
+      : $scrolled
+        ? theme.colors.text
+        : theme.colors.surface};
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
     transform: scale(1.05);
   }
-
-  @media ${({ theme }) => `(max-width: ${theme.breakpoints.sm})`} {
-    font-size: 1rem;
-  }
 `;
 
-const Item = ({ children, to, ativo = false }) => {
+const Item = ({ children, to, ativo = false, $scrolled = false }) => {
   return (
-    <NavItem to={to} $ativo={ativo}>
+    <NavItem to={to} $ativo={ativo} $scrolled={$scrolled}>
       {children}
     </NavItem>
   );

@@ -1,16 +1,21 @@
 import { createGlobalStyle } from "styled-components";
-import KronaOne from "./fonts/KronaOne-Regular.ttf";
-import Montserrat from "./fonts/Montserrat-Regular.ttf";
+import Inter from "./fonts/Inter-VariableFont_opsz,wght.ttf";
+import SpaceGrotesk from "./fonts/SpaceGrotesk-VariableFont_wght.ttf";
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'KronaOne';
-  src: local('KronaOne'), local('KronaOne'), url(${KronaOne});
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: local('Montserrat'), local('Montserrat'), url(${Montserrat});
-}
+  @font-face {
+    font-family: 'Inter';
+    src: url(${Inter}) format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url(${SpaceGrotesk}) format('truetype');
+    font-weight: 300 700;
+    font-display: swap;
+  }
   *,
   *::before,
   *::after {
@@ -26,15 +31,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-      "Helvetica Neue", sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    body {
-  overflow-y: scroll;
-}
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
+  }
 
   }
 

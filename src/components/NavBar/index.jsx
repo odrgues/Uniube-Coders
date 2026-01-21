@@ -1,70 +1,78 @@
-import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { NavItem } from "./Item";
-import { media } from "../../assets/styles/media";
-import logo from "../../assets/images/logo.jpg";
 
-export const Nav = styled.nav`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  padding: 42px 6px 16px;
-  box-sizing: border-box;
-  outline: 2px solid blue; //tirar depois
-`;
+import { Nav, Logo, Menu, MobileButton, MobileMenu } from "./styles";
 
-export const Logo = styled.div`
-  position: absolute;
-  left: 6px;
-  display: flex;
-  align-items: center;
-
-  img {
-    height: 100px;
-    width: auto;
-  }
-`;
-
-export const Menu = styled.div`
-  display: flex;
-  gap: 32px;
-
-  @media ${media.md} {
-    gap: 24px;
-  }
-
-  @media ${media.sm} {
-    gap: 16px;
-  }
-`;
+import NavItem from "./Item";
+import logo from "../../assets/images/logo.png";
 
 const NavBar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const location = useLocation();
   const pathname = location.pathname;
-  return (
-    <>
-      <Nav>
-        <Logo>
-          <img src={logo} alt="Logo do Uniube Coders" />
-        </Logo>
 
-        <Menu>
-          <NavItem to="/" ativo={String(pathname === "/")}>
-            HOME
-          </NavItem>
-          <NavItem to="/programa" ativo={String(pathname === "/programa")}>
-            NOSSA HISTÓRIA
-          </NavItem>
-          <NavItem to="/sobre" ativo={String(pathname === "/sobre")}>
-            SOBRE A UNIUBE
-          </NavItem>
-        </Menu>
-      </Nav>
-    </>
+  // Detecta scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Fecha menu mobile ao trocar de rota
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return (
+    <Nav $scrolled={scrolled}>
+      <Logo>
+        <img src={logo} alt="Logo Uniube Coders" />
+      </Logo>
+
+      {/* Menu Desktop */}
+      <Menu>
+        <NavItem to="/" ativo={pathname === "/"}>
+          HOME
+        </NavItem>
+        <NavItem to="/programa" ativo={pathname === "/programa"}>
+          NOSSA HISTÓRIA
+        </NavItem>
+        <NavItem to="/sobre" ativo={pathname === "/sobre"}>
+          SOBRE A UNIUBE
+        </NavItem>
+      </Menu>
+
+      {/* Botão Mobile */}
+      <MobileButton
+        onClick={() => setMenuOpen((prev) => !prev)}
+        $scrolled={scrolled}
+      >
+        ☰
+      </MobileButton>
+
+      {/* Menu Mobile */}
+      <MobileMenu $open={menuOpen}>
+        <NavItem to="/" ativo={pathname === "/"}>
+          HOME
+        </NavItem>
+        <NavItem to="/programa" ativo={pathname === "/programa"}>
+          NOSSA HISTÓRIA
+        </NavItem>
+        <NavItem to="/sobre" ativo={pathname === "/sobre"}>
+          SOBRE A UNIUBE
+        </NavItem>
+      </MobileMenu>
+    </Nav>
   );
 };
+
 export default NavBar;
