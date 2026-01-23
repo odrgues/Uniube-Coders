@@ -35,7 +35,8 @@ const ParticlesBackground = ({ children }) => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#F8FAFF";
+        //muda de cor
+        ctx.fillStyle = "#030712";
 
         ctx.fill();
       }
@@ -53,7 +54,9 @@ const ParticlesBackground = ({ children }) => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < MAX_DISTANCE) {
-            ctx.strokeStyle = `rgba(255,255,255,${1 - distance / MAX_DISTANCE})`;
+            //muda de cor
+            ctx.strokeStyle = `rgba(3,7,18,${1 - distance / MAX_DISTANCE})`;
+
             ctx.lineWidth = 0.8;
 
             ctx.beginPath();

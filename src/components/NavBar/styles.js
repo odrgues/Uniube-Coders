@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   position: fixed;
-
+  top: 0;
   left: 0;
   width: 100%;
   height: 12vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,26 +27,26 @@ export const Nav = styled.nav`
 
 export const Logo = styled.div`
   position: absolute;
-  left: ${({ theme }) => theme.spacing.lg};
+  left: 45%;
+  transform: translateX(-50%);
 
   display: flex;
   align-items: center;
+  justify-content: center;
+
   height: 100%;
+  pointer-events: none;
 
   img {
     height: 46px;
     width: auto;
+    //filter: invert(1); //essa linha está deixando o logo com as cores invertidas
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    img {
-      height: 42px;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    left: 50%;
-    transform: translateX(-50%);
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    left: ${({ theme }) => theme.spacing.lg};
+    transform: none;
+    pointer-events: auto;
   }
 `;
 
@@ -55,45 +54,60 @@ export const Menu = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing.xl};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    gap: ${({ theme }) => theme.spacing.lg};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: none;
   }
 `;
 
 export const MobileButton = styled.button`
-  display: none;
   position: absolute;
   right: ${({ theme }) => theme.spacing.lg};
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   cursor: pointer;
 
   color: ${({ theme, $scrolled }) =>
     $scrolled ? theme.colors.primary : "#ffffff"};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  display: none;
+  right: max(${({ theme }) => theme.spacing.lg}, 58px);
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: block;
   }
 `;
 
 export const MobileMenu = styled.div`
   position: absolute;
-  top: 77px;
+  top: 100%;
   right: ${({ theme }) => theme.spacing.lg};
+
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radii.md};
   box-shadow: ${({ theme }) => theme.shadows.md};
+
   padding: ${({ theme }) => theme.spacing.md};
-  display: ${({ $open }) => ($open ? "flex" : "none")};
+  display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+
+  ${({ $open }) =>
+    $open &&
+    `
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+  `}
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     display: none;
   }
 `;

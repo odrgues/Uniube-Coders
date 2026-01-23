@@ -4,11 +4,11 @@ export const Section = styled.section`
   display: flex;
   align-items: center;
   gap: 48px;
+  background: "#030712";
   padding: 80px 16px;
   max-width: 1200px;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
+ 
     flex-direction: column;
     text-align: center;
   }
@@ -36,5 +36,5 @@ export const Text = styled.p`
   margin-top: 16px;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #444;
+  color: #green;
 `;

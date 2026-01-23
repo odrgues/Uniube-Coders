@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Nav, Logo, Menu, MobileButton, MobileMenu } from "./styles";
-
 import NavItem from "./Item";
 import logo from "../../assets/images/logo.png";
 
@@ -10,30 +9,26 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const location = useLocation();
-  const pathname = location.pathname;
+  const { pathname } = useLocation();
 
-  // Detecta scroll
+  // Detecta scroll para mudar fundo da navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Fecha menu mobile ao trocar de rota
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMenuOpen(false);
-    }, 0);
-    return () => clearTimeout(timer);
+  useLayoutEffect(() => {
+    setMenuOpen(false);
   }, [pathname]);
 
   return (
     <Nav $scrolled={scrolled}>
+      {/* Logo */}
       <Logo>
         <img src={logo} alt="Logo Uniube Coders" />
       </Logo>

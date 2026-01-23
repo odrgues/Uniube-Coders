@@ -1,23 +1,18 @@
 const colors = {
-  primary: "black", // azul institucional
-  primaryTech: "#1E5EFF", // azul tecnológico (botões, links)
-  accent: "#22D3EE", // ciano (uso mínimo)
+  primaryDark: "#030712",
+  primary: "pink",
+  primaryTech: "#1E5EFF",
 
-  /* ⚪ Base */
-  background: "#F4F6F8", // fundo geral
-  surface: "#FFFFFF", // cards, seções
+  accent: "#FF3838",
+  danger: "#DC0000",
 
-  /* ⚫ Texto */
-  text: "#0F172A", // texto principal (grafite)
-  textMuted: "#475569", // texto secundário
-
-  /* 🧱 UI */
+  background: "#F4F6F8",
+  surface: "#FFFFFF",
   border: "#E5E7EB",
 
-  /* 🎯 Estados */
-  success: "#16A34A",
-  warning: "#F59E0B",
-  error: "#DC2626",
+  // text: "#0F172A",
+  // textLight: "#FFFFFF",
+  // textMuted: "#64748B",
 };
 
 const fonts = {
@@ -31,7 +26,7 @@ const spacing = {
   md: "16px",
   lg: "24px",
   xl: "32px",
-  xxl: "48px",
+  xxl: "58px",
 };
 
 const radii = {

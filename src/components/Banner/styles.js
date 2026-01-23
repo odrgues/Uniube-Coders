@@ -10,7 +10,7 @@ export const Background = styled.section`
   justify-content: center;
   overflow: hidden;
   padding-top: ${({ theme }) => theme.sizes.headerHeight};
-  background: #8fabd4;
+  background: #fffff;
   z-index: -1;
 `;
 
@@ -27,8 +27,9 @@ export const TextContent = styled.div`
 export const Title = styled.h1`
   font-size: 8rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #030712;
   letter-spacing: 0.5px;
+  font-family: ${({ theme }) => theme.fonts.heading};
 
   @media ${breakpoints.md} {
     font-size: 5rem;
@@ -42,7 +43,8 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   margin-top: 12px;
   font-size: 2.8rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #030712;
+  font-family: ${({ theme }) => theme.fonts.body};
 
   @media ${breakpoints.md} {
     font-size: 2rem;
