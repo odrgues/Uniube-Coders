@@ -2,8 +2,10 @@ import { HomeWrapper } from "./styles";
 import ParticlesBackground from "../../components/ParticlesBackground";
 import NavBar from "../../components/NavBar";
 import Banner from "../../components/Banner";
-import InfoSection from "../../components/InfoSection";
-//import { infoSectionData } from "../../data/InfoSection";
+import InfoCards from "../../components/InfoCards/index.jsx";
+import { InfoCardsData } from "../../data/InfoCards.js";
+import Slider from "../../components/Slider/index.jsx";
+import { sliderImages } from "../../data/SliderImages.js";
 
 const Home = () => {
   return (
@@ -14,14 +16,8 @@ const Home = () => {
         <NavBar />
         <Banner />
       </HomeWrapper>
-      {/* {infoSectionData.map((item) => (
-        <InfoSection
-          key={item.id}
-          img={item.img}
-          title={item.title}
-          text={item.text}
-        />
-      ))} */}
+      <InfoCards items={InfoCardsData} />
+      <Slider images={sliderImages} interval={3000} />
     </>
   );
 };

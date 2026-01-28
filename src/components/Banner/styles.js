@@ -3,8 +3,9 @@ import { breakpoints } from "../../assets/styles/breakpoints";
 
 export const Background = styled.section`
   position: relative;
+  padding: 120px 20px 160px;
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;

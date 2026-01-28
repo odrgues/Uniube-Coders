@@ -1,6 +1,6 @@
 import image1 from "../assets/images/Home/image.jpg";
 
-export const infoSectionData = [
+export const InfoCardsData = [
   {
     id: 1,
     img: image1,
