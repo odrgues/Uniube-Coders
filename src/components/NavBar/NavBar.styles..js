@@ -25,6 +25,10 @@ export const Nav = styled.nav`
   z-index: ${({ theme }) => theme.zIndex.header};
 `;
 
+export const NavContent = styled.div`
+  position: relative;
+`;
+
 export const Logo = styled.div`
   position: absolute;
   left: 45%;

@@ -22,9 +22,9 @@ export const NavItem = styled(Link)`
   }
 `;
 
-const Item = ({ children, to, ativo = false, $scrolled = false }) => {
+const Item = ({ children, to, ativo = false, $scrolled, $onClick }) => {
   return (
-    <NavItem to={to} $ativo={ativo} $scrolled={$scrolled}>
+    <NavItem to={to} $ativo={ativo} $scrolled={$scrolled} onClick={$onClick}>
       {children}
     </NavItem>
   );

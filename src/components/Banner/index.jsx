@@ -1,4 +1,4 @@
-import { Background, TextContent, Title, Subtitle } from "./styles";
+import { Background, TextContent, Title, Subtitle } from "./Banner.styles";
 
 const Banner = () => {
   return (

@@ -1,8 +1,15 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Item from "./ItemNavBar";
 
-import { Nav, Logo, Menu, MobileButton, MobileMenu } from "./styles";
-import NavItem from "./Item";
+import {
+  Nav,
+  NavContent,
+  Logo,
+  Menu,
+  MobileButton,
+  MobileMenu,
+} from "./NavBar.styles.";
 import logo from "../../assets/images/logo.png";
 
 const NavBar = () => {
@@ -11,60 +18,66 @@ const NavBar = () => {
 
   const { pathname } = useLocation();
 
-  // Detecta scroll para mudar fundo da navbar
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fecha menu mobile ao trocar de rota
-  useLayoutEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
   return (
     <Nav $scrolled={scrolled}>
-      {/* Logo */}
-      <Logo>
-        <img src={logo} alt="Logo Uniube Coders" />
-      </Logo>
+      <NavContent>
+        <Logo to="/">
+          <img src={logo} alt="Logo Uniube Coders" />
+        </Logo>
 
-      {/* Menu Desktop */}
-      <Menu>
-        <NavItem to="/" ativo={pathname === "/"}>
-          HOME
-        </NavItem>
-        <NavItem to="/programa" ativo={pathname === "/programa"}>
-          NOSSA HISTÓRIA
-        </NavItem>
-        <NavItem to="/sobre" ativo={pathname === "/sobre"}>
-          SOBRE A UNIUBE
-        </NavItem>
-      </Menu>
+        <Menu>
+          <Item to="/" ativo={pathname === "/"}>
+            HOME
+          </Item>
+          <Item to="/programa" ativo={pathname === "/programa"}>
+            NOSSA HISTÓRIA
+          </Item>
+          <Item to="/faculdade" ativo={pathname === "/faculdade"}>
+            SOBRE A UNIUBE
+          </Item>
+        </Menu>
 
-      {/* Botão Mobile */}
-      <MobileButton
-        onClick={() => setMenuOpen((prev) => !prev)}
-        $scrolled={scrolled}
-      >
-        ☰
-      </MobileButton>
+        <MobileButton
+          onClick={() => setMenuOpen((prev) => !prev)}
+          $scrolled={scrolled}
+        >
+          ☰
+        </MobileButton>
+      </NavContent>
 
-      {/* Menu Mobile */}
       <MobileMenu $open={menuOpen}>
-        <NavItem to="/" ativo={pathname === "/"}>
+        <Item
+          to="/"
+          ativo={pathname === "/"}
+          onClick={() => setMenuOpen(false)}
+        >
           HOME
-        </NavItem>
-        <NavItem to="/programa" ativo={pathname === "/programa"}>
+        </Item>
+
+        <Item
+          to="/programa"
+          ativo={pathname === "/programa"}
+          onClick={() => setMenuOpen(false)}
+        >
           NOSSA HISTÓRIA
-        </NavItem>
-        <NavItem to="/sobre" ativo={pathname === "/sobre"}>
+        </Item>
+
+        <Item
+          to="/faculdade"
+          ativo={pathname === "/faculdade"}
+          onClick={() => setMenuOpen(false)}
+        >
           SOBRE A UNIUBE
-        </NavItem>
+        </Item>
       </MobileMenu>
     </Nav>
   );
