@@ -10,12 +10,12 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/programa" element={<Programa />} />
         <Route path="/faculdade" element={<Faculdade />} />
-      </Routes>
-      <Footer />
+      </Routes> */}
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

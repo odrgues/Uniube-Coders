@@ -1,117 +1,148 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
 
 export const Nav = styled.nav`
   position: fixed;
-  top: 0;
+  top: ${({ theme }) => theme.spacing.md};
   left: 0;
   width: 100%;
-  height: 12vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0 ${({ theme }) => theme.spacing.md};
-
-  background: ${({ theme, $scrolled }) =>
-    $scrolled ? theme.colors.surface : "transparent"};
-
-  box-shadow: ${({ theme, $scrolled }) =>
+  height: ${({ theme }) => theme.layout.navbar.height};
+  z-index: ${({ theme }) => theme.zIndex.navbar};
+  background: ${({ $scrolled, theme }) =>
+    $scrolled ? theme.colors.background.surface : "transparent"};
+  box-shadow: ${({ $scrolled, theme }) =>
     $scrolled ? theme.shadows.sm : "none"};
-
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease;
-
-  z-index: ${({ theme }) => theme.zIndex.header};
+  transition: all ${({ theme }) => theme.transitions.normal};
 `;
 
 export const NavContent = styled.div`
   position: relative;
+  height: 100%;
+
+  width: 100%;
+  margin: 0;
+
+  padding: 0 ${({ theme }) => theme.spacing.lg};
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: flex;
+    justify-content: flex-start;
+
+    padding: 0 ${({ theme }) => theme.spacing.xl};
+  }
 `;
 
 export const Logo = styled.div`
-  position: absolute;
-  left: 45%;
-  transform: translateX(-50%);
-
+  height: 35px;
+  grid-column: 2;
+  justify-self: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  height: 100%;
-  pointer-events: none;
 
   img {
-    height: 46px;
-    width: auto;
-    //filter: invert(1); //essa linha está deixando o logo com as cores invertidas
+    height: 100%;
+    display: block;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    left: ${({ theme }) => theme.spacing.lg};
-    transform: none;
-    pointer-events: auto;
-  }
-`;
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    height: 45px;
+    grid-column: auto;
 
-export const Menu = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.xl};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
+    justify-self:;
   }
 `;
 
 export const MobileButton = styled.button`
-  position: absolute;
-  right: ${({ theme }) => theme.spacing.lg};
-  background: none;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+
+  appearance: none;
   border: none;
-  font-size: 1.9rem;
   cursor: pointer;
+  background: ${({ theme }) => theme.colors.background.surface};
+  color: ${({ theme }) => theme.colors.text.primary};
+  width: 44px;
+  height: 44px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 1001;
+  transition: all ${({ theme }) => theme.transitions.fast};
 
-  color: ${({ theme, $scrolled }) =>
-    $scrolled ? theme.colors.primary : "#ffffff"};
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
 
-  display: none;
-  right: max(${({ theme }) => theme.spacing.lg}, 58px);
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: block;
+  &:active {
+    transform: scale(0.92);
   }
 `;
 
-export const MobileMenu = styled.div`
-  position: absolute;
-  top: 100%;
-  right: ${({ theme }) => theme.spacing.lg};
+export const Menu = styled.div`
+  display: none;
 
-  background: ${({ theme }) => theme.colors.surface};
-  border-radius: ${({ theme }) => theme.radii.md};
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: flex;
+    gap: ${({ theme }) => theme.spacing.lg};
+    align-items: center;
 
-  padding: ${({ theme }) => theme.spacing.md};
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+`;
+
+export const MobileMenu = styled.nav`
+  position: fixed;
+  top: calc(
+    ${({ theme }) => theme.spacing.md} +
+      ${({ theme }) => theme.layout.navbar.height}
+  );
+  left: 0;
+  width: 100%;
+  height: calc(
+    100vh -
+      (
+        ${({ theme }) => theme.spacing.md} +
+          ${({ theme }) => theme.layout.navbar.height}
+      )
+  );
+  background: ${({ theme }) => theme.colors.brand.action};
+  z-index: 999;
+  border-radius: 20px 20px 0 0;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.md};
-
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-
-  ${({ $open }) =>
-    $open &&
-    `
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-  `}
+  padding: ${({ theme }) => theme.spacing.xl};
 
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.5s cubic-bezier(0.32, 1, 0.23, 1),
+    opacity 0.3s ease;
+  transform: ${({ $open }) => ($open ? "translateY(0)" : "translateY(100%)")};
+  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+`;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: ${fadeIn} 0.3s ease;
 `;

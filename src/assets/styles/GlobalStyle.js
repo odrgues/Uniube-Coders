@@ -1,18 +1,18 @@
 import { createGlobalStyle } from "styled-components";
-import Inter from "./fonts/Inter-VariableFont_opsz,wght.ttf";
 import SpaceGrotesk from "./fonts/SpaceGrotesk-VariableFont_wght.ttf";
+import Sora from "./fonts/Sora-VariableFont_wght.ttf";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Inter';
-    src: url(${Inter}) format('truetype');
+    font-family: 'Space Grotesk';
+    src: url(${SpaceGrotesk}) format('truetype');
     font-weight: 100 900;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Space Grotesk';
-    src: url(${SpaceGrotesk}) format('truetype');
+    font-family: 'Sora';
+    src: url(${Sora}) format('truetype');
     font-weight: 300 700;
     font-display: swap;
   }
@@ -26,16 +26,20 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     width: 100%;
     min-height: 100%;
-     margin: 0;
+    margin: 0;
     padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     margin: 0;
-    font-family: 'Inter', system-ui, sans-serif;
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
-  }
+    font-family: ${({ theme }) => theme.fonts.body};
+    line-height: ${({ theme }) => theme.lineHeights.relaxed};
+    background: ${({ theme }) => theme.colors.background.main};
+    color: ${({ theme }) => theme.colors.text.primary};
 
   }
 
@@ -62,11 +66,13 @@ const GlobalStyle = createGlobalStyle`
 
   ul, ol {
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-weight: inherit;
-  }
+    font-family: ${({ theme }) => theme.fonts.heading};
+}
 `;
 
 export default GlobalStyle;

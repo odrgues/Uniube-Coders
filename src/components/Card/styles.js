@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
   width: 100%;
-  background-color: #161e54;
+  background-color: #facc15;
   position: relative;
   z-index: 2;
   margin-top: -300px;
@@ -23,7 +23,7 @@ export const Section = styled.section`
 `;
 
 export const Card = styled.div`
-  background-color: #ff986a;
+  background-color: #0f766e;
   border-radius: 16px;
   padding: 32px 24px;
   flex: 1;

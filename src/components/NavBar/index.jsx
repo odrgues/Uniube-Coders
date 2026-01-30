@@ -7,6 +7,7 @@ import {
   NavContent,
   Logo,
   Menu,
+  Overlay,
   MobileButton,
   MobileMenu,
 } from "./NavBar.styles.";
@@ -23,9 +24,18 @@ const NavBar = () => {
       setScrolled(window.scrollY > 20);
     };
 
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
 
   return (
     <Nav $scrolled={scrolled}>
@@ -49,10 +59,12 @@ const NavBar = () => {
         <MobileButton
           onClick={() => setMenuOpen((prev) => !prev)}
           $scrolled={scrolled}
+          $open={menuOpen}
         >
-          ☰
+          {menuOpen ? "✕" : "☰"}
         </MobileButton>
       </NavContent>
+      {menuOpen && <Overlay onClick={() => setMenuOpen(false)} />}
 
       <MobileMenu $open={menuOpen}>
         <Item
