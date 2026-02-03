@@ -50,13 +50,14 @@ export const Logo = styled.div`
   img {
     height: 100%;
     display: block;
+    margin-left: -60px; //ajuste fino no layout (caso o logo mude, aqui deve ser ajustado tbm)
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 45px;
     grid-column: auto;
-
-    justify-self:;
+    margin-left: 60px; //ajuste fino no layout (caso o logo mude, aqui deve ser ajustado tbm)
+    justify-self: center;
   }
 `;
 
@@ -98,7 +99,7 @@ export const Menu = styled.div`
     align-items: center;
 
     position: absolute;
-    left: 50%;
+    left: 48%;
     top: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -113,6 +114,7 @@ export const MobileMenu = styled.nav`
   );
   left: 0;
   width: 100%;
+  gap: 10px;
   height: calc(
     100vh -
       (
@@ -120,7 +122,12 @@ export const MobileMenu = styled.nav`
           ${({ theme }) => theme.layout.navbar.height}
       )
   );
-  background: ${({ theme }) => theme.colors.brand.action};
+  background: ${({ theme }) => theme.colors.background.muted};
+
+  a {
+    color: ${({ theme }) => theme.colors.text.inverse};
+  }
+
   z-index: 999;
   border-radius: 20px 20px 0 0;
   display: flex;

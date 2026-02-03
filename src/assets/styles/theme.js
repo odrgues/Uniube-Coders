@@ -2,7 +2,7 @@ const colors = {
   background: {
     main: "#f8fafc",
     surface: "#ffffff",
-    muted: "#f1f5f9",
+    muted: "#050E3C",
   },
 
   text: {
@@ -15,7 +15,7 @@ const colors = {
   brand: {
     primary: "#2563eb",
     accent: "#ec4899",
-    action: "#E6501B",
+    action: "#FF3838",
     highlight: "#facc15",
   },
 
