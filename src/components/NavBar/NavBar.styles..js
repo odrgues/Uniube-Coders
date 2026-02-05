@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -7,139 +8,89 @@ const fadeIn = keyframes`
 
 export const Nav = styled.nav`
   position: fixed;
-  top: ${({ theme }) => theme.spacing.md};
+  top: 0;
   left: 0;
   width: 100%;
   height: ${({ theme }) => theme.layout.navbar.height};
+
   z-index: ${({ theme }) => theme.zIndex.navbar};
-  background: ${({ $scrolled, theme }) =>
-    $scrolled ? theme.colors.background.surface : "transparent"};
+
+  background: ${({ $scrolled, $menuOpen, theme }) =>
+    $scrolled || $menuOpen
+      ? theme.colors.background.surface
+      : theme.colors.background.surface};
+
   box-shadow: ${({ $scrolled, theme }) =>
     $scrolled ? theme.shadows.sm : "none"};
+
   transition: all ${({ theme }) => theme.transitions.normal};
 `;
 
 export const NavContent = styled.div`
-  position: relative;
   height: 100%;
-
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
 
-  padding: 0 ${({ theme }) => theme.spacing.lg};
-
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  padding: 0 20px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: flex;
-    justify-content: flex-start;
+  @media ${({ theme }) => theme.media.lg} {
+    padding: 0 clamp(32px, 5vw, 80px);
 
-    padding: 0 ${({ theme }) => theme.spacing.xl};
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-items: center;
   }
 `;
 
-export const Logo = styled.div`
-  height: 35px;
-  grid-column: 2;
-  justify-self: center;
+export const Logo = styled(Link)`
+  height: clamp(26px, 4vw, 50px);
   display: flex;
   align-items: center;
+  text-decoration: none;
+  z-index: 10;
+
+  @media ${({ theme }) => theme.media.lg} {
+    justify-self: start;
+  }
 
   img {
     height: 100%;
-    display: block;
-    margin-left: -60px; //ajuste fino no layout (caso o logo mude, aqui deve ser ajustado tbm)
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    height: 45px;
-    grid-column: auto;
-    margin-left: 60px; //ajuste fino no layout (caso o logo mude, aqui deve ser ajustado tbm)
-    justify-self: center;
-  }
-`;
-
-export const MobileButton = styled.button`
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
-
-  appearance: none;
-  border: none;
-  cursor: pointer;
-  background: ${({ theme }) => theme.colors.background.surface};
-  color: ${({ theme }) => theme.colors.text.primary};
-  width: 44px;
-  height: 44px;
-  border-radius: ${({ theme }) => theme.radius.md};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  z-index: 1001;
-  transition: all ${({ theme }) => theme.transitions.fast};
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: none;
-  }
-
-  &:active {
-    transform: scale(0.92);
+    width: auto;
+    object-fit: contain;
   }
 `;
 
 export const Menu = styled.div`
   display: none;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.lg} {
     display: flex;
-    gap: ${({ theme }) => theme.spacing.lg};
     align-items: center;
-
-    position: absolute;
-    left: 48%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
+    gap: clamp(24px, 4vw, 48px);
+    justify-self: center;
   }
 `;
 
-export const MobileMenu = styled.nav`
-  position: fixed;
-  top: calc(
-    ${({ theme }) => theme.spacing.md} +
-      ${({ theme }) => theme.layout.navbar.height}
-  );
-  left: 0;
-  width: 100%;
-  gap: 10px;
-  height: calc(
-    100vh -
-      (
-        ${({ theme }) => theme.spacing.md} +
-          ${({ theme }) => theme.layout.navbar.height}
-      )
-  );
-  background: ${({ theme }) => theme.colors.background.muted};
-
-  a {
-    color: ${({ theme }) => theme.colors.text.inverse};
-  }
-
-  z-index: 999;
-  border-radius: 20px 20px 0 0;
+export const MobileButton = styled.button`
   display: flex;
-  flex-direction: column;
-  padding: ${({ theme }) => theme.spacing.xl};
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.background.muted};
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  padding: 0;
+  width: clamp(40px, 4vw, 48px);
+  height: clamp(40px, 4vw, 48px);
 
-  transition:
-    transform 0.5s cubic-bezier(0.32, 1, 0.23, 1),
-    opacity 0.3s ease;
-  transform: ${({ $open }) => ($open ? "translateY(0)" : "translateY(100%)")};
-  opacity: ${({ $open }) => ($open ? 1 : 0)};
-  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+  @media ${({ theme }) => theme.media.lg} {
+    display: none;
+  }
 `;
 
 export const Overlay = styled.div`
@@ -147,9 +98,48 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+
+  height: calc(100vh - ${({ theme }) => theme.layout.navbar.height});
+
+  background: ${({ theme }) => theme.colors.background.overlay};
   backdrop-filter: blur(4px);
-  z-index: 998;
+
+  z-index: 98;
+
   animation: ${fadeIn} 0.3s ease;
+
+  @media ${({ theme }) => theme.media.lg} {
+    display: none;
+  }
+`;
+
+export const MobileMenu = styled.nav`
+  position: fixed;
+  top: ${({ theme }) => theme.layout.navbar.height};
+  border-radius: ${({ theme }) => theme.radius.lg};
+  left: 0;
+  width: 100%;
+
+  height: calc(100vh - ${({ theme }) => theme.layout.navbar.height});
+
+  background: ${({ theme }) => theme.colors.background.muted};
+
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+
+  transition:
+    transform 0.5s cubic-bezier(0.32, 1, 0.23, 1),
+    opacity 0.3s ease;
+
+  transform: ${({ $open }) => ($open ? "translateY(0)" : "translateY(100%)")};
+  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+
+  @media ${({ theme }) => theme.media.lg} {
+    display: none;
+  }
 `;

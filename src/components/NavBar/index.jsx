@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CgMenuGridO } from "react-icons/cg";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import Item from "./ItemNavBar";
 
 import {
@@ -61,7 +63,7 @@ const NavBar = () => {
           $scrolled={scrolled}
           $open={menuOpen}
         >
-          {menuOpen ? "✕" : "☰"}
+          {menuOpen ? <IoIosCloseCircleOutline /> : <CgMenuGridO />}
         </MobileButton>
       </NavContent>
       {menuOpen && <Overlay onClick={() => setMenuOpen(false)} />}

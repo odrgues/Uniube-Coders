@@ -1,57 +1,65 @@
-import styled from "styled-components";
-import { breakpoints } from "../../assets/styles/breakpoints";
+import styled, { keyframes } from "styled-components";
+
+const slideInLeft = keyframes`
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+`;
 
 export const Background = styled.section`
-  position: relative;
-  padding: 120px 20px 160px;
   width: 100%;
-  height: 50vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  padding-top: ${({ theme }) => theme.sizes.headerHeight};
-  background: #fffff;
-  z-index: -1;
+  padding-top: ${({ theme }) => theme.layout.navbar.height};
+  background-color: #eaefef;
 `;
 
-export const TextContent = styled.div`
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 16px;
+export const Container = styled.div`
   width: 100%;
-  height: auto;
-  max-width: 900px;
+  max-width: ${({ theme }) => theme.layout.container || "1200px"};
+  padding: 0 ${({ theme }) => theme.spacing.lg};
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  gap: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const Title = styled.h1`
-  font-size: 8rem;
-  font-weight: 600;
-  color: #030712;
-  letter-spacing: 0.5px;
+  font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+
   font-family: ${({ theme }) => theme.fonts.heading};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.brand.accent};
 
-  @media ${breakpoints.md} {
-    font-size: 5rem;
-  }
+  line-height: 1.1;
+  word-wrap: break-word;
 
-  @media ${breakpoints.sm} {
-    font-size: 3rem;
-  }
+  margin: 0;
+  padding: 0;
+
+  opacity: 0;
+  animation: ${slideInLeft} 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 `;
 
 export const Subtitle = styled.p`
-  margin-top: 12px;
-  font-size: 2.8rem;
-  color: #030712;
+  font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.5rem);
+
   font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  color: ${({ theme }) => theme.colors.brand.highlight};
 
-  @media ${breakpoints.md} {
-    font-size: 2rem;
-  }
+  line-height: 1.5;
+  max-width: 800px;
 
-  @media ${breakpoints.sm} {
-    font-size: 1.3rem;
-  }
+  padding: 0;
+  margin: 0;
+
+  opacity: 0;
+  animation: ${slideInLeft} 1s cubic-bezier(0.2, 0.5, 0.5, 1) forwards;
+  animation-delay: 0.3s;
 `;

@@ -2,22 +2,26 @@ import {
   SectionWrapper,
   Section,
   Card as StyledCard,
-  CardImage,
+  CardIcon,
   CardTitle,
   CardText,
-} from "./styles";
+} from "./Card.styles";
 
-const Card = ({ title, text, icon }) => {
+const Card = ({ title, text, icon: Icon }) => {
   return (
     <StyledCard>
-      {icon && <CardImage src={icon} alt={title} />}
+      {Icon && (
+        <CardIcon>
+          <Icon />
+        </CardIcon>
+      )}
       <CardTitle>{title}</CardTitle>
       <CardText>{text}</CardText>
     </StyledCard>
   );
 };
 
-const InfoCards = ({ items }) => {
+const CardContent = ({ items = [] }) => {
   return (
     <SectionWrapper>
       <Section>
@@ -26,7 +30,7 @@ const InfoCards = ({ items }) => {
             key={index}
             title={item.title}
             text={item.text}
-            icon={item.img}
+            icon={item.icon}
           />
         ))}
       </Section>
@@ -34,4 +38,4 @@ const InfoCards = ({ items }) => {
   );
 };
 
-export default InfoCards;
+export default CardContent;

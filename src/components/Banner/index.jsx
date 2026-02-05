@@ -1,15 +1,16 @@
-import { Background, TextContent, Title, Subtitle } from "./Banner.styles";
+import { Background, Container, Title, Subtitle } from "./Banner.styles";
 
 const Banner = () => {
   return (
     <Background>
-      <TextContent>
+      <Container>
         <Title>Boas-vindas ao Uniube Coders</Title>
         <Subtitle>
           Projeto de formação de desenvolvedores que vai além do código.
         </Subtitle>
-      </TextContent>
+      </Container>
     </Background>
   );
 };
+
 export default Banner;
