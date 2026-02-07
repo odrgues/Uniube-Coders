@@ -6,19 +6,20 @@ const palette = {
     100: "#f8fafc",
     200: "#e5e7eb",
     400: "#94a3b8",
-    700: "#475569",
+    700: "#050505",
     900: "#0f172a",
   },
 
   blue: {
-    dark: "#050E3C",
+    dark: "#19183B",
     primary: "#2563eb",
     light: "rgba(161, 188, 247, 0.1)",
   },
 
-  red: "#FF3838",
+  red: "#FF3F33",
   pink: "#ec4899",
-  yellow: "#facc15",
+  yellow: "#FFA240",
+  purple: "#6A42C2",
 };
 
 const breakpoints = {
@@ -32,11 +33,12 @@ const breakpoints = {
 const media = {
   sm: `(min-width: ${breakpoints.sm})`,
   md: `(min-width: ${breakpoints.md})`,
-  lg: `(min-width: ${breakpoints.xl})`,
+  lg: `(min-width: ${breakpoints.lg})`,
   xl: `(min-width: ${breakpoints.xl})`,
 };
 
 const theme = {
+  palette,
   colors: {
     background: {
       main: "#f5f7f8",
@@ -46,7 +48,8 @@ const theme = {
     },
 
     text: {
-      primary: palette.black,
+      primary: palette.blue.dark,
+      nav: palette.muted,
       secondary: palette.gray[700],
       muted: palette.gray[400],
       inverse: palette.white,
@@ -73,7 +76,7 @@ const theme = {
     md: "1rem", // 16px
 
     // NAVEGAÇÃO: Cresce de 16px para 18px
-    nav: "clamp(1rem, 0.5vw + 0.9rem, 1.125rem)",
+    nav: "clamp(0.75rem, 0.5vw + 0.9rem, 0.80rem)",
     mobileNav: "clamp(0.875rem, 1.5vw + 0.5rem, 1.125rem)",
     // TÍTULOS: Crescem muito mais
     lg: "clamp(1.125rem, 1vw + 1rem, 1.25rem)",
@@ -106,7 +109,7 @@ const theme = {
 
   radius: {
     sm: "6px",
-    md: "12px",
+    md: "20px",
     lg: "50px",
     full: "9999px",
   },
@@ -137,7 +140,7 @@ const theme = {
 
   layout: {
     navbar: {
-      height: "88px",
+      height: "70px",
     },
     container: {
       width: "min(100% - 32px, 1280px)",

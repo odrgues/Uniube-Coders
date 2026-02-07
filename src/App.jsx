@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 //import Programa from "./pages/Programa";
 //import Faculdade from "./pages/Faculdade";
-//import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (

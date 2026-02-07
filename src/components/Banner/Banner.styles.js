@@ -12,7 +12,6 @@ export const Background = styled.section`
   align-items: center;
   justify-content: center;
   padding-top: ${({ theme }) => theme.layout.navbar.height};
-  background-color: #eaefef;
 `;
 
 export const Container = styled.div`
@@ -34,7 +33,7 @@ export const Title = styled.h1`
 
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  color: ${({ theme }) => theme.colors.brand.accent};
+  color: ${({ theme }) => theme.palette.blue.dark};
 
   line-height: 1.1;
   word-wrap: break-word;
@@ -44,6 +43,10 @@ export const Title = styled.h1`
 
   opacity: 0;
   animation: ${slideInLeft} 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+  span {
+    color: ${({ theme }) => theme.palette.blue.primary};
+  }
 `;
 
 export const Subtitle = styled.p`

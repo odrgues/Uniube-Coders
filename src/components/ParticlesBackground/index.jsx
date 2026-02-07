@@ -1,43 +1,53 @@
 import { useEffect, useRef } from "react";
-import { Canvas } from "./ParticlesBackground.styles.";
+import { Canvas, Container } from "./ParticlesBackground.styles.";
 
 const ParticlesBackground = ({ children }) => {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    const container = containerRef.current;
     const ctx = canvas.getContext("2d");
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const setCanvasSize = () => {
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
+    };
+
+    setCanvasSize();
+
+    let width = canvas.width;
+    let height = canvas.height;
 
     const particles = [];
-    const PARTICLE_COUNT = 90;
-    const MAX_DISTANCE = 120;
+
+    const PARTICLE_COUNT = 50; // Reduzi de 90 para 40 (menos formas)
+    const MAX_DISTANCE = 110; // Distância de conexão levemente ajustada
 
     class Particle {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = 1.3;
+
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.radius = 1.5;
       }
 
       move() {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (this.x <= 0 || this.x >= width) this.vx *= -1;
-        if (this.y <= 0 || this.y >= height) this.vy *= -1;
+        if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
+        if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
       }
 
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        //muda de cor
-        ctx.fillStyle = "#030712";
 
+        ctx.fillStyle = "rgba(30, 41, 59, 0.8)";
         ctx.fill();
       }
     }
@@ -54,11 +64,9 @@ const ParticlesBackground = ({ children }) => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < MAX_DISTANCE) {
-            //muda de cor
-            ctx.strokeStyle = `rgba(3,7,18,${1 - distance / MAX_DISTANCE})`;
-
-            ctx.lineWidth = 0.8;
-
+            const opacity = 1 - distance / MAX_DISTANCE;
+            ctx.strokeStyle = `rgba(30, 41, 59, ${opacity * 0.5})`;
+            ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -69,7 +77,7 @@ const ParticlesBackground = ({ children }) => {
     }
 
     function animate() {
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
         particle.move();
@@ -83,8 +91,10 @@ const ParticlesBackground = ({ children }) => {
     animate();
 
     function handleResize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      setCanvasSize();
+      width = canvas.width;
+      height = canvas.height;
+      // Opcional: Recriar partículas ao redimensionar para não esticar
     }
 
     window.addEventListener("resize", handleResize);
@@ -93,10 +103,10 @@ const ParticlesBackground = ({ children }) => {
   }, []);
 
   return (
-    <>
+    <Container ref={containerRef}>
       <Canvas ref={canvasRef} />
-      {children}
-    </>
+      <div style={{ position: "relative", zIndex: 2 }}>{children}</div>
+    </Container>
   );
 };
 

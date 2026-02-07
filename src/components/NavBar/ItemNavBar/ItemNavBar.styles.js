@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const NavItem = styled(Link)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: ${({ theme }) => theme.fontSizes.nav};
-
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-decoration: none;
 
@@ -19,7 +18,7 @@ export const NavItem = styled(Link)`
   transition: color ${({ theme }) => theme.transitions.fast};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.brand.action};
+    color: ${({ theme }) => theme.palette.blue.primary};
   }
 
   &::after {
@@ -30,7 +29,7 @@ export const NavItem = styled(Link)`
     left: 0;
     width: ${({ $active }) => ($active ? "100%" : "0%")};
     height: 2px;
-    background: ${({ theme }) => theme.colors.brand.action};
+    background: ${({ theme }) => theme.colors.brand.primary};
     transition: width ${({ theme }) => theme.transitions.normal};
     border-radius: 2px;
   }

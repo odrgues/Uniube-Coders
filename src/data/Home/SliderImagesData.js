@@ -1,10 +1,10 @@
-import image1 from "../assets/images/Slider/image-1.jpg";
-import image2 from "../assets/images/Slider/image-2.jpg";
-import image3 from "../assets/images/Slider/image-3.jpg";
-import image4 from "../assets/images/Slider/image-4.jpg";
-import image5 from "../assets/images/Slider/image-5.jpg";
+import image1 from "../../assets/images/Slider/image-1.jpg";
+import image2 from "../../assets/images/Slider/image-2.jpg";
+import image3 from "../../assets/images/Slider/image-3.jpg";
+import image4 from "../../assets/images/Slider/image-4.jpg";
+import image5 from "../../assets/images/Slider/image-5.jpg";
 
-export const sliderImages = [
+const SliderImages = [
   {
     id: 1,
     src: image1,
@@ -36,3 +36,5 @@ export const sliderImages = [
     active: true,
   },
 ];
+
+export default SliderImages;

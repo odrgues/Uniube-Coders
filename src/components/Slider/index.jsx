@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SliderContainer, SlideImage, DotsWrapper, Dot } from "./styles";
+import { SliderContainer, SlideImage, DotsWrapper, Dot } from "./Slider.styles";
 
 const Slider = ({ images, interval = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +18,6 @@ const Slider = ({ images, interval = 3000 }) => {
   };
   return (
     <>
-      <h1>Uniube Coders em Ação!</h1>
       <SliderContainer>
         {images.map((image, index) => (
           <SlideImage

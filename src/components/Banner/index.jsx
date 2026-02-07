@@ -4,7 +4,9 @@ const Banner = () => {
   return (
     <Background>
       <Container>
-        <Title>Boas-vindas ao Uniube Coders</Title>
+        <Title>
+          Boas-vindas ao <span>Uniube Coders</span>
+        </Title>
         <Subtitle>
           Projeto de formação de desenvolvedores que vai além do código.
         </Subtitle>
