@@ -10,6 +10,7 @@ const fadeInUp = keyframes`
     transform: translateY(0); 
   }
 `;
+
 export const SectionWrapper = styled.section`
   width: 100%;
   padding: ${({ theme }) => theme.spacing.xl} 0;
@@ -17,43 +18,42 @@ export const SectionWrapper = styled.section`
 `;
 
 export const Section = styled.div`
-  width: 70%;
+  width: min(80%, 1200px);
   margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 90%;
-  }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px 60px;
+  gap: clamp(30px, 8vw, 90px);
+
   justify-content: center;
+  justify-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    width: 70%;
+  }
 `;
 
 export const Card = styled.div`
-  background-color: #f2ead3;
-  //background-color: #d2dcb6;
+  background-color: ${({ theme }) => theme.colors.background.main};
   border-radius: ${({ theme }) => theme.radius.md};
-  padding: clamp(1.5rem, 4vw, 3rem);
-  width: 80%;
-  margin: 0 auto;
-  min-height: clamp(350px, 40vh, 450px);
+
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+
+  min-height: 280px;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: ${({ theme }) => theme.spacing.lg};
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+
   border: 1px solid transparent;
   cursor: pointer;
   text-align: center;
 
   will-change: transform;
 
-  opacity: 1;
-  transform: translateY(0);
-
-  animation: ${fadeInUp} 0.8s ease-out;
-
-  animation-fill-mode: backwards;
+  animation: ${fadeInUp} 0.8s ease-out backwards;
 
   transition:
     transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -74,7 +74,7 @@ export const Card = styled.div`
   }
 
   &:hover {
-    transform: translateY(-10px) scale(1);
+    transform: translateY(-8px) scale(1.02);
 
     box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -85,21 +85,21 @@ export const Card = styled.div`
 `;
 
 export const CardIcon = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+
   align-self: center;
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: 0.5rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   svg {
-    width: 50px;
-    height: 50px;
-    color: #ff3f33;
-    //color: ${({ theme }) => theme.colors.background.main};
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    width: 40px;
+    height: 40px;
+    color: ${({ theme }) => theme.colors.brand.accent};
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
 `;
 
@@ -107,16 +107,20 @@ export const CardTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   color: ${({ theme }) => theme.palette.red};
-  align-self: center;
-  font-size: clamp(1.25rem, 2vw + 1rem, 1.5rem);
   margin: 0;
   text-align: center;
+
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+
+  line-height: 1.2;
 `;
 
 export const CardText = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
   color: ${({ theme }) => theme.colors.text.primary};
-  line-height: 1.6;
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.25rem);
   margin: 0;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+
+  line-height: 1.6;
+  max-width: 90%;
 `;

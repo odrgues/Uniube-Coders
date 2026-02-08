@@ -1,6 +1,6 @@
-import image1 from "../assets/images/Programa/image-1.jpg";
-import image2 from "../assets/images/Programa/image-2.jpg";
-import image3 from "../assets/images/Programa/image-3.jpg";
+// import image1 from "../assets/images/Programa/image-1.jpg";
+// import image2 from "../assets/images/Programa/image-2.jpg";
+// import image3 from "../assets/images/Programa/image-3.jpg";
 
 export const aboutProgramData = {
   content: (
@@ -15,7 +15,7 @@ export const aboutProgramData = {
         da <span className="highlight">realidade do mercado de tecnologia</span>
         .
       </p>
-      <img src={image1} side="left" />
+      {/* <img src={image1} side="left" /> */}
 
       <p>
         Idealizado inicialmente como um pequeno grupo de estudos, o programa
@@ -24,7 +24,7 @@ export const aboutProgramData = {
         colaborativos. Com o tempo, o que era apenas uma iniciativa experimental
         se transformou em um <strong>movimento de formação tecnológica</strong>.
       </p>
-      <img src={image2} side="left" />
+      {/* <img src={image2} side="left" /> */}
 
       <p>
         À medida que mais estudantes demonstravam interesse, o Uniube Coders
@@ -41,7 +41,7 @@ export const aboutProgramData = {
         diretamente a formação profissional de seus participantes e contribuindo
         para o fortalecimento do ecossistema tecnológico da região.
       </p>
-      <img src={image3} side="right" />
+      {/* <img src={image3} side="right" /> */}
 
       <p>
         O Uniube Coders segue evoluindo, com o propósito de formar

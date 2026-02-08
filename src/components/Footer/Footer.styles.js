@@ -2,79 +2,65 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   width: 100%;
-  background-color: ${({ theme }) =>
-    theme.colors.background.secondary || "#ACBFA4"};
-  padding: 4rem 0 2rem 0; /* Mais espaço no topo, menos embaixo */
-  margin-top: 4rem;
+  box-sizing: border-box;
+
+  background-color: ${({ theme }) => theme.palette.blue.dark};
+  padding: 3.5rem 1rem;
+  margin-top: 3rem;
+  position: relative;
+
+  overflow-x: hidden;
 `;
 
-// Wrapper que segura o conteúdo e limita a largura
 export const ContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem;
 
-  display: flex;
-  flex-direction: column;
-  gap: 3rem; /* Distância entre a parte de cima e o copyright */
-`;
-
-// A parte superior onde ficam Esquerda e Direita
-export const TopSection = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap; /* Garante que quebre linha se faltar espaço */
-  gap: 2rem;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 
-  /* No mobile, vira uma coluna só */
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: 600px) {
+    justify-content: center;
     flex-direction: column;
-    text-align: center; /* Centraliza tudo no celular */
-    align-items: center;
+    gap: 2rem;
   }
 `;
 
-// --- LADO ESQUERDO ---
 export const LeftSide = styled.div`
-  max-width: 40%; /* Limita a largura do texto */
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    align-items: center; /* Garante alinhamento no mobile */
+  @media (max-width: 600px) {
+    flex-direction: column;
+    text-align: center;
   }
 `;
 
 export const LogoImage = styled.img`
-  width: 200px;
+  width: 150px;
   height: auto;
-  /* Se não tiver logo, pode remover ou deixar placeholder */
+  object-fit: contain;
 `;
 
-export const Tagline = styled.p`
-  font-family: ${({ theme }) => theme.fonts.body};
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.6;
-  font-size: 1rem;
-`;
-
-// --- LADO DIREITO (CONTATOS) ---
-export const RightSide = styled.div`
+export const Tagline = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
 
-  /* No desktop alinha à direita (opcional, ou deixa left mesmo) */
-  /* text-align: right; e align-items: flex-end; se quiser forçar direita */
+  span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+  }
 `;
 
-export const ContactTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  color: black;
-  font-size: 1.5rem;
-  margin: 0;
+export const RightSide = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const ContactList = styled.ul`
@@ -82,43 +68,42 @@ export const ContactList = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    align-items: center;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const ContactItem = styled.li`
   a {
-    color: black;
-
-    //color: ${({ theme }) => theme.colors.text.secondary};
-    font-size: 1.05rem;
+    color: #e0e6ed;
+    font-size: 0.85rem;
     font-family: ${({ theme }) => theme.fonts.body};
     text-decoration: none;
-    transition: color 0.2s;
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre icone e texto */
+    gap: 8px;
+    transition: all 0.2s ease;
+
+    white-space: nowrap;
+
+    svg {
+      font-size: 1.2rem;
+      color: ${({ theme }) => theme.colors.brand?.primary || "#ff3f33"};
+      flex-shrink: 0;
+    }
 
     &:hover {
-      color: ${({ theme }) => theme.colors.brand.action};
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    span {
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
   }
-`;
-
-// --- PARTE INFERIOR (COPYRIGHT) ---
-export const BottomSection = styled.div`
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgb(208, 8, 226); /* Linha divisória sutil */
-`;
-
-export const Copyright = styled.p`
-  font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  opacity: 0.6;
-  margin: 0;
 `;

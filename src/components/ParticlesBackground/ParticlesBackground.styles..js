@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-// Adicione este Container
 export const Container = styled.div`
-  position: relative; /* Isso prende o canvas dentro deste elemento */
+  position: relative;
   width: 100%;
-  height: 100%; /* Ou altura fixa, se preferir */
-  overflow: hidden; /* Garante que nada vase */
+  height: 100%;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.background.main};
   z-index: 1;
 `;
 
@@ -15,6 +15,6 @@ export const Canvas = styled.canvas`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Fica atrás do conteúdo */
-  pointer-events: none; /* Permite clicar no texto/botões que estão por cima */
+  z-index: 1;
+  pointer-events: none;
 `;

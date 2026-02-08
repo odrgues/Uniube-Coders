@@ -19,7 +19,8 @@ const palette = {
   red: "#FF3F33",
   pink: "#ec4899",
   yellow: "#FFA240",
-  purple: "#6A42C2",
+  purple: "#3E1E68",
+  retro: "#BFC9D1",
 };
 
 const breakpoints = {
@@ -41,7 +42,7 @@ const theme = {
   palette,
   colors: {
     background: {
-      main: "#f5f7f8",
+      main: "#FBFBFB",
       surface: palette.white,
       muted: palette.blue.dark,
       overlay: "rgba(0, 0, 0, 0.6)",
@@ -57,7 +58,7 @@ const theme = {
 
     brand: {
       primary: palette.blue.primary,
-      accent: palette.pink,
+      accent: palette.red,
       action: palette.red,
       highlight: palette.yellow,
     },

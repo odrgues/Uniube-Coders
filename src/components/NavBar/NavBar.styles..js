@@ -6,7 +6,6 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-/* ... Nav fica igual ... */
 export const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -15,11 +14,10 @@ export const Nav = styled.nav`
   height: ${({ theme }) => theme.layout.navbar.height};
   z-index: ${({ theme }) => theme.zIndex.navbar};
 
-  /* Adicionei uma cor de fundo explícita para teste caso o surface seja transparente */
   background: ${({ $scrolled, $menuOpen, theme }) =>
     $scrolled || $menuOpen
-      ? theme.colors.background.surface
-      : theme.colors.background.surface};
+      ? theme.colors.background.main
+      : theme.colors.background.main};
 
   box-shadow: ${({ $scrolled, theme }) =>
     $scrolled ? theme.shadows.sm : "none"};
@@ -36,7 +34,6 @@ export const NavContent = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  /* CORREÇÃO: Usar 1281px garante que 1280px (Nest Hub) ainda seja Mobile */
   @media (min-width: 1281px) {
     padding: 0 clamp(32px, 5vw, 80px);
     display: grid;
@@ -66,7 +63,6 @@ export const Logo = styled(Link)`
 export const Menu = styled.div`
   display: none;
 
-  /* Só mostra o menu escrito se for MAIOR que 1280px */
   @media (min-width: 1281px) {
     display: flex;
     align-items: center;
@@ -83,7 +79,6 @@ export const MobileButton = styled.button`
   border: none;
   cursor: pointer;
 
-  /* Garante cor visível. Se brand.action falhar, fica vermelho para testar */
   color: ${({ theme }) => theme.colors.brand.action || "red"};
 
   font-size: clamp(1.5rem, 3vw, 2rem);
@@ -91,10 +86,8 @@ export const MobileButton = styled.button`
   width: clamp(40px, 4vw, 48px);
   height: clamp(40px, 4vw, 48px);
 
-  /* Garante que o botão fique acima de tudo */
   z-index: 101;
 
-  /* O botão só some se a tela for MAIOR que 1280px */
   @media (min-width: 1281px) {
     display: none;
   }

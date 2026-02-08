@@ -65,7 +65,7 @@ export const Dot = styled.button`
   transition: all 0.3s ease;
 
   background-color: ${({ $active, theme }) =>
-    $active ? theme.colors.brand.action : "rgba(255, 255, 255, 0.5)"};
+    $active ? theme.palette.blue.dark : "rgba(255, 255, 255, 0.5)"};
 
   &:hover {
     transform: scale(1.2);

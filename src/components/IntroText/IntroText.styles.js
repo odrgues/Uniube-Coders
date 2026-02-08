@@ -12,14 +12,12 @@ const animateIn = css`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xl} 0;
-
+  padding: ${({ theme }) => theme.spacing.xxl} 0;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-
+  background-color: ${({ theme }) => theme.palette.retro};
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     text-align: center;
     align-items: center;
@@ -28,16 +26,17 @@ export const Container = styled.div`
 
 export const TextContent = styled.div`
   margin-top: clamp(2rem, 5vw, 8rem);
-  max-width: 800px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
   padding: 0 1rem;
+  text-align: center;
 `;
 
 export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: ${({ theme }) => theme.colors.text.primary};
   line-height: 1.1;
   margin: 0;
@@ -49,10 +48,11 @@ export const Title = styled.h2`
 
 export const Description = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: ${({ theme }) => theme.palette.gray[900]};
   line-height: 1.6;
-  //   text-aling: center;
+  text-aling: center;
+  text-align: justify;
 
   ${animateIn}
   animation-delay: 0.3s;
@@ -67,8 +67,7 @@ export const StatsGrid = styled.div`
   box-sizing: border-box;
   padding: 2rem 1rem 0 1rem;
 
-  margin-top: ${({ theme }) => theme.spacing.lg};
-  border-top: 1px solid ${({ theme }) => theme.pallet?.gray?.[200] || "#eee"};
+  margin-top: 5px;
   justify-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -90,9 +89,9 @@ export const StatNumber = styled.span`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: 800;
 
-  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-size: clamp(1.5rem, 6vw, 4rem);
   line-height: 1;
-  color: ${({ theme }) => theme.colors.brand.action};
+  color: ${({ theme }) => theme.palette.red};
   margin-bottom: ${({ theme }) => theme.spacing.xs};
 `;
 
@@ -102,5 +101,5 @@ export const StatLabel = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: ${({ theme }) => theme.palette.purple};
 `;
