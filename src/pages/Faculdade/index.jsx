@@ -1,6 +1,5 @@
 import React from "react";
-import { FaculdadeData } from "./data/FaculdadeData";
-
+import { FaculdadeData } from "./data/faculdadeData";
 import {
   PageContainer,
   HeroSection,
@@ -14,7 +13,7 @@ import {
   ImageWrapper,
   StyledImage,
   ImageBackdrop,
-} from "./Faculdade.styles";
+} from "./styles/Faculdade.styles";
 
 const Faculdade = () => {
   return (

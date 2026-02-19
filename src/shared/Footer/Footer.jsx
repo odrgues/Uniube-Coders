@@ -33,7 +33,6 @@ const Footer = () => {
 
         <RightSide>
           <ContactList>
-            {/* Email */}
             <ContactItem>
               <a href="mailto:atendimento@uniube.br" aria-label="Email">
                 <MdAttachEmail />

@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import SpaceGrotesk from "./fonts/SpaceGrotesk-VariableFont_wght.ttf";
 import Sora from "./fonts/Sora-VariableFont_wght.ttf";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Space Grotesk';
     src: url(${SpaceGrotesk}) format('truetype');
@@ -74,5 +74,3 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.heading};
 }
 `;
-
-export default GlobalStyle;

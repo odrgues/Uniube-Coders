@@ -8,9 +8,9 @@ import {
   StatItem,
   StatNumber,
   StatLabel,
-} from "./IntroText.styles";
+} from "./Text";
 
-const IntroText = ({ data }) => {
+const Text = ({ data }) => {
   return (
     <>
       <Container>
@@ -32,4 +32,4 @@ const IntroText = ({ data }) => {
   );
 };
 
-export default IntroText;
+export default Text;

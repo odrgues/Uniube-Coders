@@ -93,6 +93,12 @@ const theme = {
     bold: 700,
   },
 
+  lineHeights: {
+    tight: 1.2,
+    normal: 1.5,
+    relaxed: 1.7,
+  },
+
   spacing: {
     // Escala de 4px
     xxs: "4px",

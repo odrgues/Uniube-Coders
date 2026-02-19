@@ -1,5 +1,5 @@
-import image1 from "../assets/images/Programa/image-1.jpg";
-import image2 from "../assets/images/Programa/image-2.jpg";
+import image1 from "../../../assets/images/Programa/image-1.jpg";
+import image2 from "../../../assets/images/Programa/image-2.jpg";
 
 export const FaculdadeData = [
   {
