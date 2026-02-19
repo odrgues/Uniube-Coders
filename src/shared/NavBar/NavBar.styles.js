@@ -14,10 +14,7 @@ export const Nav = styled.nav`
   height: ${({ theme }) => theme.layout.navbar.height};
   z-index: ${({ theme }) => theme.zIndex.navbar};
 
-  background: ${({ $scrolled, $menuOpen, theme }) =>
-    $scrolled || $menuOpen
-      ? theme.colors.background.main
-      : theme.colors.background.main};
+  background: ${({ theme }) => theme.colors.background.main};
 
   box-shadow: ${({ $scrolled, theme }) =>
     $scrolled ? theme.shadows.sm : "none"};

@@ -7,13 +7,11 @@ export const NavItem = styled(Link)`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-decoration: none;
 
-  color: ${({ $scrolled, theme }) =>
-    $scrolled ? theme.colors.text.primary : theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
 
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  height: 2%;
 
   transition: color ${({ theme }) => theme.transitions.fast};
 
@@ -24,7 +22,6 @@ export const NavItem = styled(Link)`
   &::after {
     content: "";
     position: absolute;
-
     bottom: -10%;
     left: 0;
     width: ${({ $active }) => ($active ? "100%" : "0%")};

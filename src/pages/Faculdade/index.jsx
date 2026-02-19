@@ -1,5 +1,5 @@
 import React from "react";
-import { FaculdadeData } from "../../data/FaculdadeData";
+import { FaculdadeData } from "./data/FaculdadeData";
 
 import {
   PageContainer,
