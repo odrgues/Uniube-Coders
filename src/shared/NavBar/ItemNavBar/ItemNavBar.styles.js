@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const NavItem = styled(Link)`
-  font-family: ${({ theme }) => theme.fonts.heading};
+  font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.nav};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
   text-decoration: none;
 
   color: ${({ theme }) => theme.colors.text.primary};
@@ -38,7 +38,7 @@ export const NavItem = styled(Link)`
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     color: ${({ theme }) => theme.colors.text.inverse};
     font-size: ${({ theme }) => theme.fontSizes.mobileNav};
-    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
     padding: 10px 0;
     width: 100%;
 

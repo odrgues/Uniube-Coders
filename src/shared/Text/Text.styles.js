@@ -1,105 +1,106 @@
 import styled, { keyframes, css } from "styled-components";
 
 const fadeInUp = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
 const animateIn = css`
   opacity: 0;
-  animation: ${fadeInUp} 0.8s ease-out forwards;
+  animation: ${fadeInUp} ${({ theme }) => theme.transitions.slow} forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
 `;
 
 export const Container = styled.div`
   width: 100%;
-  margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xxl} 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  background-color: ${({ theme }) => theme.palette.retro};
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    text-align: center;
-    align-items: center;
-  }
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.xl};
+
+  /* Sem background aqui pra não “brigar” com as sections da Home */
 `;
 
 export const TextContent = styled.div`
-  margin-top: clamp(2rem, 5vw, 8rem);
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
+  max-width: 70ch;
+  display: grid;
   gap: ${({ theme }) => theme.spacing.md};
-  padding: 0 1rem;
-  text-align: center;
+
+  /* Centraliza só em telas maiores */
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    margin-inline: auto;
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  color: ${({ theme }) => theme.colors.text.primary};
-  line-height: 1.1;
   margin: 0;
-  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
+  line-height: ${({ theme }) => theme.lineHeights.tight};
+  color: ${({ theme }) => theme.colors.text.primary};
 
   ${animateIn}
-  animation-delay: 0.1s;
 `;
 
 export const Description = styled.p`
+  margin: 0;
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: ${({ theme }) => theme.palette.gray[900]};
-  line-height: 1.6;
-  text-aling: center;
-  text-align: justify;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  line-height: ${({ theme }) => theme.lineHeights.relaxed};
+  color: ${({ theme }) => theme.colors.text.secondary};
+
+  /* melhor leitura no mobile */
+  text-align: left;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    text-align: center;
+  }
 
   ${animateIn}
-  animation-delay: 0.3s;
+  animation-delay: 80ms;
 `;
 
 export const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: ${({ theme }) => theme.spacing.lg};
 
-  gap: 2rem;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 2rem 1rem 0 1rem;
-
-  margin-top: 5px;
-  justify-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    gap: 3rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    grid-template-columns: 1fr;
   }
 `;
 
 export const StatItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: ${({ theme }) => theme.colors.background.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+  padding: ${({ theme }) => theme.spacing.lg};
+
+  display: grid;
+  gap: ${({ theme }) => theme.spacing.xs};
   text-align: center;
 
   ${animateIn}
 `;
 
 export const StatNumber = styled.span`
-  display: block;
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-weight: 800;
-
-  font-size: clamp(1.5rem, 6vw, 4rem);
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: clamp(1.75rem, 4vw, 3rem);
   line-height: 1;
-  color: ${({ theme }) => theme.palette.red};
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme }) => theme.colors.brand.accent};
 `;
 
 export const StatLabel = styled.span`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: ${({ theme }) => theme.palette.purple};
+  letter-spacing: 0.08em;
+  color: ${({ theme }) => theme.colors.text.muted};
 `;
