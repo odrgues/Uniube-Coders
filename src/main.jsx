@@ -1,13 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { ThemeProvider } from "styled-components";
-import theme from "./assets/styles/theme.js";
-import App from "./App.jsx";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { AppThemeProvider } from "./app/providers/AppThemeProvider";
+import { AppRoutes } from "./app/routes/AppRoutes";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AppThemeProvider>
+        <AppRoutes />
+      </AppThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
 );
