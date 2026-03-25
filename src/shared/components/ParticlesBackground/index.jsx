@@ -15,23 +15,44 @@ const ParticlesBackground = ({ children }) => {
     let height = 0;
     const particles = [];
 
-    const PARTICLE_COUNT = 50;
-    const MAX_DISTANCE = 110;
+    const isMobile = () => window.innerWidth <= 768;
+
+    const getConfig = () => {
+      const mobile = isMobile();
+
+      return {
+        particleCount: mobile ? 32 : 60,
+        maxDistance: mobile ? 90 : 130,
+        velocity: mobile ? 0.18 : 0.3,
+        radiusMin: mobile ? 0.5 : 0.8,
+        radiusRange: mobile ? 0.45 : 0.8,
+        particleOpacity: mobile ? 0.45 : 0.6,
+        lineOpacity: mobile ? 0.18 : 0.28,
+        lineWidth: mobile ? 0.6 : 0.9,
+      };
+    };
+
+    let config = getConfig();
 
     const setCanvasSize = () => {
       width = container.offsetWidth;
       height = container.offsetHeight;
-      canvas.width = width;
-      canvas.height = height;
+
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     class Particle {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.2;
-        this.vy = (Math.random() - 0.5) * 0.2;
-        this.radius = 1.5;
+        this.vx = (Math.random() - 0.5) * config.velocity;
+        this.vy = (Math.random() - 0.5) * config.velocity;
+        this.radius = Math.random() * config.radiusRange + config.radiusMin;
       }
 
       move() {
@@ -45,29 +66,29 @@ const ParticlesBackground = ({ children }) => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(8, 17, 32, 0.35)";
+        ctx.fillStyle = `rgba(15, 23, 42, ${config.particleOpacity})`;
         ctx.fill();
       }
     }
 
     const createParticles = () => {
       particles.length = 0;
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
+      for (let i = 0; i < config.particleCount; i++) {
         particles.push(new Particle());
       }
     };
 
     const connectParticles = () => {
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < MAX_DISTANCE) {
-            const opacity = 1 - distance / MAX_DISTANCE;
-            ctx.strokeStyle = `rgba(37, 99, 235, ${opacity * 0.22})`;
-            ctx.lineWidth = 0.7;
+          if (distance < config.maxDistance) {
+            const opacity = 1 - distance / config.maxDistance;
+            ctx.strokeStyle = `rgba(30, 41, 59, ${opacity * config.lineOpacity})`;
+            ctx.lineWidth = config.lineWidth;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -89,14 +110,15 @@ const ParticlesBackground = ({ children }) => {
       animationId = window.requestAnimationFrame(animate);
     };
 
-    setCanvasSize();
-    createParticles();
-    animate();
-
     const handleResize = () => {
+      config = getConfig();
       setCanvasSize();
       createParticles();
     };
+
+    setCanvasSize();
+    createParticles();
+    animate();
 
     window.addEventListener("resize", handleResize);
 

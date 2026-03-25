@@ -5,8 +5,8 @@ import NavBar from "./shared/NavBar/NavBar";
 import Footer from "./shared/Footer/Footer";
 
 import Home from "./pages/Home";
-import Programa from "./pages/Programa";
-import Faculdade from "./pages/Faculdade";
+import Programa from "./features/aboutProject/pages/AboutProject";
+import Faculdade from "./features/aboutUniube/pages/AboutUniube";
 
 function App() {
   return (

@@ -1,22 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import SpaceGrotesk from "../../assets/styles/fonts/SpaceGrotesk-VariableFont_wght.ttf";
-import Sora from "../../assets/styles/fonts/Sora-VariableFont_wght.ttf";
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Space Grotesk';
-    src: url(${SpaceGrotesk}) format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Sora';
-    src: url(${Sora}) format('truetype');
-    font-weight: 300 700;
-    font-display: swap;
-  }
-
   *,
   *::before,
   *::after {
@@ -38,12 +22,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.body};
     line-height: ${({ theme }) => theme.lineHeights.relaxed};
-    background:
-      radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 24%),
-      radial-gradient(circle at top right, rgba(34, 211, 238, 0.08), transparent 22%),
-      #f8fbff;
     color: ${({ theme }) => theme.colors.text.primary};
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   img, picture, video, canvas, svg {
@@ -73,10 +55,12 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-family: ${({ theme }) => theme.fonts.heading};
-  }
+h1, h2, h3, h4 {
+  font-family: ${({ theme }) => theme.fonts.heading};
+  letter-spacing: -0.02em;
+}
+
+
 
   p {
     margin: 0;

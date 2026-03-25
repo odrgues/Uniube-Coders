@@ -1,10 +1,18 @@
 import ParticlesBackground from "../ParticlesBackground";
-import { Background, Content, Subtitle, Title } from "./styles";
+import {
+  Background,
+  BackgroundLayer,
+  Content,
+  Subtitle,
+  Title,
+} from "./styles";
 
 const Banner = () => {
   return (
     <Background aria-label="Seção de boas-vindas">
-      <ParticlesBackground />
+      <BackgroundLayer>
+        <ParticlesBackground />
+      </BackgroundLayer>
 
       <Content>
         <Title>
