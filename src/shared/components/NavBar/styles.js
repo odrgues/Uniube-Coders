@@ -14,8 +14,6 @@ export const NavbarWrapper = styled.header`
     css`
       background: ${theme.colors.navbar.scrolled};
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid ${theme.colors.navbar.border};
-      box-shadow: ${theme.shadows.sm};
     `};
 `;
 

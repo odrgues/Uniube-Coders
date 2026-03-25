@@ -1,4 +1,4 @@
-import Navbar from "../../../shared/components/Navbar";
+import Navbar from "../../../shared/components/NavBar";
 import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
 import { projectBlocks, projectIntro } from "../data/projectContent";
