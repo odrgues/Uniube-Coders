@@ -1,7 +1,7 @@
 import Navbar from "../../../shared/components/NavBar";
 import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
-import { uniubeIntro } from "../data/uniubecontent";
+import { uniubeIntro } from "../data/uniubeContent";
 import {
   HeroSection,
   ImageWrapper,
