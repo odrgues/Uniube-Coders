@@ -1,4 +1,4 @@
-import Navbar from "../../../shared/components/Navbar";
+import Navbar from "../../../shared/components/NavBar";
 import Banner from "../../../shared/components/Banner";
 import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
