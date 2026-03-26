@@ -1,36 +1,33 @@
 import Navbar from "../../../shared/components/NavBar";
 import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
+
 import {
-  projectBlocks,
   projectClosing,
   projectHighlights,
   projectIntro,
+  projectSections,
+  projectStatement,
 } from "../data/projectContent";
 
 import {
-  AccentCard,
-  AccentText,
-  BlockContent,
-  BlockImage,
-  BlockKicker,
-  BlockSupport,
-  BlockText,
-  BlockTitle,
-  ClosingCard,
   ClosingSection,
   ClosingText,
-  ClosingTitle,
-  ContentBlock,
   HighlightCard,
+  HighlightDescription,
   HighlightGrid,
-  HighlightText,
   HighlightTitle,
-  IntroBadge,
   IntroLead,
   IntroSection,
+  SectionBlock,
+  SectionContent,
   SectionEyebrow,
+  SectionImage,
+  SectionParagraph,
   SectionTitle,
+  StatementBox,
+  StatementEyebrow,
+  StatementText,
 } from "../styles/aboutProject.styles";
 
 const AboutProject = () => {
@@ -42,50 +39,51 @@ const AboutProject = () => {
         <IntroSection>
           <Container>
             <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
-            <IntroBadge>{projectIntro.badge}</IntroBadge>
             <SectionTitle>{projectIntro.title}</SectionTitle>
             <IntroLead>{projectIntro.lead}</IntroLead>
-
-            <HighlightGrid>
-              {projectHighlights.map((item) => (
-                <HighlightCard key={item.title}>
-                  <HighlightTitle>{item.title}</HighlightTitle>
-                  <HighlightText>{item.text}</HighlightText>
-                </HighlightCard>
-              ))}
-            </HighlightGrid>
           </Container>
         </IntroSection>
 
         <Container>
-          {projectBlocks.map((block, index) => (
-            <ContentBlock key={block.id} $reverse={index % 2 !== 0}>
-              <BlockContent>
-                <BlockKicker>{block.kicker}</BlockKicker>
-                <BlockTitle>{block.title}</BlockTitle>
-                <BlockText>{block.text}</BlockText>
-                <BlockSupport>{block.support}</BlockSupport>
-              </BlockContent>
+          {projectSections.map((section) => (
+            <SectionBlock key={section.id} $reverse={section.reverse}>
+              <SectionContent>
+                <SectionEyebrow>{section.eyebrow}</SectionEyebrow>
+                <SectionTitle as="h2">{section.title}</SectionTitle>
 
-              {block.image ? (
-                <BlockImage>
-                  <img src={block.image} alt={block.alt} />
-                </BlockImage>
-              ) : (
-                <AccentCard>
-                  <AccentText>{block.spotlight}</AccentText>
-                </AccentCard>
-              )}
-            </ContentBlock>
+                {section.text.map((paragraph, index) => (
+                  <SectionParagraph key={index}>{paragraph}</SectionParagraph>
+                ))}
+              </SectionContent>
+
+              <SectionImage>
+                <img src={section.image} alt={section.alt} />
+              </SectionImage>
+            </SectionBlock>
           ))}
+        </Container>
+
+        <StatementBox>
+          <Container>
+            <StatementEyebrow>{projectStatement.eyebrow}</StatementEyebrow>
+            <StatementText>{projectStatement.text}</StatementText>
+          </Container>
+        </StatementBox>
+
+        <Container>
+          <HighlightGrid>
+            {projectHighlights.map((item) => (
+              <HighlightCard key={item.title}>
+                <HighlightTitle>{item.title}</HighlightTitle>
+                <HighlightDescription>{item.description}</HighlightDescription>
+              </HighlightCard>
+            ))}
+          </HighlightGrid>
         </Container>
 
         <ClosingSection>
           <Container>
-            <ClosingCard>
-              <ClosingTitle>{projectClosing.title}</ClosingTitle>
-              <ClosingText>{projectClosing.text}</ClosingText>
-            </ClosingCard>
+            <ClosingText>{projectClosing.text}</ClosingText>
           </Container>
         </ClosingSection>
       </main>
