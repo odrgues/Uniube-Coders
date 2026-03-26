@@ -1,8 +1,59 @@
-export const uniubeIntro = {
-  eyebrow: "Sobre a Uniube",
-  title: "A Uniube como espaço de formação, tecnologia e impacto social.",
-  text: "A Universidade de Uberaba (Uniube) é uma instituição de ensino superior com atuação consolidada no Triângulo Mineiro, reconhecida por sua trajetória na formação acadêmica e pelo compromisso com o desenvolvimento regional. Ao longo dos anos, a universidade ampliou sua presença em diversas áreas do conhecimento, incluindo cursos voltados à tecnologia, como Sistemas de Informação, Análise e Desenvolvimento de Sistemas e áreas emergentes como Ciência de Dados e Inteligência Artificial.\n\nInserido nesse contexto, o Uniube Coders surge como um projeto de extensão que leva para além da universidade o conhecimento construído em sala de aula. A iniciativa conecta estudantes universitários a alunos de escolas públicas, criando uma ponte entre o ensino superior e a educação básica por meio da programação.\n\nAo levar a tecnologia para dentro das escolas, o projeto traduz na prática o papel da universidade na sociedade, promovendo o acesso ao conhecimento de forma acessível e aplicada. As atividades desenvolvidas refletem não apenas o conteúdo aprendido nos cursos da área de tecnologia, mas também o compromisso com a educação, a troca de experiências e a construção de novas oportunidades.\n\nDessa forma, o Uniube Coders se consolida como uma extensão natural do ambiente acadêmico, onde o aprendizado ultrapassa os limites da universidade e passa a impactar diretamente a comunidade. Essa conexão fortalece tanto a formação dos estudantes universitários quanto o acesso de jovens ao universo da tecnologia, criando um ciclo contínuo de ensino, aprendizado e desenvolvimento.",
-  image:
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80",
-  alt: "Ambiente universitário com estudantes em contexto acadêmico",
+import uniubeTechImg from "../images/uniube-tech.jpeg";
+import marathon1 from "../images/maratona-1.jpg";
+import marathon2 from "../images/maratona-2.jpg";
+import marathon3 from "../images/maratona-3.jpg";
+import marathon4 from "../images/maratona-4.jpg";
+import nasaTeamImg from "../images/nasa-team.jpg";
+
+export const introText = `
+A Universidade de Uberaba (Uniube) é uma instituição de ensino superior com trajetória consolidada no Triângulo Mineiro, reconhecida pela formação acadêmica de qualidade e pelo compromisso com o desenvolvimento regional. Na área de tecnologia, a universidade amplia sua atuação com cursos que dialogam diretamente com as transformações do mercado e da sociedade, como Análise e Desenvolvimento de Sistemas, Ciência da Computação, Engenharia de Computação, Engenharia de Software, Inteligência Artificial e Ciência de Dados e Segurança da Informação. Nesse contexto, o Uniube Coders aproxima a formação universitária da comunidade ao levar programação, lógica e cultura digital para escolas, conectando o conhecimento construído na universidade a experiências práticas e acessíveis.
+`;
+
+export const uniubeSectionTexts = [
+  `A presença da Uniube na formação de profissionais da tecnologia reforça o papel da universidade na construção de um ecossistema de inovação, pesquisa e impacto social. Seus cursos conectam teoria e prática, preparando estudantes para atuar em desenvolvimento de software, ciência de dados, inteligência artificial, engenharia, segurança da informação e soluções digitais voltadas às demandas contemporâneas.`,
+  `É justamente nesse ambiente que o Uniube Coders ganha força. O projeto nasce da vivência universitária e transforma conhecimento técnico em experiências educativas com propósito, aproximando estudantes, escolas e comunidade por meio da programação e da cultura maker.`,
+];
+
+export const nasaTexts = [
+  `Entre as experiências que marcam a trajetória do projeto, está a participação de uma equipe em um hackathon da NASA, alcançando o top 45 mundial. Esse resultado representa não apenas excelência técnica, mas também criatividade, dedicação e a capacidade de transformar conhecimento em soluções com alcance internacional.`,
+  `Mais do que uma conquista, esse momento simboliza o potencial dos estudantes quando encontram oportunidades para aprender, colaborar e inovar em ambientes desafiadores.`,
+];
+
+export const closingText = `
+Na Uniube, universidade, inovação e compromisso caminham juntos para ampliar horizontes e criar oportunidades por meio da tecnologia.
+`;
+
+export const instagramEmbedUrl =
+  "https://www.instagram.com/reel/DSVrjIfCauW/?utm_source=ig_embed&amp;utm_campaign=loading";
+
+export const featuredImages = {
+  uniubeTechImg,
+  nasaTeamImg,
 };
+
+export const marathonSlides = [
+  {
+    image: marathon1,
+    title: "Maratona de Programação",
+    description: "Desafios práticos e trabalho em equipe.",
+    eyebrow: "Edição 1",
+  },
+  {
+    image: marathon2,
+    title: "Aprendizado colaborativo",
+    description: "Ambiente de inovação e troca de conhecimento.",
+    eyebrow: "Edição 2",
+  },
+  {
+    image: marathon3,
+    title: "Apresentação de projetos",
+    description: "Soluções desenvolvidas pelos estudantes.",
+    eyebrow: "Edição 3",
+  },
+  {
+    image: marathon4,
+    title: "Experiência prática",
+    description: "Tecnologia aplicada na prática.",
+    eyebrow: "Edição 4",
+  },
+];

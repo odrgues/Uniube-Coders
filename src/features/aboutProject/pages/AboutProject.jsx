@@ -1,6 +1,7 @@
 import Navbar from "../../../shared/components/NavBar";
 import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
+import Slider from "../../../shared/components/Slider";
 import { projectBlocks, projectIntro } from "../data/projectContent";
 import {
   BlockContent,
@@ -32,7 +33,7 @@ const AboutProject = () => {
                 <BlockTitle>{block.title}</BlockTitle>
                 <BlockText>{block.text}</BlockText>
               </BlockContent>
-
+              <Slider images={block.sliderImages} />
               <BlockImage>
                 <img src={block.image} alt={block.alt} />
               </BlockImage>

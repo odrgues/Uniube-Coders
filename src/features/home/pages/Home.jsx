@@ -10,8 +10,6 @@ import {
   CTAButton,
   Grid,
   HighlightCard,
-  Pill,
-  PillGrid,
   Section,
   SectionDescription,
   SectionEyebrow,

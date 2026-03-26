@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const IntroSection = styled.section`
   padding: calc(${({ theme }) => theme.layout.navbar.height} + 56px) 0
     clamp(28px, 4vw, 48px);
+  background: #0d7c66;
 `;
 
 export const SectionEyebrow = styled.span`
@@ -23,7 +24,7 @@ export const SectionTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.xxl};
   line-height: 1.08;
   color: ${({ theme }) => theme.colors.text.primary};
-
+  background: pink;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     max-width: 100%;
   }
