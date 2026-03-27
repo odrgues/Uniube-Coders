@@ -15,7 +15,7 @@ export const uniubeSectionTexts = [
 ];
 
 export const nasaTexts = [
-  `Entre as experiências que marcam a trajetória do projeto, está a participação de uma equipe em um hackathon da NASA, alcançando o top 45 mundial. Esse resultado representa não apenas excelência técnica, mas também criatividade, dedicação e a capacidade de transformar conhecimento em soluções com alcance internacional.`,
+  `Entre as experiências que marcam a trajetória da Uniube, está a participação de uma equipe em um hackathon da NASA, alcançando o top 45 mundial. Esse resultado representa não apenas excelência técnica, mas também criatividade, dedicação e a capacidade de transformar conhecimento em soluções com alcance internacional.`,
   `Mais do que uma conquista, esse momento simboliza o potencial dos estudantes quando encontram oportunidades para aprender, colaborar e inovar em ambientes desafiadores.`,
 ];
 

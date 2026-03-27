@@ -15,7 +15,7 @@ const palette = {
 
   blue: {
     deep: "#1e3a8a",
-    primary: "#334155",
+    primary: "#093FB4",
     soft: "#E2E8F0",
     glow: "rgba(51, 65, 85, 0.12)",
   },

@@ -13,6 +13,10 @@ const slideInLeft = keyframes`
 
 export const Background = styled.section`
   width: 100%;
+  background: ${({ theme }) => theme.palette.blue.primary};
+
+  //background: #ffb700;
+  //background: #240046;
   min-height: clamp(72vh, 82vh, 82vh);
   padding-top: ${({ theme }) => theme.layout.navbar.height};
   position: relative;
@@ -75,14 +79,16 @@ export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.hero};
   font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   line-height: ${({ theme }) => theme.lineHeights.tight};
-  color: ${({ theme }) => theme.colors.text.primary};
-  background: ${({ theme }) => theme.colors.background.surface};
+  color: #ffff;
+  background: ${({ theme }) => theme.palette.blue.primary};
   opacity: 0;
   animation: ${slideInLeft} 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   animation-delay: 0.08s;
 
   span {
-    color: ${({ theme }) => theme.colors.brand.secondary};
+    //color: #e0aaff;
+    //color: #64b5f6;
+    color: #a9d6e5;
   }
 `;
 
@@ -90,9 +96,9 @@ export const Subtitle = styled.p`
   width: min(100%, 62ch);
   margin-top: -30px;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: #ffff;
   line-height: ${({ theme }) => theme.lineHeights.relaxed};
-  background: ${({ theme }) => theme.colors.background.surface};
+  background: ${({ theme }) => theme.palette.blue.primary};
   opacity: 0;
   animation: ${slideInLeft} 0.95s cubic-bezier(0.2, 0.5, 0.5, 1) forwards;
   animation-delay: 0.2s;

@@ -7,13 +7,12 @@ export const NavbarWrapper = styled.header`
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
   transition: ${({ theme }) => theme.transitions.normal};
-  background: transparent;
+  background: white;
 
   ${({ $scrolled, theme }) =>
     $scrolled &&
     css`
-      background: ${theme.colors.navbar.scrolled};
-      backdrop-filter: blur(16px);
+      background: ${theme.palette.white};
     `};
 `;
 
@@ -88,7 +87,7 @@ export const NavLinkItem = styled(NavLink)`
   }
 
   &.active {
-    background: ${({ theme }) => theme.palette.cyan.soft};
+    // background: ${({ theme }) => theme.palette.cyan.soft};
   }
 
   &.active::after {
@@ -96,7 +95,7 @@ export const NavLinkItem = styled(NavLink)`
   }
 
   &:hover {
-    background: ${({ theme }) => theme.palette.cyan.soft};
+    //background: ${({ theme }) => theme.palette.cyan.soft};
     transform: scale(1.04);
     box-shadow: ${({ theme }) => theme.shadows.sm};
   }

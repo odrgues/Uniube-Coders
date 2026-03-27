@@ -20,8 +20,8 @@ const Banner = () => {
         </Title>
 
         <Subtitle>
-          Projeto de formação de desenvolvedores com visão prática, criatividade
-          e base para crescer junto com a tecnologia.
+          Projeto de formação em tecnologia com foco na prática, criatividade e
+          construção real de conhecimento.
         </Subtitle>
       </Content>
     </Background>
