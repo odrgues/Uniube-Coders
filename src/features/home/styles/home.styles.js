@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 export const Section = styled.section`
   padding: ${({ theme }) => theme.spacing.container} 0;
-  background: #dcd6f7; //mudar cor aqui
+  background: #bbdefb;
+  // background: ${({ $light }) => ($light ? "#f8fafc" : "#ffffff")};
 `;
 
 export const SectionEyebrow = styled.span`
+  margin-top: 15px;
   display: inline-block;
-  margin-bottom: clamp(20px, 3vw, 32px);
+  margin-bottom: clamp(2px, 3vw, 1px);
   padding: clamp(0.4rem, 0.8vw, 0.45rem) clamp(0.8rem, 1.6vw, 0.9rem);
   border-radius: ${({ theme }) => theme.radius.full};
   background: #ffe08f; // mudar cor aqui
@@ -18,11 +20,14 @@ export const SectionEyebrow = styled.span`
 `;
 
 export const SectionTitle = styled.h2`
+  margin-top: 5px;
+
   width: min(100%, 30ch);
   font-size: ${({ theme }) => theme.fontSizes.xxl};
   line-height: ${({ theme }) => theme.lineHeights.tight};
-  margin-bottom: clamp(20px, 3vw, 32px);
-  color: #bf1a1a; //mudar cor aqui
+  margin-bottom: clamp(20px, 2vw, 30px);
+  color: #240046;
+  //color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const SectionDescription = styled.p`
@@ -40,24 +45,21 @@ export const Grid = styled.div`
 `;
 
 export const HighlightCard = styled.article`
-  padding: clamp(20px, 3vw, 32px);
-  border-radius: ${({ theme }) => theme.radius.lg};
-  background: ${({ theme }) => theme.colors.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.card.border};
-  box-shadow: ${({ theme }) => theme.shadows.sm};
-  backdrop-filter: blur(14px);
-  transition: ${({ theme }) => theme.transitions.normal};
+  padding: clamp(20px, 3vw, 28px);
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  transition: 0.2s ease;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: ${({ theme }) => theme.shadows.md};
+    transform: translateY(-4px);
   }
 
   h3 {
-    margin-bottom: ${({ theme }) => theme.spacing.sm};
+    margin-bottom: 10px;
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    line-height: ${({ theme }) => theme.lineHeights.tight};
-    color: ${({ theme }) => theme.palette.blue.deep};
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 
   p {
@@ -66,85 +68,50 @@ export const HighlightCard = styled.article`
     line-height: ${({ theme }) => theme.lineHeights.relaxed};
   }
 `;
+export const ImageBlock = styled.div`
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: clamp(280px, 40vw, 480px);
 
-export const PillGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(10px, 1.4vw, 16px);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 `;
+export const ImageOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: clamp(20px, 3vw, 32px);
+  width: 100%;
 
-export const Pill = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(0.7rem, 1vw, 0.85rem) clamp(0.95rem, 1.4vw, 1.15rem);
-  border-radius: ${({ theme }) => theme.radius.full};
-  background: ${({ theme }) => theme.colors.card.background};
-  color: ${({ theme }) => theme.colors.brand.primary};
-  border: 1px solid rgba(37, 99, 235, 0.12);
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
-  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+
+  h3 {
+    color: white;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    margin-bottom: 6px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+  }
 `;
 
 export const CTABox = styled.div`
-  position: relative;
-  overflow: hidden;
   padding: clamp(24px, 4vw, 40px);
-  border-radius: ${({ theme }) => theme.radius.lg};
-  //background: ${({ theme }) => theme.colors.card.background}; //mudar cor aqui
-  background: #ffff;
-  border: 1px solid rgba(6, 182, 212, 0.14);
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: clamp(16px, 2vw, 24px);
+  gap: 24px;
   flex-wrap: wrap;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    width: clamp(120px, 18vw, 180px);
-    height: clamp(120px, 18vw, 180px);
-    border-radius: 50%;
-    //background: ${({ theme }) => theme.palette.cyan.soft}; //mudar cor aqui
-    filter: blur(40px);
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: -30px;
-    width: clamp(120px, 16vw, 160px);
-    height: clamp(120px, 16vw, 160px);
-    border-radius: 50%;
-    background: ${({ theme }) => theme.palette.blue.glow};
-    filter: blur(42px);
-    z-index: 0;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-export const CTAContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: clamp(8px, 1vw, 12px);
-  flex: 1 1 420px;
 `;
 
 export const CTATitle = styled.h3`

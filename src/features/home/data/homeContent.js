@@ -2,23 +2,23 @@ export const highlights = [
   {
     title: "Aprender fazendo",
     description:
-      "Aqui, os alunos colocam a mão na massa e criam seus primeiros projetos de programação de forma simples e divertida.",
+      "Você começa a programar desde os primeiros encontros, entendendo como as coisas funcionam na prática.",
   },
   {
-    title: "Crescimento contínuo",
+    title: "Aprendizado no seu ritmo",
     description:
-      "Incentivamos cada estudante a evoluir no seu ritmo, descobrindo novas habilidades e ganhando confiança.",
+      "Cada atividade acompanha o seu desenvolvimento, respeitando seu tempo e construindo confiança.",
   },
   {
-    title: "Aprender juntos",
+    title: "Aprender junto faz diferença",
     description:
-      "Acreditamos na troca de conhecimento, no apoio mútuo e na construção de uma comunidade que cresce unida.",
+      "Você aprende com outras pessoas, troca ideias e encontra soluções em conjunto.",
   },
 ];
 
 export const homeIntro = {
   eyebrow: "Projeto acadêmico com visão de futuro",
-  title: "Tecnologia que transforma histórias - começando pela educação.",
+  title: "Aqui você aprende programação fazendo.",
   description:
     "Bem-vindo ao mundo da programação! O Uniube Coders conecta estudantes à tecnologia de forma simples, prática e acessível. Aqui, você aprende criando, explora novas ideias e percebe que é capaz de ir muito mais longe.",
 };
