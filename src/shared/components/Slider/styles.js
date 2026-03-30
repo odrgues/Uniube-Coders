@@ -6,12 +6,13 @@ export const SliderWrapper = styled.section`
   overflow: hidden;
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.sm};
-  background: ${({ theme }) => theme.colors.background.soft};
+  background: ${({ theme }) => theme.colors.bg.soft};
   isolation: isolate;
 `;
 
 export const Track = styled.div`
   display: flex;
+  transform: translateX(-${({ $current }) => $current * 100}%);
   transition: transform 0.45s ease;
   will-change: transform;
 `;

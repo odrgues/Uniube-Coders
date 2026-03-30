@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
+import { TbWorldSearch } from "react-icons/tb";
+
 import Container from "../Container";
 import {
   Bottom,
@@ -9,8 +13,6 @@ import {
   Social,
 } from "./styles";
 
-import { FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
-import { TbWorldSearch } from "react-icons/tb";
 import logo from "../../../assets/images/logo-uniube.png";
 
 const Footer = () => {
@@ -30,9 +32,9 @@ const Footer = () => {
 
           <Column $hideOnMobile>
             <h4>Links</h4>
-            <a href="/">Home</a>
-            <a href="/programa">Sobre o projeto</a>
-            <a href="/faculdade">Uniube</a>
+            <Link to="/">Home</Link>
+            <Link to="/programa">Sobre o projeto</Link>
+            <Link to="/faculdade">Uniube</Link>
           </Column>
 
           <Column>
@@ -45,7 +47,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                uniube.com.br
+                uniube.br
               </a>
             </span>
 
@@ -60,13 +62,18 @@ const Footer = () => {
             <Social>
               <a
                 href="https://www.instagram.com/uniubeoficial/"
-                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Uniube"
               >
                 <FaInstagram />
               </a>
+
               <a
                 href="https://www.linkedin.com/school/uniubeoficial/posts/?feedView=all"
-                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn da Uniube"
               >
                 <FaLinkedin />
               </a>
