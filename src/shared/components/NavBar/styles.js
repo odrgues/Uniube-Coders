@@ -19,8 +19,6 @@ export const NavbarWrapper = styled.header`
     $solid &&
     css`
       background: ${theme.colors.surface.glass};
-      border-bottom-color: ${theme.colors.border.soft};
-      box-shadow: ${theme.shadows.sm};
       backdrop-filter: blur(14px);
     `};
 
@@ -50,9 +48,10 @@ export const Brand = styled(Link)`
 
   img {
     width: auto;
-    height: clamp(36px, 4vw, 44px);
+    height: clamp(32px, 4vw, 40px);
     object-fit: contain;
     transition: transform ${({ theme }) => theme.transitions.fast};
+    filter: ${({ $solid }) => ($solid ? "none" : "brightness(0) invert(1)")};
   }
 
   &:hover img {
@@ -61,13 +60,13 @@ export const Brand = styled(Link)`
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     img {
-      height: 38px;
+      height: 32px;
     }
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
     img {
-      height: 34px;
+      height: 30px;
     }
   }
 `;
@@ -96,10 +95,9 @@ export const NavLinkItem = styled(NavLink)`
   border-radius: ${({ theme }) => theme.radius.full};
 
   color: ${({ theme, $solid }) =>
-    $solid ? theme.colors.text.primary : theme.colors.text.inverse};
+    $solid ? theme.colors.text.secondary : theme.colors.text.heroSubtle};
 
   font-size: ${({ theme }) => theme.fontSizes.nav};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: 1;
   white-space: nowrap;
 
@@ -125,9 +123,10 @@ export const NavLinkItem = styled(NavLink)`
   }
 
   &:hover {
-    background: ${({ theme, $solid }) =>
+    // background: ${({ theme, $solid }) =>
       $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.12)"};
-    box-shadow: ${({ theme, $solid }) => ($solid ? theme.shadows.sm : "none")};
+    //box-shadow: ${({ theme, $solid }) =>
+      $solid ? theme.shadows.sm : "none"};
   }
 
   &:hover::after,
@@ -138,7 +137,7 @@ export const NavLinkItem = styled(NavLink)`
   &.active {
     color: ${({ theme, $solid }) =>
       $solid ? theme.colors.brand.primary : theme.colors.text.inverse};
-    background: ${({ theme, $solid }) =>
+    //background: ${({ theme, $solid }) =>
       $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.16)"};
   }
 
@@ -181,14 +180,14 @@ export const NavLinkItem = styled(NavLink)`
 `;
 
 export const MenuButton = styled.button`
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  border-radius: ${({ theme }) => theme.radius.full};
+  border: none;
   background: transparent;
 
   transition:
@@ -292,6 +291,6 @@ export const MobilePanel = styled.aside`
 
   @media ${({ theme }) => theme.media.down.sm} {
     padding: 14px;
-    gap: 8px;
+    gap: 2px;
   }
 `;

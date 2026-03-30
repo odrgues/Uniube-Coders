@@ -114,7 +114,7 @@ export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.hero};
   font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   line-height: ${({ theme }) => theme.lineHeights.tight};
-  color: ${({ theme }) => theme.colors.text.titleBanner};
+  color: ${({ theme }) => theme.colors.text.hero};
   background: ${({ theme }) => theme.colors.brand.banner};
   opacity: 0;
   animation: ${slideInLeft} 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -168,7 +168,7 @@ export const Subtitle = styled.p`
   max-width: 56ch;
   margin: 0;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text.subtitle};
+  color: ${({ theme }) => theme.colors.text.heroSubtle};
   background: ${({ theme }) => theme.colors.brand.banner};
   line-height: ${({ theme }) => theme.lineHeights.relaxed};
   opacity: 0;

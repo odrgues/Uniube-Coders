@@ -106,6 +106,7 @@ export const Controls = styled.div`
   position: absolute;
   right: clamp(12px, 2vw, 20px);
   bottom: clamp(12px, 2vw, 20px);
+
   z-index: 3;
   display: flex;
   gap: 0.4rem;
@@ -121,6 +122,7 @@ export const ArrowButton = styled.button`
   background: rgba(255, 255, 255, 0.14);
   color: ${({ theme }) => theme.colors.text.inverse};
   backdrop-filter: blur(8px);
+  border: none;
 
   font-size: 0.9rem;
   transition: ${({ theme }) => theme.transitions.fast};
@@ -135,6 +137,7 @@ export const Dots = styled.div`
   position: absolute;
   left: clamp(12px, 2vw, 20px);
   bottom: clamp(14px, 2vw, 22px);
+
   z-index: 3;
   display: flex;
   align-items: center;
@@ -145,6 +148,7 @@ export const Dots = styled.div`
 export const Dot = styled.button`
   width: ${({ $active }) => ($active ? "14px" : "6px")};
   height: 6px;
+  border: none;
   border-radius: ${({ theme }) => theme.radius.full};
   background: ${({ $active }) =>
     $active ? "rgba(255,255,255,0.96)" : "rgba(255,255,255,0.4)"};

@@ -70,7 +70,11 @@ const Navbar = () => {
       <NavbarWrapper $solid={isSolid}>
         <Container>
           <NavInner>
-            <Brand to="/" aria-label="Ir para a página inicial">
+            <Brand
+              to="/"
+              aria-label="Ir para a página inicial"
+              $solid={isSolid}
+            >
               <img src={logo} alt="Uniube Coders" />
             </Brand>
 
