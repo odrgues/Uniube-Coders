@@ -104,12 +104,12 @@ const theme = {
     },
 
     brand: {
-      primary: "#093FB4",
+      primary: "#858ae3",
       secondary: "#245DFF",
       tertiary: "#7AAEDC",
       highlight: "#00CFE8",
       accent: "#FACC15",
-      banner: "#2196F3",
+      banner: "#093FB4",
       eyebrow: "#FFE68A",
     },
 
