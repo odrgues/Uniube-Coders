@@ -6,14 +6,27 @@ export const NavbarWrapper = styled.header`
   inset: 0 0 auto 0;
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
-  transition: ${({ theme }) => theme.transitions.normal};
-  //background: white;
+  transition:
+    background ${({ theme }) => theme.transitions.normal},
+    box-shadow ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal},
+    backdrop-filter ${({ theme }) => theme.transitions.normal};
 
-  ${({ $scrolled, theme }) =>
-    $scrolled &&
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  ${({ $solid, theme }) =>
+    $solid &&
     css`
-      background: ${theme.palette.white};
+      background: ${theme.colors.surface.glass};
+      border-bottom-color: ${theme.colors.border.soft};
+      box-shadow: ${theme.shadows.sm};
+      backdrop-filter: blur(14px);
     `};
+
+  @media ${({ theme }) => theme.media.down.md} {
+    height: ${({ theme }) => theme.layout.navbar.heightMobile};
+  }
 `;
 
 export const NavInner = styled.div`
@@ -21,33 +34,55 @@ export const NavInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(12px, 2vw, 16px);
+  gap: clamp(12px, 2vw, 20px);
+
+  @media ${({ theme }) => theme.media.down.md} {
+    min-height: ${({ theme }) => theme.layout.navbar.heightMobile};
+  }
 `;
 
 export const Brand = styled(Link)`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  border-radius: ${({ theme }) => theme.radius.md};
+  transition: transform ${({ theme }) => theme.transitions.fast};
 
   img {
-    height: clamp(36px, 4vw, 42px);
     width: auto;
+    height: clamp(36px, 4vw, 44px);
     object-fit: contain;
-    transition: ${({ theme }) => theme.transitions.fast};
+    transition: transform ${({ theme }) => theme.transitions.fast};
   }
 
   &:hover img {
     transform: scale(1.03);
+  }
+
+  @media ${({ theme }) => theme.media.between.mdLg} {
+    img {
+      height: 38px;
+    }
+  }
+
+  @media ${({ theme }) => theme.media.down.sm} {
+    img {
+      height: 34px;
+    }
   }
 `;
 
 export const DesktopNav = styled.nav`
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.4vw, 18px);
+  gap: clamp(8px, 1.2vw, 18px);
 
-  @media (max-width: calc(${({ theme }) => theme.breakpoints.md} - 0.02px)) {
+  @media ${({ theme }) => theme.media.down.md} {
     display: none;
+  }
+
+  @media ${({ theme }) => theme.media.between.mdLg} {
+    gap: 10px;
   }
 `;
 
@@ -56,91 +91,153 @@ export const NavLinkItem = styled(NavLink)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-height: clamp(38px, 4vw, 42px);
-  padding: 0 clamp(12px, 1.8vw, 18px);
+  min-height: 42px;
+  padding-inline: clamp(12px, 1.6vw, 18px);
   border-radius: ${({ theme }) => theme.radius.full};
+
+  color: ${({ theme, $solid }) =>
+    $solid ? theme.colors.text.primary : theme.colors.text.inverse};
 
   font-size: ${({ theme }) => theme.fontSizes.nav};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  color: ${({ theme }) => theme.colors.text.primary};
+  line-height: 1;
+  white-space: nowrap;
 
   background: transparent;
 
   transition:
-    transform ${({ theme }) => theme.transitions.fast},
-    background ${({ theme }) => theme.transitions.fast},
     color ${({ theme }) => theme.transitions.fast},
-    box-shadow ${({ theme }) => theme.transitions.fast};
+    background ${({ theme }) => theme.transitions.fast},
+    box-shadow ${({ theme }) => theme.transitions.fast},
+    transform ${({ theme }) => theme.transitions.fast};
 
   &::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: clamp(5px, 0.8vw, 8px);
+    bottom: 7px;
     transform: translateX(-50%);
-    width: 0%;
+    width: 0;
     height: 2px;
     border-radius: ${({ theme }) => theme.radius.full};
     background: ${({ theme }) => theme.colors.brand.secondary};
-    transition: ${({ theme }) => theme.transitions.fast};
-  }
-
-  &.active {
-    // background: ${({ theme }) => theme.palette.cyan.soft};
-  }
-
-  &.active::after {
-    width: calc(100% - clamp(20px, 3vw, 28px));
+    transition: width ${({ theme }) => theme.transitions.fast};
   }
 
   &:hover {
-    //background: ${({ theme }) => theme.palette.cyan.soft};
-    transform: scale(1.04);
-    box-shadow: ${({ theme }) => theme.shadows.sm};
+    background: ${({ theme, $solid }) =>
+      $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.12)"};
+    box-shadow: ${({ theme, $solid }) => ($solid ? theme.shadows.sm : "none")};
   }
 
-  &:hover::after {
-    width: calc(100% - clamp(20px, 3vw, 28px));
+  &:hover::after,
+  &.active::after {
+    width: calc(100% - 24px);
+  }
+
+  &.active {
+    color: ${({ theme, $solid }) =>
+      $solid ? theme.colors.brand.primary : theme.colors.text.inverse};
+    background: ${({ theme, $solid }) =>
+      $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.16)"};
+  }
+
+  @media ${({ theme }) => theme.media.between.mdLg} {
+    min-height: 40px;
+    padding-inline: 14px;
+    font-size: 0.9rem;
+  }
+
+  @media ${({ theme }) => theme.media.down.md} {
+    width: 100%;
+    min-height: 48px;
+    justify-content: flex-start;
+    padding-inline: 16px;
+    border-radius: ${({ theme }) => theme.radius.md};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    color: ${({ theme }) => theme.colors.text.primary};
+
+    &::after {
+      left: 16px;
+      transform: none;
+      bottom: 8px;
+    }
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.surface.highlight};
+      box-shadow: none;
+    }
+
+    &.active {
+      color: ${({ theme }) => theme.colors.brand.primary};
+      background: ${({ theme }) => theme.colors.surface.highlight};
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 32px;
+    }
   }
 `;
 
 export const MenuButton = styled.button`
-  width: clamp(40px, 5vw, 44px);
-  height: clamp(40px, 5vw, 44px);
+  width: 44px;
+  height: 44px;
   display: none;
-  border-radius: ${({ theme }) => theme.radius.full};
-
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
+  border-radius: ${({ theme }) => theme.radius.full};
+  background: transparent;
 
   transition:
-    transform ${({ theme }) => theme.transitions.fast},
+    background ${({ theme }) => theme.transitions.fast},
     box-shadow ${({ theme }) => theme.transitions.fast},
-    background ${({ theme }) => theme.transitions.fast};
+    transform ${({ theme }) => theme.transitions.fast};
 
   span {
     width: 18px;
     height: 2px;
-    background: ${({ theme }) => theme.colors.text.primary};
     border-radius: ${({ theme }) => theme.radius.full};
-    transition: ${({ theme }) => theme.transitions.fast};
+    background: ${({ theme, $solid }) =>
+      $solid ? theme.colors.text.primary : theme.colors.text.inverse};
+    transition:
+      transform ${({ theme }) => theme.transitions.fast},
+      opacity ${({ theme }) => theme.transitions.fast},
+      background ${({ theme }) => theme.transitions.fast};
+    transform-origin: center;
   }
 
+  ${({ $open }) =>
+    $open &&
+    css`
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    `}
+
   &:hover {
-    transform: scale(1.04);
-    box-shadow: ${({ theme }) => theme.shadows.sm};
-    background: ${({ theme }) => theme.palette.cyan.soft};
+    background: ${({ theme, $solid }) =>
+      $solid ? theme.palette.cyan.soft : "rgba(255, 255, 255, 0.12)"};
+    box-shadow: ${({ theme, $solid }) => ($solid ? theme.shadows.sm : "none")};
   }
 
   &:hover span {
-    background: ${({ theme }) => theme.colors.brand.secondary};
+    background: ${({ theme, $solid }) =>
+      $solid ? theme.colors.brand.secondary : theme.colors.text.inverse};
   }
 
-  @media (max-width: calc(${({ theme }) => theme.breakpoints.md} - 0.02px)) {
-    display: flex;
+  @media ${({ theme }) => theme.media.down.md} {
+    display: inline-flex;
   }
 `;
 
@@ -148,46 +245,53 @@ export const Backdrop = styled.div`
   position: fixed;
   inset: 0;
   z-index: ${({ theme }) => theme.zIndex.overlay};
-  background: rgba(15, 23, 42, 0.12);
+  background: ${({ theme }) => theme.colors.bg.overlay};
   backdrop-filter: blur(4px);
 
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
 
-  transition: ${({ theme }) => theme.transitions.normal};
+  transition:
+    opacity ${({ theme }) => theme.transitions.normal},
+    visibility ${({ theme }) => theme.transitions.normal};
 `;
 
 export const MobilePanel = styled.aside`
   position: fixed;
-  top: calc(
-    ${({ theme }) => theme.layout.navbar.height} + clamp(8px, 1vw, 12px)
-  );
-  right: clamp(12px, 2vw, 16px);
-  left: clamp(12px, 2vw, 16px);
-
+  top: calc(${({ theme }) => theme.layout.navbar.heightMobile} + 8px);
+  left: ${({ theme }) => theme.layout.container.gutter};
+  right: ${({ theme }) => theme.layout.container.gutter};
   z-index: ${({ theme }) => theme.zIndex.mobileMenu};
 
   display: none;
   flex-direction: column;
-  gap: clamp(10px, 1.4vw, 16px);
-
-  padding: clamp(18px, 2vw, 24px);
+  gap: 10px;
+  padding: 16px;
   border-radius: ${({ theme }) => theme.radius.lg};
 
-  background: ${({ theme }) => theme.colors.navbar.mobile};
-  border: 1px solid ${({ theme }) => theme.colors.navbar.border};
+  background: ${({ theme }) => theme.colors.surface.glassStrong};
+  border: 1px solid ${({ theme }) => theme.colors.border.soft};
   box-shadow: ${({ theme }) => theme.shadows.md};
   backdrop-filter: blur(18px);
 
   transform: ${({ $open }) =>
-    $open ? "translateY(0) scale(1)" : "translateY(-16px) scale(0.98)"};
-
+    $open ? "translateY(0) scale(1)" : "translateY(-12px) scale(0.98)"};
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
 
-  transition: ${({ theme }) => theme.transitions.normal};
+  transition:
+    transform ${({ theme }) => theme.transitions.normal},
+    opacity ${({ theme }) => theme.transitions.normal},
+    visibility ${({ theme }) => theme.transitions.normal};
 
-  @media (max-width: calc(${({ theme }) => theme.breakpoints.md} - 0.02px)) {
+  @media ${({ theme }) => theme.media.down.md} {
     display: flex;
+  }
+
+  @media ${({ theme }) => theme.media.down.sm} {
+    padding: 14px;
+    gap: 8px;
   }
 `;

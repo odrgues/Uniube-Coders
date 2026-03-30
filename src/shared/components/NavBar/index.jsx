@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Backdrop,
   Brand,
@@ -22,7 +22,10 @@ const links = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/";
+  const isSolid = !isHome || scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,30 +33,55 @@ const Navbar = () => {
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
+    if (!mobileOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileOpen]);
+
+  const handleToggleMenu = () => {
+    setMobileOpen((prev) => !prev);
+  };
+
+  const handleCloseMenu = () => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  };
 
   return (
     <>
-      <NavbarWrapper $scrolled={scrolled}>
+      <NavbarWrapper $solid={isSolid}>
         <Container>
           <NavInner>
-            <Brand to="/">
+            <Brand to="/" aria-label="Ir para a página inicial">
               <img src={logo} alt="Uniube Coders" />
             </Brand>
 
-            <DesktopNav>
+            <DesktopNav aria-label="Navegação principal">
               {links.map((link) => (
                 <NavLinkItem
                   key={link.to}
                   to={link.to}
-                  $active={location.pathname === link.to}
+                  end={link.to === "/"}
+                  $solid={isSolid}
+                  onClick={handleCloseMenu}
                 >
                   {link.label}
                 </NavLinkItem>
@@ -62,8 +90,12 @@ const Navbar = () => {
 
             <MenuButton
               type="button"
-              aria-label="Abrir menu"
-              onClick={() => setMobileOpen((prev) => !prev)}
+              $solid={isSolid}
+              $open={mobileOpen}
+              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              onClick={handleToggleMenu}
             >
               <span />
               <span />
@@ -73,14 +105,25 @@ const Navbar = () => {
         </Container>
       </NavbarWrapper>
 
-      <Backdrop $open={mobileOpen} onClick={() => setMobileOpen(false)} />
+      <Backdrop
+        $open={mobileOpen}
+        aria-hidden={!mobileOpen}
+        onClick={handleCloseMenu}
+      />
 
-      <MobilePanel $open={mobileOpen}>
+      <MobilePanel
+        id="mobile-navigation"
+        $open={mobileOpen}
+        aria-hidden={!mobileOpen}
+        aria-label="Menu mobile"
+      >
         {links.map((link) => (
           <NavLinkItem
             key={link.to}
             to={link.to}
-            $active={location.pathname === link.to}
+            end={link.to === "/"}
+            $solid
+            onClick={handleCloseMenu}
           >
             {link.label}
           </NavLinkItem>
