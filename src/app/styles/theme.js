@@ -14,55 +14,76 @@ const palette = {
   },
 
   blue: {
-    deep: "#072B7A",
-    primary: "#093FB4",
-    secondary: "#2563EB",
-    electric: "#3B82F6",
-    soft: "#EAF1FF",
-    surface: "#F5F8FF",
-    light: "#9ED8F3",
+    50: "#F5F8FF",
+    100: "#EAF1FF",
+    400: "#3B82F6",
+    500: "#2563EB",
+    700: "#093FB4",
+    900: "#072B7A",
     glow: "rgba(37, 99, 235, 0.18)",
   },
 
   cyan: {
-    primary: "#22D3EE",
+    400: "#22D3EE",
     soft: "rgba(34, 211, 238, 0.12)",
     glow: "rgba(34, 211, 238, 0.22)",
   },
 
   yellow: {
-    primary: "#FACC15",
-    soft: "#FFE68A",
+    400: "#FACC15",
+    300: "#FFE68A",
     glow: "rgba(250, 204, 21, 0.20)",
   },
 
   purple: {
-    deep: "#27005D",
+    900: "#27005D",
   },
+
+  success: "#0F9D58",
+  danger: "#DC2626",
 };
 
 const breakpoints = {
-  sm: "480px",
-  md: "768px",
-  lg: "1024px",
-  xl: "1180px",
-  xxl: "1440px",
+  xs: 360,
+  sm: 480,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1440,
 };
 
-const media = {
-  sm: `(min-width: ${breakpoints.sm})`,
-  md: `(min-width: ${breakpoints.md})`,
-  lg: `(min-width: ${breakpoints.lg})`,
-  xl: `(min-width: ${breakpoints.xl})`,
-  xxl: `(min-width: ${breakpoints.xxl})`,
+const mq = {
+  up: {
+    xs: `(min-width: ${breakpoints.xs}px)`,
+    sm: `(min-width: ${breakpoints.sm}px)`,
+    md: `(min-width: ${breakpoints.md}px)`,
+    lg: `(min-width: ${breakpoints.lg}px)`,
+    xl: `(min-width: ${breakpoints.xl}px)`,
+    xxl: `(min-width: ${breakpoints.xxl}px)`,
+  },
+  down: {
+    xs: `(max-width: ${breakpoints.xs - 0.02}px)`,
+    sm: `(max-width: ${breakpoints.sm - 0.02}px)`,
+    md: `(max-width: ${breakpoints.md - 0.02}px)`,
+    lg: `(max-width: ${breakpoints.lg - 0.02}px)`,
+    xl: `(max-width: ${breakpoints.xl - 0.02}px)`,
+    xxl: `(max-width: ${breakpoints.xxl - 0.02}px)`,
+  },
+  between: {
+    xsSm: `(min-width: ${breakpoints.xs}px) and (max-width: ${breakpoints.sm - 0.02}px)`,
+    smMd: `(min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.md - 0.02}px)`,
+    mdLg: `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg - 0.02}px)`,
+    lgXl: `(min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl - 0.02}px)`,
+    xlXxl: `(min-width: ${breakpoints.xl}px) and (max-width: ${breakpoints.xxl - 0.02}px)`,
+  },
 };
 
 const theme = {
   palette,
 
   colors: {
-    background: {
-      main: "#F4F7FF",
+    bg: {
+      page: "#F4F7FF",
       surface: "#FFFFFF",
       muted: "#EEF4FF",
       soft: "#E6EEFF",
@@ -71,44 +92,39 @@ const theme = {
     },
 
     text: {
-      titleBanner: "#F8FAFC",
-      titleCTA: "#ff758f",
-      subtitle: "#E9ECEF",
-      eyebrow: "#521C0D",
-      titleSection: "#3c096c",
-      cardTitle: "#162033",
       primary: "#162033",
       secondary: "#42506A",
       muted: "#A9D6E5",
       inverse: "#FFFFFF",
+      heading: "#3C096C",
+      accent: "#FF758F",
+      eyebrow: "#521C0D",
+      hero: "#F8FAFC",
+      heroSubtle: "#E9ECEF",
     },
 
     brand: {
-      banner: "#2196f3",
-      eyebrow: "#FFE68A",
       primary: "#093FB4",
       secondary: "#245DFF",
       tertiary: "#7AAEDC",
       highlight: "#00CFE8",
       accent: "#FACC15",
+      banner: "#2196F3",
+      eyebrow: "#FFE68A",
     },
 
-    navbar: {
-      transparent: "rgba(255, 255, 255, 0.08)",
-      scrolled: "rgba(255, 255, 255, 0.88)",
-      mobile: "rgba(255, 255, 255, 0.96)",
-      border: "rgba(9, 63, 180, 0.08)",
+    border: {
+      subtle: "rgba(22, 32, 51, 0.08)",
+      soft: "rgba(9, 63, 180, 0.08)",
+      strong: "rgba(22, 32, 51, 0.16)",
     },
 
-    card: {
-      background: "#FFFFFF",
-      border: "rgba(22, 32, 51, 0.08)",
+    surface: {
+      base: "#FFFFFF",
+      soft: "#EEF4FF",
       highlight: "rgba(9, 63, 180, 0.08)",
-    },
-
-    button: {
-      primaryText: "#FFFFFF",
-      secondaryText: "#162033",
+      glass: "rgba(255, 255, 255, 0.88)",
+      glassStrong: "rgba(255, 255, 255, 0.96)",
     },
 
     state: {
@@ -133,7 +149,7 @@ const theme = {
     xl: "clamp(1.5rem, 1.15rem + 1.1vw, 2.25rem)",
     xxl: "clamp(2rem, 1.45rem + 1.8vw, 3.5rem)",
     hero: "clamp(2.3rem, 1.4rem + 2.9vw, 4.5rem)",
-    nav: "clamp(0.82rem, 0.75rem + 0.2vw, 0.95rem)",
+    nav: "clamp(0.875rem, 0.8rem + 0.15vw, 0.95rem)",
   },
 
   fontWeights: {
@@ -158,8 +174,11 @@ const theme = {
     lg: "24px",
     xl: "32px",
     xxl: "48px",
-    section: "clamp(56px, 8vh, 104px)",
-    container: "clamp(16px, 3vw, 40px)",
+
+    gutter: "clamp(16px, 3vw, 32px)",
+    sectionSm: "clamp(40px, 6vw, 64px)",
+    sectionMd: "clamp(56px, 8vw, 88px)",
+    sectionLg: "clamp(72px, 10vw, 112px)",
   },
 
   radius: {
@@ -192,14 +211,19 @@ const theme = {
   },
 
   breakpoints,
-  media,
+  media: mq,
 
   layout: {
     navbar: {
       height: "80px",
+      heightMobile: "72px",
     },
     container: {
-      width: "min(100% - 48px, 1120px)",
+      maxWidth: "1120px",
+      narrow: "920px",
+      wide: "1280px",
+      gutter: "clamp(16px, 3vw, 32px)",
+      width: "min(calc(100% - (clamp(16px, 3vw, 32px) * 2)), 1120px)",
     },
   },
 };
