@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
+import { TbWorldSearch } from "react-icons/tb";
+
 import Container from "../Container";
 import {
   Bottom,
@@ -9,7 +13,6 @@ import {
   Social,
 } from "./styles";
 
-import { FaInstagram, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import logo from "../../../assets/images/logo-uniube.png";
 
 const Footer = () => {
@@ -29,20 +32,27 @@ const Footer = () => {
 
           <Column $hideOnMobile>
             <h4>Links</h4>
-            <a href="/">Home</a>
-            <a href="/programa">Sobre o projeto</a>
-            <a href="/faculdade">Uniube</a>
+            <Link to="/">Home</Link>
+            <Link to="/programa">Sobre o projeto</Link>
+            <Link to="/faculdade">Uniube</Link>
           </Column>
 
           <Column>
             <h4>Contato</h4>
 
             <span>
-              <FaEnvelope /> contato@uniube.com
+              <TbWorldSearch />
+              <a
+                href="https://uniube.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                uniube.br
+              </a>
             </span>
 
             <span>
-              <FaPhone /> (34) 1234-5678
+              <FaPhone /> (34) 3319-6600
             </span>
           </Column>
 
@@ -50,10 +60,21 @@ const Footer = () => {
             <h4>Redes</h4>
 
             <Social>
-              <a href="#" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/uniubeoficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Uniube"
+              >
                 <FaInstagram />
               </a>
-              <a href="#" aria-label="LinkedIn">
+
+              <a
+                href="https://www.linkedin.com/school/uniubeoficial/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn da Uniube"
+              >
                 <FaLinkedin />
               </a>
             </Social>
@@ -61,7 +82,7 @@ const Footer = () => {
         </Grid>
 
         <Bottom>
-          © {new Date().getFullYear()} Uniube Coders — Projeto acadêmico
+          © {new Date().getFullYear()} Uniube Coders - Projeto acadêmico
         </Bottom>
       </Container>
     </FooterWrapper>

@@ -5,7 +5,6 @@ import {
   Dot,
   Dots,
   Image,
-  Overlay,
   Slide,
   SliderWrapper,
   TextContent,
@@ -19,7 +18,13 @@ const Slider = ({ slides = [], autoPlay = true, interval = 4500 }) => {
   const total = validSlides.length;
 
   useEffect(() => {
-    if (!autoPlay || total <= 1) return;
+    if (current > total - 1) {
+      setCurrent(0);
+    }
+  }, [current, total]);
+
+  useEffect(() => {
+    if (!autoPlay || total <= 1) return undefined;
 
     const timer = window.setInterval(() => {
       setCurrent((prev) => (prev + 1) % total);
@@ -28,22 +33,33 @@ const Slider = ({ slides = [], autoPlay = true, interval = 4500 }) => {
     return () => window.clearInterval(timer);
   }, [autoPlay, interval, total]);
 
-  const goTo = (index) => setCurrent(index);
-  const goPrev = () => setCurrent((prev) => (prev - 1 + total) % total);
-  const goNext = () => setCurrent((prev) => (prev + 1) % total);
+  const goTo = (index) => {
+    setCurrent(index);
+  };
+
+  const goPrev = () => {
+    setCurrent((prev) => (prev - 1 + total) % total);
+  };
+
+  const goNext = () => {
+    setCurrent((prev) => (prev + 1) % total);
+  };
 
   if (!total) return null;
 
   return (
-    <SliderWrapper>
-      <Track style={{ transform: `translateX(-${current * 100}%)` }}>
+    <SliderWrapper aria-label="Galeria de imagens">
+      <Track $current={current}>
         {validSlides.map((slide, index) => (
-          <Slide key={`${slide.title}-${index}`}>
-            <Image src={slide.image} alt={slide.title} />
-            <Overlay />
-            <TextContent>
+          <Slide key={slide.id ?? slide.image ?? index}>
+            <Image
+              src={slide.image}
+              alt={slide.alt ?? slide.title ?? `Slide ${index + 1}`}
+            />
+
+            <TextContent aria-live={index === current ? "polite" : "off"}>
               {slide.eyebrow && <span>{slide.eyebrow}</span>}
-              <h3>{slide.title}</h3>
+              {slide.title && <h3>{slide.title}</h3>}
               {slide.description && <p>{slide.description}</p>}
             </TextContent>
           </Slide>
@@ -60,6 +76,7 @@ const Slider = ({ slides = [], autoPlay = true, interval = 4500 }) => {
             >
               ←
             </ArrowButton>
+
             <ArrowButton
               type="button"
               onClick={goNext}
@@ -70,11 +87,12 @@ const Slider = ({ slides = [], autoPlay = true, interval = 4500 }) => {
           </Controls>
 
           <Dots>
-            {validSlides.map((_, index) => (
+            {validSlides.map((slide, index) => (
               <Dot
-                key={index}
+                key={slide.id ?? slide.image ?? index}
                 type="button"
                 aria-label={`Ir para slide ${index + 1}`}
+                aria-current={index === current ? "true" : undefined}
                 $active={index === current}
                 onClick={() => goTo(index)}
               />
