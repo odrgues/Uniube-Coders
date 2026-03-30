@@ -15,10 +15,10 @@ export const NavbarWrapper = styled.header`
   background: transparent;
   border-bottom: 1px solid transparent;
 
-  ${({ $solid, theme }) =>
+  ${({ $solid }) =>
     $solid &&
     css`
-      background: ${theme.colors.surface.glass};
+      background: trasparent;
       backdrop-filter: blur(14px);
     `};
 
