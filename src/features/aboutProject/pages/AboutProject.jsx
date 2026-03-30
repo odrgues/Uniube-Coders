@@ -3,6 +3,7 @@ import Container from "../../../shared/components/Container";
 import {
   finalBlock,
   galleryIntro,
+  overviewGallery,
   overviewIntro,
   projectClosing,
   projectIntro,
@@ -25,6 +26,7 @@ import {
   IntroLead,
   IntroSection,
   OverviewCard,
+  OverviewGallery,
   OverviewGrid,
   SectionEyebrow,
   SectionText,
@@ -74,6 +76,10 @@ const AboutProject = () => {
               </OverviewCard>
             ))}
           </OverviewGrid>
+
+          <OverviewGallery>
+            <img src={overviewGallery.image} alt={overviewGallery.alt} />
+          </OverviewGallery>
         </Container>
       </ContentSection>
 

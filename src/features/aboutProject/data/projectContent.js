@@ -1,9 +1,12 @@
+import image1 from "../images/image1.jpg";
+import image2 from "../images/image2.jpg";
+import image3 from "../images/image3.jpg";
+
 export const projectIntro = {
   eyebrow: "Sobre o projeto",
   title: "Universidade e escola conectadas pela prática da tecnologia.",
   lead: "O Uniube Coders é um projeto de extensão da Universidade de Uberaba (Uniube) que aproxima o ensino superior da educação básica por meio de experiências formativas em programação. A proposta leva estudantes universitários para dentro das escolas públicas, criando um ambiente de aprendizado orientado, acessível e progressivo, no qual a tecnologia é apresentada como instrumento de conhecimento, experimentação e desenvolvimento.",
-  heroImage:
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
+  heroImage: image1,
   heroAlt: "Estudantes em atividade com tecnologia",
 };
 
@@ -31,6 +34,11 @@ export const projectOverview = [
   },
 ];
 
+export const overviewGallery = {
+  image: image3,
+  alt: "Espaço com exposição e circulação de participantes do projeto",
+};
+
 export const projectStatement = {
   eyebrow: "Propósito",
   text: "Mais do que apresentar conteúdos, o projeto busca ampliar o acesso à tecnologia e criar condições para que os estudantes desenvolvam repertório, confiança e familiaridade com a lógica da programação.",
@@ -51,8 +59,7 @@ export const finalBlock = {
   text: "Com a continuidade das atividades, o Uniube Coders fortalece sua atuação nas escolas e amplia sua capacidade de aproximar os estudantes da tecnologia. Os resultados observados vão além da dimensão técnica: incluem o fortalecimento da confiança dos participantes, o estímulo ao raciocínio lógico, a valorização da aprendizagem prática e a construção de uma relação mais próxima entre escola, universidade e conhecimento tecnológico.",
   support:
     "Ao longo do processo, a programação deixa de ser percebida como um conteúdo distante e passa a integrar a experiência dos alunos como possibilidade real de aprendizagem, criação e desenvolvimento.",
-  image:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
+  image: image2,
   alt: "Grupo de estudantes reunidos em atividade",
 };
 
