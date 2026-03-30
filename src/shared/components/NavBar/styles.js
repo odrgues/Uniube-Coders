@@ -7,7 +7,7 @@ export const NavbarWrapper = styled.header`
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
   transition: ${({ theme }) => theme.transitions.normal};
-  background: white;
+  //background: white;
 
   ${({ $scrolled, theme }) =>
     $scrolled &&

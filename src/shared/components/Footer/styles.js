@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
   margin-top: ${({ theme }) => theme.spacing.md};
-  background: #0f172a;
+  background: ${({ theme }) => theme.colors.brand.banner};
   color: ${({ theme }) => theme.colors.text.inverse};
 
   padding: clamp(14px, 2vw, 20px) 0 clamp(8px, 1vw, 10px);
@@ -53,7 +53,7 @@ export const Column = styled.div`
     transition: ${({ theme }) => theme.transitions.fast};
 
     &:hover {
-      color: ${({ theme }) => theme.palette.cyan.primary};
+      color: ${({ theme }) => theme.palette.blue.secondary};
     }
   }
 

@@ -34,26 +34,14 @@ export const featuredImages = {
 export const marathonSlides = [
   {
     image: marathon1,
-    title: "Maratona de Programação",
-    description: "Desafios práticos e trabalho em equipe.",
-    eyebrow: "Edição 1",
   },
   {
     image: marathon2,
-    title: "Aprendizado colaborativo",
-    description: "Ambiente de inovação e troca de conhecimento.",
-    eyebrow: "Edição 2",
   },
   {
     image: marathon3,
-    title: "Apresentação de projetos",
-    description: "Soluções desenvolvidas pelos estudantes.",
-    eyebrow: "Edição 3",
   },
   {
     image: marathon4,
-    title: "Experiência prática",
-    description: "Tecnologia aplicada na prática.",
-    eyebrow: "Edição 4",
   },
 ];

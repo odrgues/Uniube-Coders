@@ -16,7 +16,9 @@ export const Title = styled.h1`
   margin: 70px 0 20px;
   font-size: clamp(2rem, 5vw, 3.6rem);
   line-height: 1.1;
-  color: ${({ theme }) => theme.colors.text?.primary || "#0f172a"};
+  color: ${({ theme }) => theme.colors.text.titleSection};
+  background: ${({ theme }) => theme.colors.brand.eyebrow};
+  border-radius: 22px;
 `;
 
 export const IntroText = styled.p`
@@ -25,7 +27,7 @@ export const IntroText = styled.p`
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.9;
   text-align: justify;
-  color: ${({ theme }) => theme.colors.text?.secondary || "#334155"};
+  color: ${({ theme }) => theme.colors.text?.primary || "#162033"};
 `;
 
 export const TwoColumnSection = styled.section`
@@ -57,7 +59,7 @@ export const SectionTitle = styled.h2`
   margin: 0;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1.2;
-  color: ${({ theme }) => theme.colors.text?.primary || "#0f172a"};
+  color: ${({ theme }) => theme.colors.text.titleCTA};
 `;
 
 export const SectionText = styled.p`
@@ -108,7 +110,8 @@ export const NasaCard = styled.div`
   align-items: center;
   padding: clamp(22px, 3vw, 34px);
   border-radius: 28px;
-  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+  background: ${({ theme }) => theme.colors.brand.banner};
+  //background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 
   @media (max-width: 900px) {
@@ -173,5 +176,7 @@ export const ClosingText = styled.p`
   line-height: 1.9;
   text-align: center;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.text?.primary || "#0f172a"};
+  color: ${({ theme }) => theme.colors.text.titleSection};
+  background: ${({ theme }) => theme.colors.brand.eyebrow};
+  border-radius: 22px;
 `;

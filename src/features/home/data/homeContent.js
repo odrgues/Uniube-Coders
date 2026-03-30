@@ -1,18 +1,23 @@
+import { UsersThree, BookBookmark, Code } from "phosphor-react";
+
 export const highlights = [
   {
-    title: "Aprender fazendo",
+    icon: Code,
+    title: "Primeiro contato com programação de verdade",
     description:
-      "Você começa a programar desde os primeiros encontros, entendendo como as coisas funcionam na prática.",
+      "Aqui muita gente escreve seu primeiro código. Sem pressão, sem precisar saber nada antes - só curiosidade e vontade de aprender.",
   },
   {
-    title: "Aprendizado no seu ritmo",
+    icon: BookBookmark,
+    title: "A aula acontece na prática",
     description:
-      "Cada atividade acompanha o seu desenvolvimento, respeitando seu tempo e construindo confiança.",
+      "Nada de ficar só ouvindo. Você testa, erra, tenta de novo e entende como tudo funciona construindo junto.",
   },
   {
+    icon: UsersThree,
     title: "Aprender junto faz diferença",
     description:
-      "Você aprende com outras pessoas, troca ideias e encontra soluções em conjunto.",
+      "Cada pessoa aprende de um jeito, mas ninguém aprende sozinho. As trocas, dúvidas e descobertas fazem parte do processo.",
   },
 ];
 

@@ -1,29 +1,43 @@
 const palette = {
   white: "#FFFFFF",
-  black: "#0F172A",
+  black: "#0A1020",
 
   gray: {
     50: "#F8FAFC",
-    100: "#F1F5F9",
-    200: "#E2E8F0",
-    300: "#CBD5E1",
-    400: "#94A3B8",
-    500: "#64748B",
-    700: "#334155",
-    900: "#0F172A",
+    100: "#EEF2FF",
+    200: "#D9E4FF",
+    300: "#B8C7E6",
+    400: "#8A98B8",
+    500: "#5F6C87",
+    700: "#28344A",
+    900: "#111827",
   },
 
   blue: {
-    deep: "#1e3a8a",
+    deep: "#072B7A",
     primary: "#093FB4",
-    soft: "#E2E8F0",
-    glow: "rgba(51, 65, 85, 0.12)",
+    secondary: "#2563EB",
+    electric: "#3B82F6",
+    soft: "#EAF1FF",
+    surface: "#F5F8FF",
+    light: "#9ED8F3",
+    glow: "rgba(37, 99, 235, 0.18)",
   },
 
   cyan: {
-    primary: "#06B6D4",
-    soft: "rgba(6, 182, 212, 0.10)",
-    glow: "rgba(6, 182, 212, 0.16)",
+    primary: "#22D3EE",
+    soft: "rgba(34, 211, 238, 0.12)",
+    glow: "rgba(34, 211, 238, 0.22)",
+  },
+
+  yellow: {
+    primary: "#FACC15",
+    soft: "#FFE68A",
+    glow: "rgba(250, 204, 21, 0.20)",
+  },
+
+  purple: {
+    deep: "#27005D",
   },
 };
 
@@ -31,7 +45,8 @@ const breakpoints = {
   sm: "480px",
   md: "768px",
   lg: "1024px",
-  xl: "1280px",
+  xl: "1180px",
+  xxl: "1440px",
 };
 
 const media = {
@@ -39,6 +54,7 @@ const media = {
   md: `(min-width: ${breakpoints.md})`,
   lg: `(min-width: ${breakpoints.lg})`,
   xl: `(min-width: ${breakpoints.xl})`,
+  xxl: `(min-width: ${breakpoints.xxl})`,
 };
 
 const theme = {
@@ -46,44 +62,60 @@ const theme = {
 
   colors: {
     background: {
-      main: "#F8FAFC",
+      main: "#F4F7FF",
       surface: "#FFFFFF",
-      muted: "#F1F5F9",
-      soft: "#E2E8F0",
-      dark: "#0F172A",
-      overlay: "rgba(15, 23, 42, 0.12)",
+      muted: "#EEF4FF",
+      soft: "#E6EEFF",
+      dark: "#0B1220",
+      overlay: "rgba(11, 18, 32, 0.12)",
     },
 
     text: {
-      primary: "#2C2C2C",
-      secondary: "#334155",
-      muted: "#64748B",
+      titleBanner: "#F8FAFC",
+      titleCTA: "#ff758f",
+      subtitle: "#E9ECEF",
+      eyebrow: "#521C0D",
+      titleSection: "#3c096c",
+      cardTitle: "#162033",
+      primary: "#162033",
+      secondary: "#42506A",
+      muted: "#A9D6E5",
       inverse: "#FFFFFF",
     },
 
     brand: {
-      primary: "#334155",
-      secondary: "#2845D6",
-      tertiary: "#94A3B8",
-      highlight: "#06B6D4",
-      accent: "#334155",
+      banner: "#2196f3",
+      eyebrow: "#FFE68A",
+      primary: "#093FB4",
+      secondary: "#245DFF",
+      tertiary: "#7AAEDC",
+      highlight: "#00CFE8",
+      accent: "#FACC15",
     },
 
     navbar: {
-      transparent: "rgba(248, 250, 252, 0.72)",
-      scrolled: "rgba(255, 255, 255, 0.90)",
+      transparent: "rgba(255, 255, 255, 0.08)",
+      scrolled: "rgba(255, 255, 255, 0.88)",
       mobile: "rgba(255, 255, 255, 0.96)",
-      border: "rgba(51, 65, 85, 0.08)",
+      border: "rgba(9, 63, 180, 0.08)",
     },
 
     card: {
-      background: "#F7F0F0",
-      border: "rgba(148, 163, 184, 0.16)",
+      background: "#FFFFFF",
+      border: "rgba(22, 32, 51, 0.08)",
+      highlight: "rgba(9, 63, 180, 0.08)",
     },
 
     button: {
       primaryText: "#FFFFFF",
-      secondaryText: "#0F172A",
+      secondaryText: "#162033",
+    },
+
+    state: {
+      info: "#093FB4",
+      success: "#0F9D58",
+      warning: "#FACC15",
+      danger: "#DC2626",
     },
   },
 
@@ -95,13 +127,13 @@ const theme = {
 
   fontSizes: {
     xs: "clamp(0.75rem, 0.72rem + 0.2vw, 0.875rem)",
-    sm: "clamp(0.875rem, 0.82rem + 0.3vw, 1rem)",
-    md: "clamp(1rem, 0.95rem + 0.45vw, 1.125rem)",
-    lg: "clamp(1.125rem, 1rem + 0.7vw, 1.5rem)",
-    xl: "clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem)",
-    xxl: "clamp(2rem, 1.45rem + 2.4vw, 3.5rem)",
-    hero: "clamp(2.5rem, 1.7rem + 4vw, 5rem)",
-    nav: "clamp(0.82rem, 0.75rem + 0.25vw, 0.95rem)",
+    sm: "clamp(0.875rem, 0.82rem + 0.22vw, 1rem)",
+    md: "clamp(1rem, 0.95rem + 0.28vw, 1.125rem)",
+    lg: "clamp(1.125rem, 1rem + 0.45vw, 1.5rem)",
+    xl: "clamp(1.5rem, 1.15rem + 1.1vw, 2.25rem)",
+    xxl: "clamp(2rem, 1.45rem + 1.8vw, 3.5rem)",
+    hero: "clamp(2.3rem, 1.4rem + 2.9vw, 4.5rem)",
+    nav: "clamp(0.82rem, 0.75rem + 0.2vw, 0.95rem)",
   },
 
   fontWeights: {
@@ -113,7 +145,7 @@ const theme = {
   },
 
   lineHeights: {
-    tight: 1.08,
+    tight: 1.05,
     normal: 1.5,
     relaxed: 1.7,
   },
@@ -126,8 +158,8 @@ const theme = {
     lg: "24px",
     xl: "32px",
     xxl: "48px",
-    section: "clamp(64px, 10vh, 120px)",
-    container: "clamp(14px, 5vw, 50px)",
+    section: "clamp(56px, 8vh, 104px)",
+    container: "clamp(16px, 3vw, 40px)",
   },
 
   radius: {
@@ -138,11 +170,11 @@ const theme = {
   },
 
   shadows: {
-    sm: "0 8px 24px rgba(15, 23, 42, 0.05)",
-    md: "0 18px 40px rgba(15, 23, 42, 0.08)",
-    lg: "0 24px 60px rgba(15, 23, 42, 0.10)",
-    glow: "0 0 28px rgba(6, 182, 212, 0.10)",
-    softGlow: "0 0 24px rgba(51, 65, 85, 0.08)",
+    sm: "0 10px 24px rgba(15, 23, 42, 0.06)",
+    md: "0 18px 40px rgba(15, 23, 42, 0.10)",
+    lg: "0 28px 64px rgba(15, 23, 42, 0.12)",
+    glow: "0 0 28px rgba(9, 63, 180, 0.10)",
+    softGlow: "0 0 24px rgba(122, 174, 220, 0.10)",
   },
 
   zIndex: {
@@ -167,7 +199,7 @@ const theme = {
       height: "80px",
     },
     container: {
-      width: "min(100% - 32px, 1200px)",
+      width: "min(100% - 48px, 1120px)",
     },
   },
 };

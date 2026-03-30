@@ -28,16 +28,7 @@ export const Image = styled.img`
   object-fit: cover;
 `;
 
-export const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 17, 32, 0.1) 0%,
-    rgba(8, 17, 32, 0.35) 45%,
-    rgba(8, 17, 32, 0.75) 100%
-  );
-`;
+export const Overlay = styled.div``;
 
 export const TextContent = styled.div`
   position: absolute;
@@ -86,8 +77,8 @@ export const Controls = styled.div`
 `;
 
 export const ArrowButton = styled.button`
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   border-radius: ${({ theme }) => theme.radius.full};
   background: rgba(255, 255, 255, 0.14);
   color: ${({ theme }) => theme.colors.text.inverse};
@@ -111,7 +102,7 @@ export const Dots = styled.div`
 `;
 
 export const Dot = styled.button`
-  width: ${({ $active }) => ($active ? "28px" : "10px")};
+  width: ${({ $active }) => ($active ? "20px" : "8px")};
   height: 10px;
   border-radius: ${({ theme }) => theme.radius.full};
   background: ${({ $active }) =>
