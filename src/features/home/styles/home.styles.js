@@ -3,28 +3,20 @@ import { Link } from "react-router-dom";
 
 export const Section = styled.section`
   position: relative;
-  padding: clamp(64px, 7vw, 112px) 0;
+  padding: ${({ theme }) => theme.spacing.sectionMd} 0;
   background: ${({ theme, $light }) =>
-    $light ? theme.colors.brand.banner : theme.colors.background.main};
+    $light ? theme.colors.brand.banner : theme.colors.bg.page};
   overflow-x: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xxl}) {
-    padding: clamp(60px, 6.2vw, 96px) 0;
+  @media ${({ theme }) => theme.media.between.mdLg} {
+    padding: clamp(48px, 6vw, 76px) 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    padding: clamp(54px, 5.6vw, 84px) 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: clamp(48px, 5vw, 72px) 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     padding: clamp(40px, 6vw, 60px) 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     padding: clamp(34px, 7vw, 52px) 0;
   }
 `;
@@ -38,15 +30,11 @@ export const ContentBlock = styled.div`
   width: 100%;
   max-width: 620px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 560px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    max-width: 520px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     max-width: 100%;
   }
 `;
@@ -73,19 +61,13 @@ export const LogoWrapper = styled.div`
     filter: drop-shadow(0 18px 40px rgba(9, 63, 180, 0.38));
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     img {
       width: clamp(112px, 12vw, 170px);
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    img {
-      width: clamp(96px, 10vw, 138px);
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     display: none;
   }
 `;
@@ -96,20 +78,17 @@ export const IntroWrapper = styled.div`
   gap: clamp(20px, 2.4vw, 34px);
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     gap: clamp(18px, 2vw, 28px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    gap: 18px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     grid-template-columns: auto minmax(0, 1fr);
     align-items: start;
+    gap: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     gap: 12px;
   }
 `;
@@ -120,11 +99,11 @@ export const GraphicLine = styled.div`
   min-width: 3px;
   height: clamp(112px, 12vw, 220px);
   margin-top: clamp(8px, 1vw, 14px);
-  border-radius: 999px;
+  border-radius: ${({ theme }) => theme.radius.full};
   background: linear-gradient(
     to bottom,
     ${({ theme }) => theme.colors.brand.primary},
-    ${({ theme }) => theme.palette.purple.deep}
+    ${({ theme }) => theme.palette.purple[900]}
   );
 
   &::before {
@@ -140,15 +119,15 @@ export const GraphicLine = styled.div`
     box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.14);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     height: clamp(92px, 10vw, 164px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     height: clamp(78px, 14vw, 108px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: 2px;
     min-width: 2px;
     height: 72px;
@@ -182,18 +161,18 @@ export const SectionTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.xxl};
   line-height: 1.02;
   letter-spacing: -0.035em;
-  color: ${({ theme }) => theme.colors.text.titleSection};
+  color: ${({ theme }) => theme.colors.text.heading};
   text-wrap: balance;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     width: min(100%, 17ch);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     width: min(100%, 18ch);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: 100%;
   }
 `;
@@ -205,15 +184,15 @@ export const SectionDescription = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.md};
   line-height: 1.8;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 54ch;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     max-width: 48ch;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: 100%;
     max-width: 34ch;
   }
@@ -225,13 +204,13 @@ export const Grid = styled.div`
   gap: clamp(16px, 2vw, 24px);
   margin-top: clamp(24px, 4vw, 36px);
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.up.lg} {
     & > article:nth-child(2) {
       transform: translateY(14px);
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     gap: clamp(14px, 1.8vw, 20px);
 
     & > article:nth-child(2) {
@@ -239,7 +218,7 @@ export const Grid = styled.div`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
     & > article:nth-child(2) {
@@ -247,7 +226,7 @@ export const Grid = styled.div`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     grid-template-columns: 1fr;
   }
 `;
@@ -256,8 +235,8 @@ export const HighlightCard = styled.article`
   position: relative;
   padding: clamp(22px, 3vw, 30px);
   border-radius: clamp(18px, 2vw, 24px);
-  background: ${({ theme }) => theme.colors.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.card.border};
+  background: ${({ theme }) => theme.colors.surface.base};
+  border: 1px solid ${({ theme }) => theme.colors.border.subtle};
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
   backdrop-filter: blur(10px);
   transition:
@@ -272,7 +251,7 @@ export const HighlightCard = styled.article`
     left: clamp(22px, 3vw, 30px);
     width: clamp(40px, 8vw, 56px);
     height: 4px;
-    border-radius: 999px;
+    border-radius: ${({ theme }) => theme.radius.full};
     background: linear-gradient(
       90deg,
       ${({ theme }) => theme.colors.brand.primary},
@@ -294,7 +273,7 @@ export const HighlightCard = styled.article`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: ${({ theme }) => theme.colors.card.highlight};
+    background: ${({ theme }) => theme.colors.surface.highlight};
     color: ${({ theme }) => theme.colors.brand.primary};
     transition:
       transform 0.3s ease,
@@ -310,7 +289,7 @@ export const HighlightCard = styled.article`
     margin: 0 0 10px;
     font-size: ${({ theme }) => theme.fontSizes.lg};
     line-height: 1.22;
-    color: ${({ theme }) => theme.colors.text.cardTitle};
+    color: ${({ theme }) => theme.colors.text.primary};
     text-wrap: balance;
   }
 
@@ -351,21 +330,21 @@ export const ImageBlock = styled.div`
     transform: scale(1.04);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     min-height: clamp(300px, 38vw, 480px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     top: 0;
     min-height: clamp(280px, 36vw, 420px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     min-height: clamp(280px, 54vw, 420px);
     aspect-ratio: 16 / 10;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     min-height: clamp(240px, 62vw, 340px);
     border-radius: clamp(22px, 5vw, 28px);
     aspect-ratio: 4 / 3;
@@ -402,7 +381,7 @@ export const ImageOverlay = styled.div`
     line-height: 1.65;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     padding: clamp(18px, 5vw, 24px);
 
     p {
@@ -429,10 +408,10 @@ export const CTABox = styled.div`
     ),
     linear-gradient(
       135deg,
-      ${({ theme }) => theme.colors.background.surface} 0%,
-      ${({ theme }) => theme.colors.background.muted} 100%
+      ${({ theme }) => theme.colors.bg.surface} 0%,
+      ${({ theme }) => theme.colors.bg.muted} 100%
     );
-  border: 1px solid ${({ theme }) => theme.colors.card.border};
+  border: 1px solid ${({ theme }) => theme.colors.border.subtle};
   box-shadow: 0 20px 54px rgba(15, 23, 42, 0.08);
 
   display: grid;
@@ -464,18 +443,18 @@ export const CTABox = styled.div`
     pointer-events: none;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     padding: clamp(28px, 3.5vw, 42px);
     gap: 24px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
     gap: 22px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     padding: 24px;
   }
 `;
@@ -486,19 +465,19 @@ export const CTATitle = styled.h3`
   font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem);
   line-height: 0.96;
   letter-spacing: -0.04em;
-  color: ${({ theme }) => theme.colors.text.titleCTA};
+  color: ${({ theme }) => theme.colors.text.accent};
   text-wrap: balance;
 
   span {
     color: ${({ theme }) => theme.colors.brand.secondary};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     width: 100%;
     max-width: 12ch;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     max-width: 100%;
   }
 `;
@@ -510,7 +489,7 @@ export const CTADescription = styled.p`
   line-height: 1.8;
   color: ${({ theme }) => theme.colors.text.secondary};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: 100%;
   }
 `;
@@ -549,11 +528,11 @@ export const CTAButton = styled(Link)`
     filter: brightness(1.05);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     align-self: start;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: 100%;
   }
 `;
