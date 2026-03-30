@@ -390,8 +390,8 @@ export const OverviewCard = styled.article`
 
 export const OverviewGallery = styled.div`
   overflow: hidden;
-  border-radius: 22px;
-  min-height: clamp(240px, 32vw, 340px);
+  border-radius: 18px;
+  min-height: clamp(200px, 26vw, 280px);
   box-shadow: ${({ theme }) => theme.shadows.md};
   background: ${({ theme }) => theme.colors.bg.soft};
   border: 1px solid ${({ theme }) => theme.colors.border.subtle};
@@ -406,17 +406,17 @@ export const OverviewGallery = styled.div`
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    min-height: 220px;
-    border-radius: 18px;
+    min-height: 190px;
+    border-radius: 16px;
   }
 
   @media ${({ theme }) => theme.media.down.md} {
-    min-height: clamp(180px, 48vw, 240px);
+    min-height: clamp(130px, 42vw, 180px);
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    border-radius: 16px;
-    min-height: clamp(160px, 52vw, 220px);
+    border-radius: 14px;
+    min-height: clamp(125px, 46vw, 170px);
   }
 `;
 
