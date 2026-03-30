@@ -1,10 +1,9 @@
-import Navbar from "../../../shared/components/NavBar";
-import Footer from "../../../shared/components/Footer";
 import Container from "../../../shared/components/Container";
 
 import {
   finalBlock,
   galleryIntro,
+  overviewIntro,
   projectClosing,
   projectIntro,
   projectOverview,
@@ -19,6 +18,8 @@ import {
   FinalContent,
   FinalImage,
   GalleryHeader,
+  HeroContent,
+  HeroGrid,
   HeroImage,
   HeroSection,
   IntroLead,
@@ -30,82 +31,87 @@ import {
   SectionTitle,
   StatementSection,
   StatementText,
+  SupportText,
 } from "../styles/aboutProject.styles";
 
 const AboutProject = () => {
   return (
     <>
-      <Navbar />
-
-      <main>
-        <IntroSection>
-          <Container>
-            <HeroSection>
-              <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
-              <SectionTitle>{projectIntro.title}</SectionTitle>
-              <IntroLead>{projectIntro.lead}</IntroLead>
+      <IntroSection>
+        <Container>
+          <HeroSection>
+            <HeroGrid>
+              <HeroContent>
+                <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
+                <SectionTitle>{projectIntro.title}</SectionTitle>
+                <IntroLead>{projectIntro.lead}</IntroLead>
+              </HeroContent>
 
               <HeroImage>
                 <img src={projectIntro.heroImage} alt={projectIntro.heroAlt} />
               </HeroImage>
-            </HeroSection>
-          </Container>
-        </IntroSection>
+            </HeroGrid>
+          </HeroSection>
+        </Container>
+      </IntroSection>
 
-        <ContentSection>
-          <Container>
-            <OverviewGrid>
-              {projectOverview.map((item) => (
-                <OverviewCard key={item.id}>
-                  {item.eyebrow && (
-                    <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
-                  )}
-                  <SectionTitle as="h2">{item.title}</SectionTitle>
-                  <SectionText>{item.text}</SectionText>
-                </OverviewCard>
-              ))}
-            </OverviewGrid>
-          </Container>
-        </ContentSection>
+      <ContentSection>
+        <Container>
+          <GalleryHeader>
+            <SectionEyebrow>{overviewIntro.eyebrow}</SectionEyebrow>
+            <SectionTitle as="h2">{overviewIntro.title}</SectionTitle>
+            <SectionText>{overviewIntro.text}</SectionText>
+          </GalleryHeader>
 
-        <StatementSection>
-          <Container>
-            <SectionEyebrow>{projectStatement.eyebrow}</SectionEyebrow>
-            <StatementText>{projectStatement.text}</StatementText>
-          </Container>
-        </StatementSection>
+          <OverviewGrid>
+            {projectOverview.map((item) => (
+              <OverviewCard key={item.id}>
+                {item.eyebrow && (
+                  <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
+                )}
+                <SectionTitle as="h3">{item.title}</SectionTitle>
+                <SectionText>{item.text}</SectionText>
+              </OverviewCard>
+            ))}
+          </OverviewGrid>
+        </Container>
+      </ContentSection>
 
-        <ContentSection>
-          <Container>
-            <GalleryHeader>
-              <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
-              <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
-              <SectionText>{galleryIntro.description}</SectionText>
-            </GalleryHeader>
+      <StatementSection>
+        <Container>
+          <SectionEyebrow>{projectStatement.eyebrow}</SectionEyebrow>
+          <StatementText>{projectStatement.text}</StatementText>
+        </Container>
+      </StatementSection>
 
-            <FinalBlock>
-              <FinalContent>
-                <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>
-                <SectionTitle as="h2">{finalBlock.title}</SectionTitle>
-                <SectionText>{finalBlock.text}</SectionText>
-                <SectionText>{finalBlock.support}</SectionText>
-              </FinalContent>
+      <ContentSection>
+        <Container>
+          <GalleryHeader>
+            <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
+            <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
+            <SectionText>{galleryIntro.description}</SectionText>
+          </GalleryHeader>
 
-              <FinalImage>
-                <img src={finalBlock.image} alt={finalBlock.alt} />
-              </FinalImage>
-            </FinalBlock>
-          </Container>
-        </ContentSection>
+          <FinalBlock>
+            <FinalContent>
+              <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>
+              <SectionTitle as="h2">{finalBlock.title}</SectionTitle>
+              <SectionText>{finalBlock.text}</SectionText>
+              <SupportText>{finalBlock.support}</SupportText>
+            </FinalContent>
 
-        <ClosingSection>
-          <Container>
-            <ClosingText>{projectClosing.text}</ClosingText>
-          </Container>
-        </ClosingSection>
-      </main>
+            <FinalImage>
+              <img src={finalBlock.image} alt={finalBlock.alt} />
+            </FinalImage>
+          </FinalBlock>
+        </Container>
+      </ContentSection>
 
-      <Footer />
+      <ClosingSection>
+        <Container>
+          <ClosingText>{projectClosing.text}</ClosingText>
+        </Container>
+      </ClosingSection>
     </>
   );
 };

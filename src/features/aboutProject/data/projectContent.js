@@ -7,6 +7,13 @@ export const projectIntro = {
   heroAlt: "Estudantes em atividade com tecnologia",
 };
 
+export const overviewIntro = {
+  eyebrow: "Como o projeto acontece",
+  title:
+    "Uma experiência construída com prática, presença e acompanhamento constante.",
+  text: "O Uniube Coders conecta universidade, escola e tecnologia por meio de encontros pensados para transformar o aprendizado em vivência.",
+};
+
 export const projectOverview = [
   {
     id: 1,
