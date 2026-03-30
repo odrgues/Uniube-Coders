@@ -4,6 +4,7 @@ import { highlights, homeIntro } from "../data/homeContent";
 
 import {
   Section,
+  WaveDivider,
   SectionBody,
   SectionDescription,
   SectionEyebrow,
@@ -11,12 +12,15 @@ import {
   ContentBlock,
   LogoWrapper,
   IntroWrapper,
+  IntroContent,
   GraphicLine,
   Grid,
   HighlightCard,
   ImageBlock,
   ImageOverlay,
+  CTASection,
   CTABox,
+  CTAContent,
   CTATitle,
   CTADescription,
   CTAButton,
@@ -34,13 +38,17 @@ const Home = () => {
         <Container>
           <SectionBody>
             <IntroWrapper>
-              <GraphicLine />
+              <IntroContent>
+                <GraphicLine />
 
-              <ContentBlock>
-                <SectionEyebrow>{homeIntro.eyebrow}</SectionEyebrow>
-                <SectionTitle>{homeIntro.title}</SectionTitle>
-                <SectionDescription>{homeIntro.description}</SectionDescription>
-              </ContentBlock>
+                <ContentBlock>
+                  <SectionEyebrow>{homeIntro.eyebrow}</SectionEyebrow>
+                  <SectionTitle>{homeIntro.title}</SectionTitle>
+                  <SectionDescription>
+                    {homeIntro.description}
+                  </SectionDescription>
+                </ContentBlock>
+              </IntroContent>
 
               <LogoWrapper>
                 <img src={logoUniubeCoders} alt="Uniube Coders" />
@@ -83,11 +91,15 @@ const Home = () => {
           </Grid>
         </Container>
       </Section>
-
-      <Section>
+      <WaveDivider aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,32 C160,96 320,96 480,64 C640,32 800,0 960,16 C1120,32 1280,96 1440,72 L1440,120 L0,120 Z" />
+        </svg>
+      </WaveDivider>
+      <CTASection>
         <Container>
           <CTABox>
-            <div>
+            <CTAContent>
               <CTATitle>
                 Nem todo mundo chega sabendo. <span>E é esse o ponto.</span>
               </CTATitle>
@@ -97,12 +109,12 @@ const Home = () => {
                 novas descobertas. Aqui, a programação deixa de parecer distante
                 e começa a fazer sentido na prática.
               </CTADescription>
-            </div>
+            </CTAContent>
 
             <CTAButton to="/programa">Ver como funciona</CTAButton>
           </CTABox>
         </Container>
-      </Section>
+      </CTASection>
     </>
   );
 };
