@@ -33,8 +33,8 @@ const Footer = () => {
           <Column $hideOnMobile>
             <h4>Links</h4>
             <Link to="/">Home</Link>
-            <Link to="/programa">Sobre o projeto</Link>
-            <Link to="/faculdade">Uniube</Link>
+            <Link to="/sobre-o-projeto">Sobre o projeto</Link>
+            <Link to="/uniube">Uniube</Link>
           </Column>
 
           <Column>

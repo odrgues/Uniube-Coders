@@ -15,8 +15,8 @@ import Container from "../Container";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/programa", label: "Sobre o projeto" },
-  { to: "/faculdade", label: "Uniube" },
+  { to: "/sobre-o-projeto", label: "Sobre o projeto" },
+  { to: "/uniube", label: "Uniube" },
 ];
 
 const Navbar = () => {

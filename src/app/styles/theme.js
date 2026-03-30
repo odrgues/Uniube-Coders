@@ -92,25 +92,26 @@ const theme = {
     },
 
     text: {
-      primary: "#162033",
+      primary: "#10002b",
       secondary: "#42506A",
       muted: "#A9D6E5",
       inverse: "#FFFFFF",
-      heading: "#3C096C",
-      accent: "#FF758F",
-      eyebrow: "#521C0D",
+      heading: "#10002b",
+      accent: "#4361ee",
+      eyebrow: "#10002b",
       hero: "#F8FAFC",
+      highlight: "#240046",
       heroSubtle: "#E9ECEF",
     },
 
     brand: {
-      primary: "#858ae3",
+      primary: "#4361ee",
       secondary: "#245DFF",
       tertiary: "#7AAEDC",
       highlight: "#00CFE8",
       accent: "#FACC15",
-      banner: "#093FB4",
-      eyebrow: "#FFE68A",
+      banner: "#10002b",
+      eyebrow: "#7AAEDC",
     },
 
     border: {

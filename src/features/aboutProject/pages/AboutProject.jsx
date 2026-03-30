@@ -1,4 +1,5 @@
 import Container from "../../../shared/components/Container";
+import { useEffect } from "react";
 
 import {
   finalBlock,
@@ -37,6 +38,9 @@ import {
 } from "../styles/aboutProject.styles";
 
 const AboutProject = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <IntroSection>
