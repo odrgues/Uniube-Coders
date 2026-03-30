@@ -1,6 +1,7 @@
+import { highlights, homeIntro } from "../data/homeContent";
+import { useEffect } from "react";
 import Banner from "../../../shared/components/Banner";
 import Container from "../../../shared/components/Container";
-import { highlights, homeIntro } from "../data/homeContent";
 
 import {
   Section,
@@ -10,7 +11,6 @@ import {
   SectionEyebrow,
   SectionTitle,
   ContentBlock,
-  LogoWrapper,
   IntroWrapper,
   IntroContent,
   GraphicLine,
@@ -27,9 +27,11 @@ import {
 } from "../styles/home.styles";
 
 import alunosImg from "../images/alunos.jpg";
-import logoUniubeCoders from "../images/logo-uniube-coders.png";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Banner />
@@ -49,10 +51,6 @@ const Home = () => {
                   </SectionDescription>
                 </ContentBlock>
               </IntroContent>
-
-              <LogoWrapper>
-                <img src={logoUniubeCoders} alt="Uniube Coders" />
-              </LogoWrapper>
             </IntroWrapper>
           </SectionBody>
         </Container>

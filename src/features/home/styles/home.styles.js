@@ -63,40 +63,6 @@ export const IntroContent = styled.div`
   }
 `;
 
-export const LogoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: start;
-  align-self: center;
-
-  img {
-    width: clamp(64px, 7vw, 92px);
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 8px 18px rgba(9, 63, 180, 0.2));
-    transition:
-      transform 0.3s ease,
-      filter 0.3s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.03);
-    filter: drop-shadow(0 12px 24px rgba(9, 63, 180, 0.26));
-  }
-
-  @media ${({ theme }) => theme.media.between.mdLg} {
-    img {
-      width: clamp(54px, 6vw, 72px);
-    }
-  }
-
-  @media ${({ theme }) => theme.media.down.md} {
-    display: none;
-  }
-`;
-
 export const IntroWrapper = styled.div`
   display: flex;
   gap: clamp(14px, 3vw, 28px);

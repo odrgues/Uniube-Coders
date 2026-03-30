@@ -9,8 +9,8 @@ export function AppRoutes() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/programa" element={<AboutProject />} />
-        <Route path="/faculdade" element={<AboutUniube />} />
+        <Route path="/sobre-o-projeto" element={<AboutProject />} />
+        <Route path="/uniube" element={<AboutUniube />} />
       </Route>
     </Routes>
   );

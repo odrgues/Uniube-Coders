@@ -154,6 +154,7 @@ export const SectionText = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.fontSizes.md};
+  text-align: justify;
   line-height: 1.72;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
@@ -242,7 +243,7 @@ export const GalleryHeader = styled.div`
   width: 100%;
   max-width: 100%;
   margin: 0 0 28px;
-
+  text-align: justify;
   ${SectionTitle} {
     max-width: 26ch;
     margin-bottom: 10px;
@@ -316,6 +317,7 @@ export const OverviewCard = styled.article`
   border: 1px solid ${({ theme }) => theme.colors.border.subtle};
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
   min-width: 0;
+  text-align: justify;
 
   &::before {
     content: "";
@@ -455,6 +457,7 @@ export const StatementText = styled.p`
   letter-spacing: -0.04em;
   word-break: break-word;
   text-wrap: pretty;
+  text-align: justify;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 100%;
@@ -514,12 +517,12 @@ export const FinalContent = styled.div`
   min-width: 0;
 
   ${SectionEyebrow} {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   ${SectionTitle} {
-    max-width: 22ch;
-    margin-bottom: 8px;
+    max-width: 32ch;
+    margin-bottom: 15px;
     font-size: 1.2rem;
     line-height: 1.12;
     color: ${({ theme }) => theme.colors.text.heading};
@@ -568,6 +571,7 @@ export const SupportText = styled.p`
   margin: 8px 0 0;
   width: 100%;
   max-width: 60ch;
+  gap: 8px;
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${({ theme }) => theme.fontSizes.md};
   line-height: 1.64;
@@ -642,10 +646,11 @@ export const ClosingText = styled.p`
   max-width: 70ch;
   margin: 0;
   padding-top: 18px;
-  border-top: 1px solid ${({ theme }) => theme.colors.border.subtle};
-  color: ${({ theme }) => theme.colors.text.secondary};
+  border-top: 1px solid ${({ theme }) => theme.colors.brand.primary};
+  color: ${({ theme }) => theme.colors.text.highlight};
   font-size: ${({ theme }) => theme.fontSizes.md};
   line-height: 1.72;
+  text-align: justify;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 100%;

@@ -7,18 +7,17 @@ export const NavbarWrapper = styled.header`
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
   transition:
-    background ${({ theme }) => theme.transitions.normal},
+    background: ${({ theme }) => theme.palette.white};
     box-shadow ${({ theme }) => theme.transitions.normal},
     border-color ${({ theme }) => theme.transitions.normal},
     backdrop-filter ${({ theme }) => theme.transitions.normal};
 
-  background: transparent;
   border-bottom: 1px solid transparent;
 
   ${({ $solid }) =>
     $solid &&
     css`
-      background: trasparent;
+      background: ${({ theme }) => theme.colors.bg.page};
       backdrop-filter: blur(14px);
     `};
 
