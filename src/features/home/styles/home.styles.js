@@ -4,53 +4,28 @@ import { Link } from "react-router-dom";
 export const Section = styled.section`
   position: relative;
   padding: clamp(64px, 7vw, 112px) 0;
-  overflow-x: hidden;
-  overflow-y: visible;
   background: ${({ theme, $light }) =>
     $light ? theme.colors.brand.banner : theme.colors.background.main};
-  overflow: hidden;
+  overflow-x: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    padding: clamp(60px, 6.2vw, 96px) 0;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    padding: clamp(56px, 6vw, 88px) 0;
+    padding: clamp(54px, 5.6vw, 84px) 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: clamp(48px, 5.5vw, 76px) 0;
+    padding: clamp(48px, 5vw, 72px) 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: clamp(42px, 6vw, 64px) 0;
+    padding: clamp(40px, 6vw, 60px) 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    padding: clamp(36px, 8vw, 56px) 0;
-  }
-`;
-
-export const WaveDividerBottom = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  line-height: 0;
-  z-index: 2;
-  pointer-events: none;
-  transform: rotate(180deg);
-
-  svg {
-    display: block;
-    width: 100%;
-    height: clamp(40px, 5vw, 72px);
-  }
-
-  path {
-    fill: ${({ theme }) => theme.colors.background.main};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    svg {
-      height: clamp(32px, 7vw, 56px);
-    }
+    padding: clamp(34px, 7vw, 52px) 0;
   }
 `;
 
@@ -60,8 +35,20 @@ export const SectionBody = styled.div`
 `;
 
 export const ContentBlock = styled.div`
-  max-width: 620px;
   width: 100%;
+  max-width: 620px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+    max-width: 560px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    max-width: 520px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    max-width: 100%;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -88,13 +75,13 @@ export const LogoWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     img {
-      width: clamp(118px, 13vw, 172px);
+      width: clamp(112px, 12vw, 170px);
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     img {
-      width: clamp(106px, 12vw, 150px);
+      width: clamp(96px, 10vw, 138px);
     }
   }
 
@@ -106,11 +93,15 @@ export const LogoWrapper = styled.div`
 export const IntroWrapper = styled.div`
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: clamp(20px, 2.6vw, 36px);
+  gap: clamp(20px, 2.4vw, 34px);
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    gap: clamp(18px, 2.2vw, 28px);
+    gap: clamp(18px, 2vw, 28px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    gap: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -150,7 +141,7 @@ export const GraphicLine = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    height: clamp(94px, 11vw, 170px);
+    height: clamp(92px, 10vw, 164px);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -215,12 +206,16 @@ export const SectionDescription = styled.p`
   line-height: 1.8;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    max-width: 56ch;
+    max-width: 54ch;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    max-width: 48ch;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 100%;
-    max-width: 36ch;
+    max-width: 34ch;
   }
 `;
 
@@ -238,18 +233,22 @@ export const Grid = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     gap: clamp(14px, 1.8vw, 20px);
+
+    & > article:nth-child(2) {
+      transform: translateY(10px);
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
 
     & > article:nth-child(2) {
       transform: none;
     }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -324,8 +323,8 @@ export const HighlightCard = styled.article`
 `;
 
 export const ImageBlock = styled.div`
-  top: -40px;
   position: relative;
+  top: clamp(-28px, -2vw, -16px);
   overflow: hidden;
   width: 100%;
   border-radius: clamp(28px, 3vw, 40px);
@@ -354,6 +353,11 @@ export const ImageBlock = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     min-height: clamp(300px, 38vw, 480px);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    top: 0;
+    min-height: clamp(280px, 36vw, 420px);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -462,12 +466,17 @@ export const CTABox = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     padding: clamp(28px, 3.5vw, 42px);
+    gap: 24px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
     gap: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 24px;
   }
 `;
 
@@ -484,8 +493,13 @@ export const CTATitle = styled.h3`
     color: ${({ theme }) => theme.colors.brand.secondary};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     width: 100%;
+    max-width: 12ch;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    max-width: 100%;
   }
 `;
 
@@ -535,7 +549,7 @@ export const CTAButton = styled(Link)`
     filter: brightness(1.05);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     align-self: start;
   }
 

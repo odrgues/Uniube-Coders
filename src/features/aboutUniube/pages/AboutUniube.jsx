@@ -79,6 +79,8 @@ export default function SobreUniube() {
           <FeaturedImage
             src={featuredImages.uniubeTechImg}
             alt="Alunos e ambiente acadêmico ligados à tecnologia na Uniube"
+            loading="eager"
+            decoding="async"
           />
         </ImageColumn>
       </TwoColumnSection>
@@ -102,6 +104,8 @@ export default function SobreUniube() {
             <FeaturedImage
               src={featuredImages.nasaTeamImg}
               alt="Equipe participante do hackathon da NASA"
+              loading="lazy"
+              decoding="async"
             />
           </ImageColumn>
 

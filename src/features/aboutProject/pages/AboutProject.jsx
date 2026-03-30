@@ -14,6 +14,7 @@ import {
 import {
   ClosingSection,
   ClosingText,
+  ContentSection,
   FinalBlock,
   FinalContent,
   FinalImage,
@@ -51,16 +52,21 @@ const AboutProject = () => {
           </Container>
         </IntroSection>
 
-        <Container>
-          <OverviewGrid>
-            {projectOverview.map((item) => (
-              <OverviewCard key={item.id}>
-                <SectionTitle as="h2">{item.title}</SectionTitle>
-                <SectionText>{item.text}</SectionText>
-              </OverviewCard>
-            ))}
-          </OverviewGrid>
-        </Container>
+        <ContentSection>
+          <Container>
+            <OverviewGrid>
+              {projectOverview.map((item) => (
+                <OverviewCard key={item.id}>
+                  {item.eyebrow && (
+                    <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
+                  )}
+                  <SectionTitle as="h2">{item.title}</SectionTitle>
+                  <SectionText>{item.text}</SectionText>
+                </OverviewCard>
+              ))}
+            </OverviewGrid>
+          </Container>
+        </ContentSection>
 
         <StatementSection>
           <Container>
@@ -69,28 +75,28 @@ const AboutProject = () => {
           </Container>
         </StatementSection>
 
-        <Container>
-          <GalleryHeader>
-            <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
-            <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
-            <SectionText>{galleryIntro.description}</SectionText>
-          </GalleryHeader>
-        </Container>
+        <ContentSection>
+          <Container>
+            <GalleryHeader>
+              <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
+              <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
+              <SectionText>{galleryIntro.description}</SectionText>
+            </GalleryHeader>
 
-        <Container>
-          <FinalBlock>
-            <FinalContent>
-              <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>
-              <SectionTitle as="h2">{finalBlock.title}</SectionTitle>
-              <SectionText>{finalBlock.text}</SectionText>
-              <SectionText>{finalBlock.support}</SectionText>
-            </FinalContent>
+            <FinalBlock>
+              <FinalContent>
+                <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>
+                <SectionTitle as="h2">{finalBlock.title}</SectionTitle>
+                <SectionText>{finalBlock.text}</SectionText>
+                <SectionText>{finalBlock.support}</SectionText>
+              </FinalContent>
 
-            <FinalImage>
-              <img src={finalBlock.image} alt={finalBlock.alt} />
-            </FinalImage>
-          </FinalBlock>
-        </Container>
+              <FinalImage>
+                <img src={finalBlock.image} alt={finalBlock.alt} />
+              </FinalImage>
+            </FinalBlock>
+          </Container>
+        </ContentSection>
 
         <ClosingSection>
           <Container>

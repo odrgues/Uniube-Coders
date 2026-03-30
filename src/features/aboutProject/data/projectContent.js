@@ -1,7 +1,7 @@
 export const projectIntro = {
   eyebrow: "Sobre o projeto",
-  title: "Programação, escola e universidade em conexão prática.",
-  lead: "O Uniube Coders leva a programação para dentro das escolas por meio de encontros conduzidos por estudantes dos cursos de tecnologia da Uniube. A proposta é simples: aproximar a tecnologia da realidade dos alunos de forma prática, acessível e com acompanhamento próximo.",
+  title: "Universidade e escola conectadas pela prática da tecnologia.",
+  lead: "O Uniube Coders é um projeto de extensão da Universidade de Uberaba (Uniube) que aproxima o ensino superior da educação básica por meio de experiências formativas em programação. A proposta leva estudantes universitários para dentro das escolas públicas, criando um ambiente de aprendizado orientado, acessível e progressivo, no qual a tecnologia é apresentada como instrumento de conhecimento, experimentação e desenvolvimento.",
   heroImage:
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
   heroAlt: "Estudantes em atividade com tecnologia",
@@ -10,39 +10,45 @@ export const projectIntro = {
 export const projectOverview = [
   {
     id: 1,
-    title: "Como o projeto funciona de verdade",
-    text: "Aqui, aprender programação não começa só com explicação. Começa com prática. Desde os primeiros encontros, você participa das atividades, testa ideias e começa a entender como a lógica e o código funcionam no processo.",
+    eyebrow: "Estrutura",
+    title:
+      "Um projeto construído a partir de encontros presenciais e aprendizagem progressiva.",
+    text: "As atividades do Uniube Coders são desenvolvidas em encontros realizados nas escolas participantes, com foco na introdução gradual de conceitos de programação. Em vez de concentrar o processo em explicações abstratas, o projeto organiza o aprendizado em experiências práticas que permitem aos alunos compreender a lógica computacional a partir da participação direta. Essa construção progressiva favorece a consolidação do conteúdo, respeita diferentes ritmos de aprendizagem e incentiva o desenvolvimento da autonomia intelectual ao longo do percurso.",
   },
   {
     id: 2,
-    title: "Quem está com você nos encontros",
-    text: "As atividades são conduzidas por equipes de alunos dos cursos de tecnologia da Uniube, que vão até as escolas e acompanham os estudantes ao longo das práticas. Isso torna o aprendizado mais próximo, mais direto e mais fácil de acompanhar.",
+    eyebrow: "Atuação",
+    title:
+      "A presença dos universitários fortalece a proximidade entre ensino, prática e acompanhamento.",
+    text: "Os encontros são conduzidos por estudantes dos cursos de tecnologia da Uniube, que atuam no planejamento, na mediação e no acompanhamento das atividades. Essa dinâmica contribui para tornar o ambiente de aprendizagem mais acessível e colaborativo, além de aproximar os alunos da realidade universitária. Ao participar diretamente do processo, os extensionistas ampliam a circulação do conhecimento produzido na universidade e colaboram para que a experiência com a tecnologia seja compreendida de forma concreta, orientada e significativa.",
   },
 ];
 
 export const projectStatement = {
-  eyebrow: "Direção do projeto",
-  text: "Aqui, aprender programação significa participar, testar e construir entendimento ao longo do caminho.",
+  eyebrow: "Propósito",
+  text: "Mais do que apresentar conteúdos, o projeto busca ampliar o acesso à tecnologia e criar condições para que os estudantes desenvolvam repertório, confiança e familiaridade com a lógica da programação.",
 };
 
 export const galleryIntro = {
-  eyebrow: "Registros",
-  title: "O que acontece nos encontros",
+  eyebrow: "Dinâmica formativa",
+  title:
+    "Aprendizado orientado pela prática, pela participação e pelo acompanhamento contínuo.",
   description:
-    "As atividades mostram como o aprendizado acontece na prática: com participação, troca e acompanhamento próximo ao longo de cada encontro.",
+    "Ao longo dos encontros, os alunos participam de atividades que envolvem lógica, resolução de problemas, construção de pequenas soluções e contato direto com ferramentas e conceitos introdutórios da programação. O processo é conduzido com acompanhamento próximo, espaço para experimentação e incentivo à participação ativa, permitindo que o aprendizado aconteça de maneira aplicada e consistente.",
 };
 
 export const finalBlock = {
-  eyebrow: "Continuidade",
-  title: "O que vai mudando a cada edição",
-  text: "A cada nova turma, o projeto chega a mais alunos e fortalece sua presença nas escolas. O que se constrói ao longo das atividades não é só conhecimento técnico, mas também familiaridade com a tecnologia e confiança para continuar aprendendo.",
+  eyebrow: "Desenvolvimento",
+  title:
+    "A cada edição, o projeto amplia alcance, presença e impacto formativo.",
+  text: "Com a continuidade das atividades, o Uniube Coders fortalece sua atuação nas escolas e amplia sua capacidade de aproximar os estudantes da tecnologia. Os resultados observados vão além da dimensão técnica: incluem o fortalecimento da confiança dos participantes, o estímulo ao raciocínio lógico, a valorização da aprendizagem prática e a construção de uma relação mais próxima entre escola, universidade e conhecimento tecnológico.",
   support:
-    "Com o tempo, a programação deixa de parecer distante e passa a fazer parte da realidade dos estudantes.",
+    "Ao longo do processo, a programação deixa de ser percebida como um conteúdo distante e passa a integrar a experiência dos alunos como possibilidade real de aprendizagem, criação e desenvolvimento.",
   image:
     "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
   alt: "Grupo de estudantes reunidos em atividade",
 };
 
 export const projectClosing = {
-  text: "O Uniube Coders conecta universidade, escola e tecnologia em uma experiência prática, construída ao longo dos encontros e baseada na participação dos alunos.",
+  text: "O Uniube Coders reafirma o papel da universidade na sociedade ao promover a integração entre ensino superior e educação básica, contribuindo para a formação de estudantes mais preparados para compreender, utilizar e transformar a tecnologia em seus contextos de aprendizagem e vida.",
 };

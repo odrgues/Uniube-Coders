@@ -5,7 +5,6 @@ import {
   Dot,
   Dots,
   Image,
-  Overlay,
   Slide,
   SliderWrapper,
   TextContent,
@@ -40,7 +39,7 @@ const Slider = ({ slides = [], autoPlay = true, interval = 4500 }) => {
         {validSlides.map((slide, index) => (
           <Slide key={`${slide.title}-${index}`}>
             <Image src={slide.image} alt={slide.title} />
-            <Overlay />
+
             <TextContent>
               {slide.eyebrow && <span>{slide.eyebrow}</span>}
               <h3>{slide.title}</h3>

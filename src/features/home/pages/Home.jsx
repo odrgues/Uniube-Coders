@@ -6,7 +6,6 @@ import { highlights, homeIntro } from "../data/homeContent";
 
 import {
   Section,
-  WaveDividerBottom,
   SectionBody,
   SectionDescription,
   SectionEyebrow,
@@ -91,11 +90,6 @@ const Home = () => {
               })}{" "}
             </Grid>
           </Container>
-          <WaveDividerBottom aria-hidden="true">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-              <path d="M0,64 C180,120 360,0 540,36 C720,72 900,126 1080,84 C1230,48 1330,36 1440,60 L1440,120 L0,120 Z" />
-            </svg>
-          </WaveDividerBottom>
         </Section>
 
         <Section>
