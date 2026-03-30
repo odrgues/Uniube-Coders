@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "../../../shared/components/NavBar";
 import Slider from "../../../shared/components/Slider";
-import Footer from "../../../shared/components/Footer";
 import {
   AboutPageWrapper,
   Hero,
@@ -34,7 +32,7 @@ import {
   marathonSlides,
 } from "../data/uniubeContent";
 
-export default function SobreUniube() {
+function AboutUniube() {
   useEffect(() => {
     const processInstagramEmbeds = () => {
       if (window.instgrm && window.instgrm.Embeds) {
@@ -59,8 +57,6 @@ export default function SobreUniube() {
 
   return (
     <AboutPageWrapper>
-      <Navbar />
-
       <Hero>
         <Title>Universidade e tecnologia além da teoria</Title>
         <IntroText>{introText}</IntroText>
@@ -145,8 +141,8 @@ export default function SobreUniube() {
       <ClosingSection>
         <ClosingText>{closingText}</ClosingText>
       </ClosingSection>
-
-      <Footer />
     </AboutPageWrapper>
   );
 }
+
+export default AboutUniube;

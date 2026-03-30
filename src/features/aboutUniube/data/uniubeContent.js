@@ -33,15 +33,23 @@ export const featuredImages = {
 
 export const marathonSlides = [
   {
+    id: "maratona-1",
     image: marathon1,
+    alt: "Grupo de participantes em uma edição da maratona de programação",
   },
   {
+    id: "maratona-2",
     image: marathon2,
+    alt: "Turma reunida em atividade ligada à maratona de programação",
   },
   {
+    id: "maratona-3",
     image: marathon3,
+    alt: "Participantes e equipe em mais uma edição da maratona",
   },
   {
+    id: "maratona-4",
     image: marathon4,
+    alt: "Momento de encerramento e premiação da maratona de programação",
   },
 ];

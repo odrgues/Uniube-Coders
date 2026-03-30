@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AboutPageWrapper = styled.main`
   width: 100%;
   overflow-x: clip;
-  background: ${({ theme }) => theme.colors.background.main};
+  background: ${({ theme }) => theme.colors.bg.page};
 `;
 
 export const Hero = styled.section`
@@ -13,22 +13,22 @@ export const Hero = styled.section`
   padding: clamp(92px, 10vw, 132px) 0 clamp(24px, 3.5vw, 36px);
   text-align: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     max-width: 980px;
     padding-top: clamp(88px, 9vw, 120px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 900px;
     padding-top: clamp(86px, 11vw, 112px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     width: min(100% - 28px, 900px);
     padding: clamp(82px, 15vw, 108px) 0 24px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 900px);
     padding-top: clamp(78px, 20vw, 98px);
   }
@@ -43,12 +43,12 @@ export const Title = styled.h1`
   line-height: 1.08;
   letter-spacing: -0.03em;
   text-wrap: balance;
-  color: ${({ theme }) => theme.colors.text.titleSection};
+  color: ${({ theme }) => theme.colors.text.heading};
   background: ${({ theme }) => theme.colors.brand.eyebrow};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     font-size: clamp(1.55rem, 1.1rem + 1.8vw, 2.25rem);
     padding: 12px 14px;
   }
@@ -63,7 +63,7 @@ export const IntroText = styled.p`
   text-align: justify;
   color: ${({ theme }) => theme.colors.text.primary};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     text-align: left;
   }
 `;
@@ -78,11 +78,11 @@ export const TwoColumnSection = styled.section`
   gap: clamp(18px, 2.8vw, 34px);
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     max-width: 980px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 900px;
     grid-template-columns: 1fr 0.94fr;
     gap: 22px;
@@ -93,7 +93,7 @@ export const TwoColumnSection = styled.section`
     gap: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 900px);
   }
 `;
@@ -118,7 +118,7 @@ export const SectionTitle = styled.h2`
   line-height: 1.14;
   letter-spacing: -0.02em;
   text-wrap: balance;
-  color: ${({ theme }) => theme.colors.text.titleCTA};
+  color: ${({ theme }) => theme.colors.text.accent};
 `;
 
 export const SectionText = styled.p`
@@ -129,7 +129,7 @@ export const SectionText = styled.p`
   text-align: justify;
   color: ${({ theme }) => theme.colors.text.secondary};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     text-align: left;
   }
 `;
@@ -138,7 +138,7 @@ export const FeaturedImageFrame = styled.div`
   width: 100%;
   border-radius: clamp(18px, 2vw, 24px);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-  background: ${({ theme }) => theme.colors.background.soft};
+  background: ${({ theme }) => theme.colors.bg.soft};
   overflow: hidden;
 
   display: grid;
@@ -147,16 +147,16 @@ export const FeaturedImageFrame = styled.div`
   min-height: 280px;
   padding: clamp(8px, 1.2vw, 12px);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     min-height: 240px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     min-height: 220px;
     border-radius: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     min-height: 200px;
     border-radius: 18px;
     padding: 8px;
@@ -171,15 +171,15 @@ export const FeaturedImage = styled.img`
   object-fit: contain;
   max-height: 420px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-height: 380px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     max-height: 340px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     max-height: 300px;
   }
 `;
@@ -190,15 +190,15 @@ export const SliderSection = styled.section`
   margin: 0 auto;
   padding: clamp(24px, 4vw, 44px) 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     max-width: 1000px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 920px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 920px);
   }
 `;
@@ -220,15 +220,15 @@ export const NasaSection = styled.section`
   margin: 0 auto;
   padding: clamp(14px, 3vw, 40px) 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+  @media ${({ theme }) => theme.media.between.lgXl} {
     max-width: 1000px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 920px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 920px);
   }
 `;
@@ -243,7 +243,7 @@ export const NasaCard = styled.div`
   background: ${({ theme }) => theme.colors.brand.banner};
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     grid-template-columns: 0.95fr 1.05fr;
     gap: 22px;
   }
@@ -289,11 +289,11 @@ export const InstagramSection = styled.section`
     text-align: center;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 740px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 740px);
   }
 `;
@@ -319,7 +319,7 @@ export const InstagramEmbedWrapper = styled.div`
     border-radius: ${({ theme }) => theme.radius.md} !important;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media ${({ theme }) => theme.media.down.md} {
     .instagram-media {
       max-width: 100% !important;
     }
@@ -332,11 +332,11 @@ export const ClosingSection = styled.section`
   margin: 0 auto;
   padding: 4px 0 clamp(48px, 5.8vw, 76px);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 740px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media ${({ theme }) => theme.media.down.sm} {
     width: min(100% - 20px, 740px);
   }
 `;
@@ -349,7 +349,7 @@ export const ClosingText = styled.p`
   line-height: 1.72;
   text-align: center;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  color: ${({ theme }) => theme.colors.text.titleSection};
+  color: ${({ theme }) => theme.colors.text.heading};
   background: ${({ theme }) => theme.colors.brand.eyebrow};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
