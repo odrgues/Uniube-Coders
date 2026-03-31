@@ -83,7 +83,7 @@ const theme = {
 
   colors: {
     bg: {
-      page: "#F4F7FF",
+      page: "#FFFFFF",
       surface: "#FFFFFF",
       muted: "#EEF4FF",
       soft: "#E6EEFF",
