@@ -1,4 +1,4 @@
-# Uniube Coders (●'◡'●)
+# Uniube Coders 
 
 Aplicação desenvolvida para apresentar o projeto **Uniube Coders**, uma iniciativa de extensão da **Universidade de Uberaba (Uniube)** que promove a conexão entre universidade, escola e tecnologia por meio de experiências formativas em programação.
 
@@ -255,7 +255,7 @@ Sempre que possível, o ideal é priorizar soluções reutilizáveis em vez de a
 
 ---
 
-## Considerações finais
+## Considerações finais (●'◡'●)
 
 Este projeto foi desenvolvido com foco em oferecer uma base visual sólida e organizada para apresentação do **Uniube Coders**, priorizando clareza, identidade visual e experiência responsiva.
 
