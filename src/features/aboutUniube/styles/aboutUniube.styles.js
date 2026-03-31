@@ -49,7 +49,6 @@ export const Title = styled.h1`
   letter-spacing: -0.03em;
   text-wrap: balance;
   color: ${({ theme }) => theme.colors.text.heading};
-  background: ${({ theme }) => theme.colors.brand.eyebrow};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 
@@ -400,7 +399,7 @@ export const ClosingText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   color: ${({ theme }) => theme.colors.text.heading};
   background: ${({ theme }) => theme.colors.brand.eyebrow};
-  border-radius: ${({ theme }) => theme.radius.md};
+  border-radius: ${({ theme }) => theme.radius.lg};
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 
   @media ${({ theme }) => theme.media.down.md} {

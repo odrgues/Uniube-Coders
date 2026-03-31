@@ -6,6 +6,7 @@ export const NavbarWrapper = styled.header`
   inset: 0 0 auto 0;
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
+  box-shadow: ${({ theme }) => theme.shadows.glow};
   transition:
     background: ${({ theme }) => theme.palette.white};
     box-shadow ${({ theme }) => theme.transitions.normal},

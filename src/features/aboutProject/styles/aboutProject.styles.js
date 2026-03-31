@@ -26,7 +26,7 @@ export const IntroSection = styled.section`
   }
 
   @media ${({ theme }) => theme.media.down.md} {
-    padding: clamp(78px, 11vw, 98px) 0 clamp(30px, 5vw, 44px);
+    padding: clamp(78px, 11vw, 98px) 0 clamp(30px, 5vw, 74px);
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
@@ -96,7 +96,7 @@ export const SectionTitle = styled.h1`
   max-width: 22ch;
   margin: 0 0 14px;
   color: ${({ theme }) => theme.colors.text.heading};
-  font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.2rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
   word-break: break-word;
@@ -128,7 +128,8 @@ export const IntroLead = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  line-height: 1.72;
+  line-height: 1.72
+  text-align: justify;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 100%;
@@ -177,8 +178,8 @@ export const SectionText = styled.p`
 export const HeroImage = styled.div`
   position: relative;
   overflow: hidden;
-  border-radius: clamp(20px, 3vw, 30px);
-  min-height: clamp(320px, 36vw, 460px);
+  border-radius: clamp(14px, 2vw, 20px);
+  min-height: clamp(160px, 20vw, 220px);
   box-shadow: ${({ theme }) => theme.shadows.lg};
   isolation: isolate;
   min-width: 0;
@@ -207,17 +208,17 @@ export const HeroImage = styled.div`
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    min-height: 320px;
-    border-radius: 20px;
+    min-height: 190px;
+    border-radius: 16px;
   }
 
   @media ${({ theme }) => theme.media.down.md} {
-    min-height: clamp(240px, 56vw, 340px);
+    min-height: clamp(150px, 38vw, 200px);
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    border-radius: 16px;
-    min-height: clamp(220px, 62vw, 280px);
+    border-radius: 12px;
+    min-height: clamp(135px, 44vw, 175px);
   }
 `;
 
@@ -242,27 +243,28 @@ export const ContentSection = styled.section`
 export const GalleryHeader = styled.div`
   width: 100%;
   max-width: 100%;
-  margin: 0 0 28px;
+  margin: 0 0 20px;
   text-align: justify;
+
   ${SectionTitle} {
-    max-width: 26ch;
-    margin-bottom: 10px;
-    font-size: clamp(1.75rem, 1.2rem + 1vw, 2.2rem);
-    line-height: 1.08;
+    max-width: 30ch;
+    margin-bottom: 8px;
+    font-size: clamp(1.35rem, 1.05rem + 0.8vw, 4.8rem);
+    line-height: 1.1;
   }
 
   ${SectionText} {
-    max-width: 72ch;
+    max-width: 68ch;
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 
     ${SectionTitle} {
       max-width: 100%;
-      font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.7rem);
+      font-size: clamp(1.14rem, 0.98rem + 0.6vw, 1.36rem);
       line-height: 1.12;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     ${SectionText} {
@@ -271,11 +273,11 @@ export const GalleryHeader = styled.div`
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 
     ${SectionTitle} {
       max-width: 100%;
-      font-size: clamp(1.2rem, 1.02rem + 0.8vw, 1.42rem);
+      font-size: clamp(1.02rem, 0.92rem + 0.6vw, 1.16rem);
     }
   }
 `;
@@ -301,8 +303,8 @@ export const OverviewGrid = styled.div`
 
 export const OverviewCard = styled.article`
   position: relative;
-  padding: 22px;
-  border-radius: 22px;
+  padding: 18px;
+  border-radius: 18px;
   background:
     radial-gradient(
       circle at top right,
@@ -315,7 +317,7 @@ export const OverviewCard = styled.article`
       ${({ theme }) => theme.colors.bg.muted} 100%
     );
   border: 1px solid ${({ theme }) => theme.colors.border.subtle};
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
   min-width: 0;
   text-align: justify;
 
@@ -323,9 +325,9 @@ export const OverviewCard = styled.article`
     content: "";
     position: absolute;
     top: 0;
-    left: 22px;
-    width: 44px;
-    height: 4px;
+    left: 18px;
+    width: 36px;
+    height: 3px;
     border-radius: ${({ theme }) => theme.radius.full};
     background: linear-gradient(
       90deg,
@@ -335,30 +337,30 @@ export const OverviewCard = styled.article`
   }
 
   ${SectionEyebrow} {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   ${SectionTitle} {
     max-width: 100%;
-    margin-bottom: 8px;
-    font-size: 1.18rem;
-    line-height: 1.14;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    line-height: 1.16;
     color: ${({ theme }) => theme.colors.text.primary};
   }
 
   ${SectionText} {
     max-width: 100%;
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    line-height: 1.64;
+    font-size: 0.82rem;
+    line-height: 1.52;
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    padding: 16px;
-    border-radius: 18px;
+    padding: 14px;
+    border-radius: 16px;
 
     &::before {
-      left: 16px;
-      width: 34px;
+      left: 14px;
+      width: 28px;
       height: 3px;
     }
 
@@ -367,23 +369,23 @@ export const OverviewCard = styled.article`
     }
 
     ${SectionTitle} {
-      font-size: 1rem;
+      font-size: 0.92rem;
       line-height: 1.16;
       margin-bottom: 6px;
     }
 
     ${SectionText} {
-      font-size: 0.84rem;
-      line-height: 1.5;
+      font-size: 0.78rem;
+      line-height: 1.44;
     }
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    padding: 16px;
-    border-radius: 18px;
+    padding: 14px;
+    border-radius: 14px;
 
     ${SectionTitle} {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 `;
@@ -416,7 +418,7 @@ export const OverviewGallery = styled.div`
 
   @media ${({ theme }) => theme.media.down.sm} {
     border-radius: 14px;
-    min-height: clamp(125px, 46vw, 170px);
+    min-height: clamp(15px, 46vw, 180px);
   }
 `;
 
@@ -447,21 +449,21 @@ export const StatementSection = styled.section`
 
 export const StatementText = styled.p`
   width: 100%;
-  max-width: 34ch;
+  max-width: 38ch;
   margin: 0;
   color: ${({ theme }) => theme.colors.text.accent};
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: clamp(1.7rem, 1.2rem + 1.5vw, 2.4rem);
+  font-size: clamp(1.3rem, 1rem + 0.9vw, 1.9rem);
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
   word-break: break-word;
   text-wrap: pretty;
   text-align: justify;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     max-width: 100%;
-    font-size: clamp(1.3rem, 1.08rem + 0.8vw, 1.65rem);
+    font-size: clamp(1.06rem, 0.94rem + 0.5vw, 1.24rem);
     line-height: 1.14;
   }
 
@@ -475,32 +477,32 @@ export const StatementText = styled.p`
     max-width: 100%;
     margin-inline: 0;
     text-align: left;
-    font-size: clamp(1.14rem, 1rem + 0.9vw, 1.36rem);
+    font-size: clamp(0.98rem, 0.9rem + 0.5vw, 1.08rem);
   }
 `;
 
 export const FinalBlock = styled.div`
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 420px);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(240px, 340px);
+  gap: 18px;
   align-items: stretch;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
     align-items: start;
   }
 
   @media ${({ theme }) => theme.media.down.md} {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 `;
 
 export const FinalContent = styled.div`
   position: relative;
-  padding: 22px;
-  border-radius: 22px;
+  padding: 18px;
+  border-radius: 18px;
   background:
     radial-gradient(
       circle at top right,
@@ -513,18 +515,18 @@ export const FinalContent = styled.div`
       ${({ theme }) => theme.colors.bg.muted} 100%
     );
   border: 1px solid ${({ theme }) => theme.colors.border.subtle};
-  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.06);
   min-width: 0;
 
   ${SectionEyebrow} {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   ${SectionTitle} {
-    max-width: 32ch;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    line-height: 1.12;
+    max-width: 34ch;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.16;
     color: ${({ theme }) => theme.colors.text.heading};
   }
 
@@ -533,8 +535,8 @@ export const FinalContent = styled.div`
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    padding: 16px;
-    border-radius: 18px;
+    padding: 14px;
+    border-radius: 16px;
 
     ${SectionEyebrow} {
       margin-bottom: 6px;
@@ -542,60 +544,35 @@ export const FinalContent = styled.div`
 
     ${SectionTitle} {
       max-width: 100%;
-      font-size: 1rem;
+      font-size: 0.92rem;
       line-height: 1.16;
       margin-bottom: 6px;
     }
 
     ${SectionText} {
-      font-size: 0.84rem;
-      line-height: 1.5;
+      font-size: 0.78rem;
+      line-height: 1.44;
     }
   }
 
   @media ${({ theme }) => theme.media.down.md} {
-    padding: 16px;
+    padding: 14px;
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    padding: 16px;
+    padding: 14px;
 
     ${SectionTitle} {
       max-width: 100%;
-      font-size: 1.04rem;
+      font-size: 0.9rem;
     }
-  }
-`;
-
-export const SupportText = styled.p`
-  margin: 8px 0 0;
-  width: 100%;
-  max-width: 60ch;
-  gap: 8px;
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  line-height: 1.64;
-
-  @media ${({ theme }) => theme.media.between.mdLg} {
-    max-width: 100%;
-    font-size: 0.84rem;
-    line-height: 1.5;
-  }
-
-  @media ${({ theme }) => theme.media.down.md} {
-    max-width: 100%;
-  }
-
-  @media ${({ theme }) => theme.media.down.sm} {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    line-height: 1.58;
   }
 `;
 
 export const FinalImage = styled.div`
   overflow: hidden;
-  border-radius: 22px;
-  min-height: clamp(280px, 32vw, 380px);
+  border-radius: 18px;
+  min-height: clamp(210px, 24vw, 300px);
   box-shadow: ${({ theme }) => theme.shadows.md};
   background: ${({ theme }) => theme.colors.bg.soft};
   min-width: 0;
@@ -610,20 +587,46 @@ export const FinalImage = styled.div`
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
-    min-height: 280px;
-    border-radius: 18px;
+    min-height: 210px;
+    border-radius: 16px;
   }
 
   @media ${({ theme }) => theme.media.down.md} {
-    min-height: clamp(220px, 54vw, 300px);
+    min-height: clamp(170px, 46vw, 230px);
   }
 
   @media ${({ theme }) => theme.media.down.sm} {
-    border-radius: 16px;
-    min-height: clamp(190px, 54vw, 240px);
+    border-radius: 14px;
+    min-height: clamp(150px, 48vw, 190px);
   }
 `;
 
+export const SupportText = styled.p`
+  margin: 8px 0 0;
+  width: 100%;
+  max-width: 58ch;
+  gap: 8px;
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: 0.92rem;
+  line-height: 1.58;
+
+  @media ${({ theme }) => theme.media.between.mdLg} {
+    max-width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.44;
+  }
+
+  @media ${({ theme }) => theme.media.down.md} {
+    max-width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.48;
+  }
+
+  @media ${({ theme }) => theme.media.down.sm} {
+    font-size: 0.78rem;
+    line-height: 1.46;
+  }
+`;
 export const ClosingSection = styled.section`
   padding: 0 0 ${({ theme }) => theme.spacing.sectionLg};
   background: ${({ theme }) => theme.colors.bg.page};

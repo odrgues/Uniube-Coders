@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Section = styled.section`
-  top: 30px;
+  top: 0px;
   position: relative;
   padding: clamp(44px, 6vw, 84px) 0;
   background: ${({ theme, $light }) =>
