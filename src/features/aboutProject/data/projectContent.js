@@ -43,13 +43,6 @@ export const projectStatement = {
   text: "Mais do que apresentar conteúdos, o projeto busca ampliar o acesso à tecnologia e criar condições para que os estudantes desenvolvam repertório, confiança e familiaridade com a lógica da programação.",
 };
 
-export const galleryIntro = {
-  title:
-    "Aprendizado orientado pela prática, pela participação e pelo acompanhamento contínuo.",
-  description:
-    "Ao longo dos encontros, os alunos participam de atividades com lógica, resolução de problemas e contato direto com conceitos introdutórios da programação. O processo é conduzido com acompanhamento próximo, espaço para experimentação e incentivo à participação ativa.",
-};
-
 export const finalBlock = {
   eyebrow: "Desenvolvimento",
   title:

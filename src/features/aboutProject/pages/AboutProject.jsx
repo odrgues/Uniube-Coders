@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 import {
   finalBlock,
-  galleryIntro,
   overviewGallery,
   overviewIntro,
   projectClosing,
@@ -48,7 +47,6 @@ const AboutProject = () => {
           <HeroSection>
             <HeroGrid>
               <HeroContent>
-                <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
                 <SectionTitle>{projectIntro.title}</SectionTitle>
                 <IntroLead>{projectIntro.lead}</IntroLead>
               </HeroContent>
@@ -64,9 +62,7 @@ const AboutProject = () => {
       <ContentSection>
         <Container>
           <GalleryHeader>
-            {projectIntro.eyebrow && (
-              <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
-            )}
+            <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
             <SectionTitle as="h2">{overviewIntro.title}</SectionTitle>
             <SectionText>{overviewIntro.text}</SectionText>
           </GalleryHeader>
@@ -74,15 +70,13 @@ const AboutProject = () => {
           <OverviewGrid>
             {projectOverview.map((item) => (
               <OverviewCard key={item.id}>
-                {item.eyebrow && (
-                  <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
-                )}
+                <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
+
                 <SectionTitle as="h3">{item.title}</SectionTitle>
                 <SectionText>{item.text}</SectionText>
               </OverviewCard>
             ))}
           </OverviewGrid>
-
           <OverviewGallery>
             <img src={overviewGallery.image} alt={overviewGallery.alt} />
           </OverviewGallery>
@@ -98,12 +92,6 @@ const AboutProject = () => {
 
       <ContentSection>
         <Container>
-          <GalleryHeader>
-            <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
-            <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
-            <SectionText>{galleryIntro.description}</SectionText>
-          </GalleryHeader>
-
           <FinalBlock>
             <FinalContent>
               <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>

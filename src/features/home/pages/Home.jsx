@@ -109,7 +109,7 @@ const Home = () => {
               </CTADescription>
             </CTAContent>
 
-            <CTAButton to="/programa">Ver como funciona</CTAButton>
+            <CTAButton to="/sobre-o-projeto">Ver como funciona</CTAButton>
           </CTABox>
         </Container>
       </CTASection>
