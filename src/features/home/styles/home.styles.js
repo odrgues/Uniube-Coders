@@ -502,20 +502,18 @@ export const CTABox = styled.div`
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: clamp(16px, 2.4vw, 28px);
-
   background:
     radial-gradient(
       circle at top right,
-      rgba(244, 211, 94, 0.45),
-      transparent 14%
+      rgba(147, 51, 234, 0.22),
+      transparent 15%
     ),
     radial-gradient(
       circle at bottom left,
-      rgba(99, 102, 241, 0.12),
-      transparent 14%
+      rgba(99, 102, 241, 0.14),
+      transparent 17%
     ),
-    linear-gradient(135deg, #f7f8ff 0%, #eef2ff 100%);
-
+    linear-gradient(135deg, #f7f9ff 0%, #e9efff 46%, #ede9fe 100%);
   @media ${({ theme }) => theme.media.between.lgXl} {
     width: min(100%, 900px);
     padding: 28px 30px;

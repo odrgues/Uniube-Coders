@@ -3,22 +3,6 @@ import styled from "styled-components";
 export const IntroSection = styled.section`
   position: relative;
   padding: clamp(92px, 10vw, 128px) 0 clamp(42px, 5vw, 68px);
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(9, 63, 180, 0.08),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(34, 211, 238, 0.08),
-      transparent 24%
-    ),
-    linear-gradient(
-      180deg,
-      ${({ theme }) => theme.colors.bg.page} 0%,
-      ${({ theme }) => theme.colors.bg.muted} 100%
-    );
   overflow: hidden;
 
   @media ${({ theme }) => theme.media.between.mdLg} {
