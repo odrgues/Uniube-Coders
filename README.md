@@ -1,6 +1,6 @@
 # Uniube Coders
 
-Aplicação desenvolvida para apresentar o projeto **Uniube Coders**, uma iniciativa de extensão da **Universidade de Uberaba (Uniube)** que promove a conexão entre universidade, escola pública e tecnologia por meio de experiências formativas em programação.
+Aplicação desenvolvida para apresentar o projeto **Uniube Coders**, uma iniciativa de extensão da **Universidade de Uberaba (Uniube)** que promove a conexão entre universidade, escola e tecnologia por meio de experiências formativas em programação.
 
 O projeto foi construído com foco em **organização visual**, **responsividade** e **manutenção futura**, servindo como base para continuidade por outros desenvolvedores.
 
