@@ -62,7 +62,6 @@ const AboutProject = () => {
       <ContentSection>
         <Container>
           <GalleryHeader>
-            <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
             <SectionTitle as="h2">{overviewIntro.title}</SectionTitle>
             <SectionText>{overviewIntro.text}</SectionText>
           </GalleryHeader>
@@ -70,13 +69,15 @@ const AboutProject = () => {
           <OverviewGrid>
             {projectOverview.map((item) => (
               <OverviewCard key={item.id}>
-                <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
-
+                {item.eyebrow && (
+                  <SectionEyebrow>{item.eyebrow}</SectionEyebrow>
+                )}
                 <SectionTitle as="h3">{item.title}</SectionTitle>
                 <SectionText>{item.text}</SectionText>
               </OverviewCard>
             ))}
           </OverviewGrid>
+
           <OverviewGallery>
             <img src={overviewGallery.image} alt={overviewGallery.alt} />
           </OverviewGallery>
