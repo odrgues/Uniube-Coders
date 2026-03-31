@@ -6,20 +6,19 @@ export const NavbarWrapper = styled.header`
   inset: 0 0 auto 0;
   z-index: ${({ theme }) => theme.zIndex.navbar};
   height: ${({ theme }) => theme.layout.navbar.height};
-  box-shadow: ${({ theme }) => theme.shadows.glow};
+
   transition:
-    background: ${({ theme }) => theme.palette.white};
-    box-shadow ${({ theme }) => theme.transitions.normal},
-    border-color ${({ theme }) => theme.transitions.normal},
+    background ${({ theme }) => theme.transitions.normal},
     backdrop-filter ${({ theme }) => theme.transitions.normal};
 
-  border-bottom: 1px solid transparent;
-
-  ${({ $solid }) =>
+  ${({ $solid, theme }) =>
     $solid &&
     css`
-      background: ${({ theme }) => theme.colors.bg.page};
-      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid ${theme.colors.border.soft};
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     `};
 
   @media ${({ theme }) => theme.media.down.md} {
@@ -50,7 +49,9 @@ export const Brand = styled(Link)`
     width: auto;
     height: clamp(32px, 4vw, 40px);
     object-fit: contain;
-    transition: transform ${({ theme }) => theme.transitions.fast};
+    transition:
+      transform ${({ theme }) => theme.transitions.fast},
+      filter ${({ theme }) => theme.transitions.fast};
     filter: ${({ $solid }) => ($solid ? "none" : "brightness(0) invert(1)")};
   }
 
@@ -93,20 +94,24 @@ export const NavLinkItem = styled(NavLink)`
   min-height: 42px;
   padding-inline: clamp(12px, 1.6vw, 18px);
   border-radius: ${({ theme }) => theme.radius.full};
-
   color: ${({ theme, $solid }) =>
     $solid ? theme.colors.text.secondary : theme.colors.text.heroSubtle};
-
   font-size: ${({ theme }) => theme.fontSizes.nav};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: 1;
   white-space: nowrap;
 
-  background: transparent;
+  background: ${({ $solid }) =>
+    $solid ? "rgba(255, 255, 255, 0.42)" : "rgba(255, 255, 255, 0.08)"};
+  //border: 1px solid
+  ${({ $solid }) =>
+    $solid ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 0.14)"};
 
   transition:
     color ${({ theme }) => theme.transitions.fast},
     background ${({ theme }) => theme.transitions.fast},
     box-shadow ${({ theme }) => theme.transitions.fast},
+    border-color ${({ theme }) => theme.transitions.fast},
     transform ${({ theme }) => theme.transitions.fast};
 
   &::after {
@@ -123,10 +128,11 @@ export const NavLinkItem = styled(NavLink)`
   }
 
   &:hover {
-    // background: ${({ theme, $solid }) =>
-      $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.12)"};
-    //box-shadow: ${({ theme, $solid }) =>
-      $solid ? theme.shadows.sm : "none"};
+    transform: translateY(-1px);
+    background: ${({ $solid }) =>
+      $solid ? "rgba(255, 255, 255, 0.74)" : "rgba(255, 255, 255, 0.16)"};
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
   }
 
   &:hover::after,
@@ -137,8 +143,10 @@ export const NavLinkItem = styled(NavLink)`
   &.active {
     color: ${({ theme, $solid }) =>
       $solid ? theme.colors.brand.primary : theme.colors.text.inverse};
-    //background: ${({ theme, $solid }) =>
-      $solid ? theme.colors.surface.highlight : "rgba(255, 255, 255, 0.16)"};
+    background: ${({ $solid }) =>
+      $solid ? "rgba(255, 255, 255, 0.86)" : "rgba(255, 255, 255, 0.18)"};
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
   }
 
   @media ${({ theme }) => theme.media.between.mdLg} {
@@ -155,6 +163,8 @@ export const NavLinkItem = styled(NavLink)`
     border-radius: ${({ theme }) => theme.radius.md};
     font-size: ${({ theme }) => theme.fontSizes.md};
     color: ${({ theme }) => theme.colors.text.primary};
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.52);
 
     &::after {
       left: 16px;
@@ -163,13 +173,14 @@ export const NavLinkItem = styled(NavLink)`
     }
 
     &:hover {
-      background: ${({ theme }) => theme.colors.surface.highlight};
+      transform: none;
+      background: rgba(255, 255, 255, 0.86);
       box-shadow: none;
     }
 
     &.active {
       color: ${({ theme }) => theme.colors.brand.primary};
-      background: ${({ theme }) => theme.colors.surface.highlight};
+      background: rgba(255, 255, 255, 0.92);
     }
 
     &:hover::after,
@@ -180,20 +191,20 @@ export const NavLinkItem = styled(NavLink)`
 `;
 
 export const MenuButton = styled.button`
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: transparent;
   gap: 5px;
   border: none;
-  background: transparent;
-
   transition:
     background ${({ theme }) => theme.transitions.fast},
     box-shadow ${({ theme }) => theme.transitions.fast},
-    transform ${({ theme }) => theme.transitions.fast};
+    transform ${({ theme }) => theme.transitions.fast},
+    border-color ${({ theme }) => theme.transitions.fast};
 
   span {
     width: 18px;
@@ -225,9 +236,11 @@ export const MenuButton = styled.button`
     `}
 
   &:hover {
-    background: ${({ theme, $solid }) =>
-      $solid ? theme.palette.cyan.soft : "rgba(255, 255, 255, 0.12)"};
-    box-shadow: ${({ theme, $solid }) => ($solid ? theme.shadows.sm : "none")};
+    transform: translateY(-1px);
+    background: ${({ $solid }) =>
+      $solid ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0.16)"};
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 
   &:hover span {
@@ -244,8 +257,9 @@ export const Backdrop = styled.div`
   position: fixed;
   inset: 0;
   z-index: ${({ theme }) => theme.zIndex.overlay};
-  background: ${({ theme }) => theme.colors.bg.overlay};
+  background: rgba(11, 18, 32, 0.26);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
@@ -269,10 +283,11 @@ export const MobilePanel = styled.aside`
   padding: 16px;
   border-radius: ${({ theme }) => theme.radius.lg};
 
-  background: ${({ theme }) => theme.colors.surface.glassStrong};
-  border: 1px solid ${({ theme }) => theme.colors.border.soft};
-  box-shadow: ${({ theme }) => theme.shadows.md};
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
   transform: ${({ $open }) =>
     $open ? "translateY(0) scale(1)" : "translateY(-12px) scale(0.98)"};
@@ -291,6 +306,6 @@ export const MobilePanel = styled.aside`
 
   @media ${({ theme }) => theme.media.down.sm} {
     padding: 14px;
-    gap: 2px;
+    gap: 6px;
   }
 `;

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 import {
   finalBlock,
-  galleryIntro,
   overviewGallery,
   overviewIntro,
   projectClosing,
@@ -48,7 +47,6 @@ const AboutProject = () => {
           <HeroSection>
             <HeroGrid>
               <HeroContent>
-                <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
                 <SectionTitle>{projectIntro.title}</SectionTitle>
                 <IntroLead>{projectIntro.lead}</IntroLead>
               </HeroContent>
@@ -64,9 +62,6 @@ const AboutProject = () => {
       <ContentSection>
         <Container>
           <GalleryHeader>
-            {projectIntro.eyebrow && (
-              <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
-            )}
             <SectionTitle as="h2">{overviewIntro.title}</SectionTitle>
             <SectionText>{overviewIntro.text}</SectionText>
           </GalleryHeader>
@@ -98,12 +93,6 @@ const AboutProject = () => {
 
       <ContentSection>
         <Container>
-          <GalleryHeader>
-            <SectionEyebrow>{galleryIntro.eyebrow}</SectionEyebrow>
-            <SectionTitle as="h2">{galleryIntro.title}</SectionTitle>
-            <SectionText>{galleryIntro.description}</SectionText>
-          </GalleryHeader>
-
           <FinalBlock>
             <FinalContent>
               <SectionEyebrow>{finalBlock.eyebrow}</SectionEyebrow>

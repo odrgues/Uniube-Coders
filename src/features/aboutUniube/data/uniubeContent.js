@@ -6,7 +6,7 @@ import marathon4 from "../images/maratona-4.jpg";
 import nasaTeamImg from "../images/nasa-team.jpg";
 
 export const introText = `
-A Universidade de Uberaba (Uniube) é uma instituição de ensino superior com trajetória consolidada no Triângulo Mineiro, reconhecida pela formação acadêmica de qualidade e pelo compromisso com o desenvolvimento regional. Na área de tecnologia, a universidade amplia sua atuação com cursos que dialogam diretamente com as transformações do mercado e da sociedade, como Análise e Desenvolvimento de Sistemas, Ciência da Computação, Engenharia de Computação, Engenharia de Software, Inteligência Artificial e Ciência de Dados e Segurança da Informação. Nesse contexto, o Uniube Coders aproxima a formação universitária da comunidade ao levar programação, lógica e cultura digital para escolas, conectando o conhecimento construído na universidade a experiências práticas e acessíveis.
+A Universidade de Uberaba (Uniube) é uma instituição de ensino superior com trajetória consolidada no Triângulo Mineiro, reconhecida pela formação acadêmica de qualidade e pelo compromisso com o desenvolvimento regional. Na área de tecnologia, a universidade amplia sua atuação com cursos que dialogam diretamente com as transformações do mercado e da sociedade, como Análise e Desenvolvimento de Sistemas, Sistemas de Informação, Ciência da Computação, Engenharia de Computação, Engenharia de Software, Inteligência Artificial e Ciência de Dados e Segurança da Informação. Nesse contexto, o Uniube Coders aproxima a formação universitária da comunidade ao levar programação, lógica e cultura digital para escolas, conectando o conhecimento construído na universidade a experiências práticas e acessíveis.
 `;
 
 export const uniubeSectionTexts = [

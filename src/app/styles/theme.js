@@ -94,13 +94,13 @@ const theme = {
     text: {
       primary: "#10002b",
       secondary: "#42506A",
-      muted: "#A9D6E5",
+      muted: "#0096c7",
       inverse: "#FFFFFF",
-      heading: "#10002b",
+      heading: "#5829a7",
       accent: "#4361ee",
       eyebrow: "#10002b",
       hero: "#F8FAFC",
-      highlight: "#rgba(99, 102, 241, 0.20)",
+      highlight: "#fb8500",
       heroSubtle: "#E9ECEF",
     },
 
@@ -111,7 +111,7 @@ const theme = {
       highlight: "#00CFE8",
       accent: "#FACC15",
       banner: "#04080f",
-      eyebrow: "#7AAEDC",
+      eyebrow: "#f5ee9e",
     },
 
     border: {
@@ -126,6 +126,7 @@ const theme = {
       highlight: "rgba(9, 63, 180, 0.08)",
       glass: "rgba(255, 255, 255, 0.88)",
       glassStrong: "rgba(255, 255, 255, 0.96)",
+      overlay: "rgba(11, 18, 32, 0.12)",
     },
 
     state: {

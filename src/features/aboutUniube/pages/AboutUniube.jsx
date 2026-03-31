@@ -127,7 +127,7 @@ function AboutUniube() {
         <SectionTitle>Universidade e tecnologia na prática.</SectionTitle>
 
         <SectionText>
-          A 4ª Mostra Tech foi o momento em que ideias ganharam forma. Alunos
+          A 4ª Mostra Tec foi o momento em que ideias ganharam forma. Alunos
           apresentaram projetos reais e os melhores foram premiados, destacando
           talento, dedicação e inovação.
         </SectionText>

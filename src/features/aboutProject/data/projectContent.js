@@ -4,7 +4,7 @@ import image3 from "../images/image3.jpg";
 
 export const projectIntro = {
   title: "Universidade e escola conectadas pela prática da tecnologia.",
-  lead: "O Uniube Coders é um projeto de extensão da Universidade de Uberaba (Uniube) que aproxima o ensino superior da educação básica por meio de experiências em programação. A proposta leva estudantes universitários para dentro das escolas públicas, criando um ambiente de aprendizado acessível, orientado e progressivo, no qual a tecnologia é apresentada como ferramenta de conhecimento e desenvolvimento.",
+  lead: "O Uniube Coders é um projeto de extensão da Universidade de Uberaba (Uniube) que aproxima o ensino superior da educação básica por meio de experiências em programação. A proposta leva estudantes universitários para dentro das escolas, criando um ambiente de aprendizado acessível, orientado e progressivo, no qual a tecnologia é apresentada como ferramenta de conhecimento e desenvolvimento.",
   heroImage: image1,
   heroAlt: "Estudantes em atividade com tecnologia",
 };
@@ -41,13 +41,6 @@ export const overviewGallery = {
 export const projectStatement = {
   eyebrow: "Propósito",
   text: "Mais do que apresentar conteúdos, o projeto busca ampliar o acesso à tecnologia e criar condições para que os estudantes desenvolvam repertório, confiança e familiaridade com a lógica da programação.",
-};
-
-export const galleryIntro = {
-  title:
-    "Aprendizado orientado pela prática, pela participação e pelo acompanhamento contínuo.",
-  description:
-    "Ao longo dos encontros, os alunos participam de atividades com lógica, resolução de problemas e contato direto com conceitos introdutórios da programação. O processo é conduzido com acompanhamento próximo, espaço para experimentação e incentivo à participação ativa.",
 };
 
 export const finalBlock = {

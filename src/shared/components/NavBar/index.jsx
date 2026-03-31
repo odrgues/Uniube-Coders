@@ -15,7 +15,7 @@ import Container from "../Container";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/sobre-o-projeto", label: "Sobre o projeto" },
+  { to: "/sobre-o-projeto", label: "O projeto" },
   { to: "/uniube", label: "Uniube" },
 ];
 
