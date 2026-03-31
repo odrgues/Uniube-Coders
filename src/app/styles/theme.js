@@ -100,7 +100,7 @@ const theme = {
       accent: "#4361ee",
       eyebrow: "#10002b",
       hero: "#F8FAFC",
-      highlight: "#240046",
+      highlight: "#rgba(99, 102, 241, 0.20)",
       heroSubtle: "#E9ECEF",
     },
 
@@ -110,7 +110,7 @@ const theme = {
       tertiary: "#7AAEDC",
       highlight: "#00CFE8",
       accent: "#FACC15",
-      banner: "#10002b",
+      banner: "#04080f",
       eyebrow: "#7AAEDC",
     },
 

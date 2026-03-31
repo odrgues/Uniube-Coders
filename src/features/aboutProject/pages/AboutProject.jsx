@@ -64,7 +64,9 @@ const AboutProject = () => {
       <ContentSection>
         <Container>
           <GalleryHeader>
-            <SectionEyebrow>{overviewIntro.eyebrow}</SectionEyebrow>
+            {projectIntro.eyebrow && (
+              <SectionEyebrow>{projectIntro.eyebrow}</SectionEyebrow>
+            )}
             <SectionTitle as="h2">{overviewIntro.title}</SectionTitle>
             <SectionText>{overviewIntro.text}</SectionText>
           </GalleryHeader>

@@ -209,6 +209,7 @@ export const FeaturedImage = styled.img`
   height: 100%;
   display: block;
   object-fit: cover;
+  border-radius: 18px;
 `;
 
 export const SliderSection = styled.section`
@@ -279,7 +280,7 @@ export const NasaCard = styled.div`
   align-items: center;
   padding: clamp(16px, 2.2vw, 24px);
   border-radius: clamp(18px, 2vw, 24px);
-  background: ${({ theme }) => theme.colors.brand.banner};
+  background: ${({ theme }) => theme.colors.brand.primary};
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
 
   @media ${({ theme }) => theme.media.between.mdLg} {
@@ -398,7 +399,18 @@ export const ClosingText = styled.p`
   text-align: center;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   color: ${({ theme }) => theme.colors.text.heading};
-  background: ${({ theme }) => theme.colors.brand.eyebrow};
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(139, 92, 246, 0.34),
+      transparent 17%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(79, 70, 229, 0.24),
+      transparent 19%
+    ),
+    linear-gradient(135deg, #f4f6ff 0%, #dde6ff 42%, #e6d8ff 100%);
   border-radius: ${({ theme }) => theme.radius.lg};
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 
