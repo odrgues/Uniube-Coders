@@ -17,6 +17,7 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/sobre-o-projeto", label: "O projeto" },
   { to: "/uniube", label: "Uniube" },
+  { to: "/inscricao", label: "Inscrição" },
 ];
 
 const Navbar = () => {
