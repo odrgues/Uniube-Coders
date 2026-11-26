@@ -19,7 +19,8 @@ import {
   SubmitButton,
   Feedback,
 } from "../styles/inscricao.styles";
-import { atividades, seriesEscolares } from "../data/opcoesInscricao";
+import { atividades } from "../data/opcoesInscricao";
+import { seriesEscolares } from "../../cursos/data/seriesEscolares";
 import { enviarInscricao } from "../services/enviarInscricao";
 
 const estadoInicial = {
