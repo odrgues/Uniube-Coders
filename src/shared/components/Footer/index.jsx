@@ -35,6 +35,7 @@ const Footer = () => {
             <Link to="/">Home</Link>
             <Link to="/sobre-o-projeto">Sobre o projeto</Link>
             <Link to="/uniube">Uniube</Link>
+            <Link to="/cursos">Cursos</Link>
           </Column>
 
           <Column>

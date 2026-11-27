@@ -19,24 +19,31 @@ import {
   SubmitButton,
   Feedback,
 } from "../styles/inscricao.styles";
-import { atividades, seriesEscolares } from "../data/opcoesInscricao";
+import { seriesEscolares } from "../data/seriesEscolares";
 import { enviarInscricao } from "../services/enviarInscricao";
 
-const estadoInicial = {
-  nome: "",
-  email: "",
-  telefone: "",
-  dataNascimento: "",
-  instituicao: "",
-  serie: "",
-  atividade: "",
-  mensagem: "",
-  acessibilidade: "",
-  autorizacaoResponsavel: false,
-  aceiteTermos: false,
-};
+function criarEstadoInicial(curso) {
+  const extras = {};
 
-// Calcula a idade a partir da data de nascimento (formato AAAA-MM-DD).
+  for (const campo of curso?.camposExtras ?? []) {
+    extras[campo.name] = "";
+  }
+
+  return {
+    nome: "",
+    email: "",
+    telefone: "",
+    dataNascimento: "",
+    instituicao: "",
+    serie: "",
+    mensagem: "",
+    acessibilidade: "",
+    autorizacaoResponsavel: false,
+    aceiteTermos: false,
+    ...extras,
+  };
+}
+
 function calcularIdade(dataNascimento) {
   if (!dataNascimento) return null;
   const hoje = new Date();
@@ -49,15 +56,24 @@ function calcularIdade(dataNascimento) {
   return idade;
 }
 
-function Inscricao() {
-  const [dados, setDados] = useState(estadoInicial);
+function InscricaoForm({ curso = null }) {
+  const [dados, setDados] = useState(() => criarEstadoInicial(curso));
   const [erros, setErros] = useState({});
   const [enviando, setEnviando] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
+  const camposExtras = curso?.camposExtras ?? [];
+  const inscricoesAbertas = !curso || curso.status === "aberto";
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [curso?.slug]);
+
+  useEffect(() => {
+    setDados(criarEstadoInicial(curso));
+    setErros({});
+    setFeedback(null);
+  }, [curso]);
 
   const idade = calcularIdade(dados.dataNascimento);
   const ehMenor = idade !== null && idade < 18;
@@ -95,8 +111,11 @@ function Inscricao() {
       novosErros.dataNascimento = "Data de nascimento inválida.";
     }
 
-    if (!dados.atividade) {
-      novosErros.atividade = "Escolha uma atividade.";
+    for (const campo of camposExtras) {
+      if (!campo.obrigatorio) continue;
+      if (!String(dados[campo.name] ?? "").trim()) {
+        novosErros[campo.name] = `Preencha o campo ${campo.label}.`;
+      }
     }
 
     if (ehMenor && !dados.autorizacaoResponsavel) {
@@ -117,19 +136,22 @@ function Inscricao() {
     evento.preventDefault();
     setFeedback(null);
 
-    if (!validar()) return;
+    if (!inscricoesAbertas || !validar()) return;
 
     try {
       setEnviando(true);
-      await enviarInscricao(dados);
+      await enviarInscricao({
+        ...dados,
+        curso: curso?.titulo ?? "",
+      });
       setFeedback({
         type: "success",
         mensagem:
           "Inscrição enviada com sucesso! Em breve entraremos em contato.",
       });
-      setDados(estadoInicial);
+      setDados(criarEstadoInicial(curso));
       setErros({});
-    } catch (erro) {
+    } catch {
       setFeedback({
         type: "error",
         mensagem:
@@ -140,18 +162,71 @@ function Inscricao() {
     }
   }
 
+  function renderCampoExtra(campo) {
+    const erro = erros[campo.name];
+
+    if (campo.type === "select") {
+      return (
+        <Select
+          id={campo.name}
+          name={campo.name}
+          value={dados[campo.name] ?? ""}
+          onChange={handleChange}
+          $error={!!erro}
+        >
+          <option value="">Selecione...</option>
+          {(campo.opcoes ?? []).map((opcao) => (
+            <option key={opcao} value={opcao}>
+              {opcao}
+            </option>
+          ))}
+        </Select>
+      );
+    }
+
+    if (campo.type === "textarea") {
+      return (
+        <TextArea
+          id={campo.name}
+          name={campo.name}
+          value={dados[campo.name] ?? ""}
+          onChange={handleChange}
+          $error={!!erro}
+        />
+      );
+    }
+
+    return (
+      <Input
+        id={campo.name}
+        name={campo.name}
+        type="text"
+        value={dados[campo.name] ?? ""}
+        onChange={handleChange}
+        $error={!!erro}
+      />
+    );
+  }
+
   return (
     <PageWrapper>
       <Hero>
-        <Title>Inscrição</Title>
+        <Title>{curso ? curso.titulo : "Inscrição"}</Title>
         <Subtitle>
-          Preencha o formulário abaixo para participar das atividades do Uniube
-          Coders. Os campos marcados com * são obrigatórios.
+          {curso
+            ? curso.resumo
+            : "Preencha o formulário abaixo para participar das atividades do Uniube Coders. Os campos marcados com * são obrigatórios."}
         </Subtitle>
       </Hero>
 
       <FormSection>
         <Form onSubmit={handleSubmit} noValidate>
+          {!inscricoesAbertas && (
+            <Feedback $type="error">
+              As inscrições deste curso não estão abertas.
+            </Feedback>
+          )}
+
           <Field>
             <Label htmlFor="nome">
               Nome completo <Required>*</Required>
@@ -243,26 +318,16 @@ function Inscricao() {
             </Select>
           </Field>
 
-          <Field>
-            <Label htmlFor="atividade">
-              Atividade, curso ou evento <Required>*</Required>
-            </Label>
-            <Select
-              id="atividade"
-              name="atividade"
-              value={dados.atividade}
-              onChange={handleChange}
-              $error={!!erros.atividade}
-            >
-              <option value="">Selecione...</option>
-              {atividades.map((atividade) => (
-                <option key={atividade} value={atividade}>
-                  {atividade}
-                </option>
-              ))}
-            </Select>
-            {erros.atividade && <ErrorText>{erros.atividade}</ErrorText>}
-          </Field>
+          {camposExtras.map((campo) => (
+            <Field key={campo.name}>
+              <Label htmlFor={campo.name}>
+                {campo.label}{" "}
+                {campo.obrigatorio && <Required>*</Required>}
+              </Label>
+              {renderCampoExtra(campo)}
+              {erros[campo.name] && <ErrorText>{erros[campo.name]}</ErrorText>}
+            </Field>
+          ))}
 
           <Field>
             <Label htmlFor="mensagem">Mensagem ou observações</Label>
@@ -328,7 +393,7 @@ function Inscricao() {
             <Feedback $type={feedback.type}>{feedback.mensagem}</Feedback>
           )}
 
-          <SubmitButton type="submit" disabled={enviando}>
+          <SubmitButton type="submit" disabled={enviando || !inscricoesAbertas}>
             {enviando ? "Enviando..." : "Enviar inscrição"}
           </SubmitButton>
         </Form>
@@ -337,4 +402,4 @@ function Inscricao() {
   );
 }
 
-export default Inscricao;
+export default InscricaoForm;
